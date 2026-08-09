@@ -86,7 +86,7 @@ export function DevicesSection() {
           ))}
         </div>
 
-        <ScrollReveal delay={0.1}>
+        <ScrollReveal delay={0.1} variant="cta">
           <div className="telvis-inline-actions">
           <Link href={routes.installation} className="telvis-cta-primary">
             Open the IPTV UK Installation Guide

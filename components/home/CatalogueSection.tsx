@@ -87,7 +87,7 @@ export function CatalogueSection() {
           ))}
         </div>
 
-        <ScrollReveal delay={0.1}>
+        <ScrollReveal delay={0.1} variant="cta">
           <div className="telvis-inline-actions">
           <Link href={routes.trial} className="telvis-cta-primary">
             Start Your Free 24-Hour Trial

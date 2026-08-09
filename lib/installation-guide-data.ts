@@ -52,7 +52,7 @@ export const beforeYouBeginSection: GuideSectionData = {
 
 export const firestickSection: GuideSectionData = {
   id: "firestick",
-  label: "Firestick & Fire TV",
+  label: "Firestick",
   title: "Firestick and Fire TV Setup with the Dedicated App",
   blocks: [
     { type: "h3", text: "Step 1: Install Downloader" },
@@ -89,9 +89,10 @@ export const firestickSection: GuideSectionData = {
 };
 
 export const installationDeviceTabs: GuideSectionData[] = [
+  firestickSection,
   {
     id: "android-tv",
-    label: "Android TV & Google TV",
+    label: "Android",
     title: "Android TV, Google TV and Android Box Setup",
     blocks: [
       {
@@ -118,7 +119,7 @@ export const installationDeviceTabs: GuideSectionData[] = [
   },
   {
     id: "smart-tv",
-    label: "Smart TV (Xtream Codes)",
+    label: "Smart TV",
     title: "Smart TV Setup with Xtream Codes",
     blocks: [
       {
@@ -163,73 +164,6 @@ export const installationDeviceTabs: GuideSectionData[] = [
       {
         type: "p",
         text: "First check which operating system the television uses. Android TV and Google TV models should follow the Android TV instructions above. VIDAA and other systems must use a compatible player available in their own official store.",
-      },
-    ],
-  },
-  {
-    id: "iphone-ipad",
-    label: "iPhone & iPad",
-    title: "iPhone and iPad Setup",
-    blocks: [
-      { type: "p", text: "Recommended apps: iPlayTV AIO or IBO Player Pro." },
-      {
-        type: "ol",
-        items: [
-          "Open the Apple App Store.",
-          "Search for iPlayTV AIO or IBO Player Pro and check the developer before installing.",
-          "Open the player and select Add User or Add Playlist.",
-          "Choose Xtream Codes API where available.",
-          "Enter Telvis as the account or playlist name.",
-          "Add the supplied username, password and server address.",
-          "Save the profile and wait for the categories to appear.",
-        ],
-      },
-      {
-        type: "p",
-        text: "If the app closes during the first load, reopen it, check for an update and load the live categories before the larger on-demand library.",
-      },
-    ],
-  },
-  {
-    id: "apple-tv",
-    label: "Apple TV",
-    title: "Apple TV Setup",
-    blocks: [
-      { type: "p", text: "Recommended app: IBO Player Pro." },
-      {
-        type: "ol",
-        items: [
-          "Open the App Store on Apple TV.",
-          "Search for IBO Player Pro and install the correct app.",
-          "Open it and choose the Xtream Codes login option where available.",
-          "Enter Telvis, your username, password and complete server address.",
-          "Save the profile and wait for the categories and EPG to load.",
-        ],
-      },
-      {
-        type: "p",
-        text: "Use the Apple TV keyboard on your iPhone where available to reduce typing mistakes. If the app displays a Device ID or Device Key, follow its official activation method or ask support for guidance.",
-      },
-    ],
-  },
-  {
-    id: "android-mobile",
-    label: "Android Phone & Tablet",
-    title: "Android Phone and Tablet Setup",
-    blocks: [
-      {
-        type: "p",
-        text: "Android phones and tablets can use the dedicated app or a compatible player.",
-      },
-      { type: "h3", text: "Dedicated App" },
-      {
-        type: "p",
-        text: "Download only from the verified location supplied by this website or support. Install the app, enter your login and permit the initial catalogue update to finish.",
-      },
-      { type: "h3", text: "Compatible Player" },
-      {
-        type: "p",
-        text: "Install the chosen player from Google Play, select Xtream Codes login and add the username, password and server address from your account message.",
       },
     ],
   },
@@ -346,7 +280,7 @@ export const installationDeviceTabs: GuideSectionData[] = [
   },
   {
     id: "tv-box",
-    label: "TV Box & Set-Top Box",
+    label: "TV/Set-Top Box",
     title: "TV Box and Set-Top Box Setup",
     blocks: [
       {
@@ -370,7 +304,7 @@ export const installationDeviceTabs: GuideSectionData[] = [
   },
   {
     id: "mag-portal",
-    label: "MAG & Portal Decoder",
+    label: "MAG",
     title: "MAG and Portal-Based Decoder Setup",
     blocks: [
       {
@@ -412,6 +346,76 @@ export const installationDeviceTabs: GuideSectionData[] = [
       {
         type: "p",
         text: "If your account provides only Xtream Codes and no M3U address, use another supported player instead of converting or exposing your login on an unknown website.",
+      },
+    ],
+  },
+];
+
+export const additionalDeviceSections: GuideSectionData[] = [
+  {
+    id: "iphone-ipad",
+    label: "iPhone & iPad",
+    title: "iPhone and iPad Setup",
+    blocks: [
+      { type: "p", text: "Recommended apps: iPlayTV AIO or IBO Player Pro." },
+      {
+        type: "ol",
+        items: [
+          "Open the Apple App Store.",
+          "Search for iPlayTV AIO or IBO Player Pro and check the developer before installing.",
+          "Open the player and select Add User or Add Playlist.",
+          "Choose Xtream Codes API where available.",
+          "Enter Telvis as the account or playlist name.",
+          "Add the supplied username, password and server address.",
+          "Save the profile and wait for the categories to appear.",
+        ],
+      },
+      {
+        type: "p",
+        text: "If the app closes during the first load, reopen it, check for an update and load the live categories before the larger on-demand library.",
+      },
+    ],
+  },
+  {
+    id: "apple-tv",
+    label: "Apple TV",
+    title: "Apple TV Setup",
+    blocks: [
+      { type: "p", text: "Recommended app: IBO Player Pro." },
+      {
+        type: "ol",
+        items: [
+          "Open the App Store on Apple TV.",
+          "Search for IBO Player Pro and install the correct app.",
+          "Open it and choose the Xtream Codes login option where available.",
+          "Enter Telvis, your username, password and complete server address.",
+          "Save the profile and wait for the categories and EPG to load.",
+        ],
+      },
+      {
+        type: "p",
+        text: "Use the Apple TV keyboard on your iPhone where available to reduce typing mistakes. If the app displays a Device ID or Device Key, follow its official activation method or ask support for guidance.",
+      },
+    ],
+  },
+  {
+    id: "android-mobile",
+    label: "Android Phone & Tablet",
+    title: "Android Phone and Tablet Setup",
+    blocks: [
+      {
+        type: "p",
+        text: "Android phones and tablets can use the dedicated app or a compatible player.",
+      },
+      { type: "h3", text: "Dedicated App" },
+      {
+        type: "p",
+        text: "Download only from the verified location supplied by this website or support. Install the app, enter your login and permit the initial catalogue update to finish.",
+      },
+      { type: "h3", text: "Compatible Player" },
+      {
+        type: "p",
+        text: "Install the chosen player from Google Play, select Xtream Codes login and add the username, password and server address from your account message.",
       },
     ],
   },
@@ -588,4 +592,4 @@ export const troubleshootingTopics: TroubleshootingTopic[] = [
   },
 ];
 
-export const installationGuideDefaultId = "android-tv";
+export const installationGuideDefaultId = "firestick";

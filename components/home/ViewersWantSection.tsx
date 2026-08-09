@@ -62,7 +62,7 @@ export function ViewersWantSection() {
           })}
         </ul>
 
-        <ScrollReveal delay={0.1}>
+        <ScrollReveal delay={0.1} variant="text">
           <p className="telvis-section-lead is-center">
           Telvis answers these questions before checkout through the free trial,
           plan details, Installation Guide and direct support.

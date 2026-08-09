@@ -2,13 +2,19 @@
 
 import { motion, useReducedMotion } from "motion/react";
 import type { CSSProperties, ReactNode } from "react";
-import { motionEase } from "@/lib/motion";
+import {
+  createScrollRevealVariants,
+  heroRevealAnimate,
+  heroRevealDuration,
+  motionEase,
+  type ScrollRevealVariant,
+} from "@/lib/motion";
 
 type HeroRevealProps = {
   children: ReactNode;
   className?: string;
   delay?: number;
-  y?: number;
+  variant?: ScrollRevealVariant;
   style?: CSSProperties;
 };
 
@@ -16,18 +22,31 @@ export function HeroReveal({
   children,
   className,
   delay = 0,
-  y = 16,
+  variant = "text",
   style,
 }: HeroRevealProps) {
   const reduceMotion = useReducedMotion();
+  const preset = createScrollRevealVariants(variant).hidden;
+
+  if (reduceMotion) {
+    return (
+      <div className={className} style={style}>
+        {children}
+      </div>
+    );
+  }
 
   return (
     <motion.div
-      className={className}
+      className={`telvis-motion-reveal${className ? ` ${className}` : ""}`}
       style={style}
-      initial={reduceMotion ? false : { opacity: 0, y }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.38, delay, ease: motionEase }}
+      initial={preset}
+      animate={heroRevealAnimate}
+      transition={{
+        duration: variant === "cta" ? 0.52 : heroRevealDuration,
+        delay,
+        ease: motionEase,
+      }}
     >
       {children}
     </motion.div>

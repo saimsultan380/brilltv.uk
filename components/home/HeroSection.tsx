@@ -12,7 +12,7 @@ export function HeroSection() {
       <div className="telvis-container">
         <div className="telvis-content">
           <div className="telvis-copy-col">
-            <ScrollReveal delay={0.05}>
+            <ScrollReveal delay={0.05} variant="text">
               <div className="telvis-eyebrow">
                 <span className="telvis-eyebrow-dot" />
                 PREMIUM IPTV STREAMING
@@ -34,50 +34,56 @@ export function HeroSection() {
               ]}
             />
 
-            <ScrollReveal delay={0.22}>
+            <ScrollReveal delay={0.22} variant="text">
               <div className="telvis-copy">
                 <p>
-                  Bring live television, movies and series together with one
-                  flexible IPTV UK subscription from Telvis. Browse more than
-                  20,000 listed live channels and over 80,000 listed movies and
-                  series on supported internet-connected devices. Plans start from
-                  £9.99.
+                  Choose an IPTV UK subscription that lets you check compatibility
+                  before committing to a longer plan. Browse more than 20,000 listed
+                  live channels and over 80,000 listed movies and series on supported
+                  internet-connected devices, with paid plans starting from £9.99.
                 </p>
                 <p>
-                  Try the service free for 24 hours before choosing a plan. Check
-                  your device, internet connection and preferred content at home.
-                  Every subscription includes the dedicated Telvis app, Xtream
-                  Codes support for compatible players, EPG where available,
-                  selected Catch-Up, VPN functionality and help from our support
-                  team.
+                  Start with a free 24-hour IPTV UK trial on the device and broadband
+                  connection you actually use. If you decide to continue, choose one,
+                  three, six or twelve months and receive the access details,
+                  installation instructions and support needed to get set up.
                 </p>
               </div>
             </ScrollReveal>
 
-            <ScrollReveal delay={0.3}>
+            <ScrollReveal delay={0.3} variant="cta">
               <div className="telvis-actions">
                 <Link href={routes.trial} className="telvis-cta-primary">
                   <span className="telvis-play-icon" />
-                  <span>Start Your 24-Hour Trial</span>
+                  <span>Start Your Free 24-Hour Trial</span>
                 </Link>
 
                 <Link href={routes.plans} className="telvis-cta-secondary">
-                  View Subscription Plans
+                  View Plans from £9.99
                 </Link>
               </div>
             </ScrollReveal>
 
-            <ScrollReveal delay={0.38}>
-              <div className="telvis-trust">
-                <span className="telvis-trust-pill">24-Hour Trial</span>
-                <span className="telvis-trust-pill">VPN Included</span>
-                <span className="telvis-trust-pill">Guided Installation</span>
-                <span className="telvis-trust-pill">24/7 Support</span>
-              </div>
+            <ScrollReveal delay={0.38} variant="text">
+              <p className="telvis-hero-trust-line">
+                Free 24-Hour Trial
+                <span className="telvis-hero-trust-sep" aria-hidden="true">
+                  ·
+                </span>
+                VPN Included
+                <span className="telvis-hero-trust-sep" aria-hidden="true">
+                  ·
+                </span>
+                EPG and Selected Catch-Up
+                <span className="telvis-hero-trust-sep" aria-hidden="true">
+                  ·
+                </span>
+                24/7 Support
+              </p>
             </ScrollReveal>
           </div>
 
-          <ScrollReveal delay={0.18} y={20} className="telvis-visual-wrap">
+          <ScrollReveal delay={0.18} variant="media" className="telvis-visual-wrap">
             <OrbitVisual />
           </ScrollReveal>
         </div>

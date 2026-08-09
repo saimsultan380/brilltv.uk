@@ -8,17 +8,21 @@ import {
   RefreshCw,
   Server,
   Shield,
+  Apple,
+  Smartphone,
+  TabletSmartphone,
 } from "lucide-react";
 import type { GuideBlock } from "@/lib/installation-guide-data";
 import { formatGuideText } from "@/lib/installation-guide-data";
 import { CardReveal, CardRevealPart } from "@/components/ui/CardReveal";
+import { GuideContent } from "@/components/installation/GuideContent";
 
 type GuideStandaloneSectionProps = {
   id: string;
   eyebrow: string;
   title: ReactNode;
   blocks: GuideBlock[];
-  variant: "checklist" | "steps" | "fields" | "ordered";
+  variant: "checklist" | "steps" | "fields" | "ordered" | "content";
   icon: LucideIcon;
 };
 
@@ -222,6 +226,7 @@ export function GuideStandaloneSection({
             {variant === "steps" ? <StepsBody blocks={blocks} /> : null}
             {variant === "fields" ? <FieldsBody blocks={blocks} /> : null}
             {variant === "ordered" ? <OrderedBody blocks={blocks} /> : null}
+            {variant === "content" ? <GuideContent blocks={blocks} /> : null}
           </CardRevealPart>
         </CardReveal>
       </div>
@@ -234,4 +239,7 @@ export const guideStandaloneIcons = {
   firestick: Server,
   xtream: KeyRound,
   epg: ListOrdered,
+  iphone: TabletSmartphone,
+  appleTv: Apple,
+  androidMobile: Smartphone,
 };

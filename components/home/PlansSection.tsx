@@ -140,7 +140,7 @@ export function PlansSection() {
           ))}
         </div>
 
-        <ScrollReveal>
+        <ScrollReveal variant="text">
           <p className="telvis-section-note">
           Catalogue totals describe listed entries and can change as sources are
           added, updated or removed. Availability, Catch-Up, EPG and picture
@@ -148,7 +148,7 @@ export function PlansSection() {
           </p>
         </ScrollReveal>
 
-        <ScrollReveal delay={0.08}>
+        <ScrollReveal delay={0.08} variant="cta">
           <div className="telvis-inline-actions is-row">
           <Link href={routes.trial} className="telvis-cta-primary">
             Start Your 24-Hour Trial

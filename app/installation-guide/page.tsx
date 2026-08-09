@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
+import { InstallationGuideAdditionalDevices } from "@/components/installation/InstallationGuideAdditionalDevices";
 import { InstallationGuideBefore } from "@/components/installation/InstallationGuideBefore";
-import { InstallationGuideFirestick } from "@/components/installation/InstallationGuideFirestick";
 import { InstallationGuideHero } from "@/components/installation/InstallationGuideHero";
 import {
   InstallationGuideSchema,
@@ -12,7 +12,7 @@ import {
   InstallationGuideEpg,
   InstallationGuideXtream,
 } from "@/components/installation/InstallationGuideXtream";
-import { SectionHeader } from "@/components/ui/SectionHeader";
+import { SectionHeader, TitleAccent } from "@/components/ui/SectionHeader";
 import { routes, siteConfig } from "@/lib/site";
 
 const pageUrl = `${siteConfig.url}${routes.installation}`;
@@ -50,7 +50,6 @@ export default function InstallationGuidePage() {
       <main>
         <InstallationGuideHero />
         <InstallationGuideBefore />
-        <InstallationGuideFirestick />
 
         <section
           className="telvis-section telvis-guide-section"
@@ -59,14 +58,20 @@ export default function InstallationGuidePage() {
           <div className="telvis-section-inner">
             <SectionHeader
               id="guide-devices-heading"
-              eyebrow="More devices"
-              title="Android TV, Smart TV, Mobile, Desktop and Other Players"
-              lead="Choose your device from the list below. Tabs run from Android TV setup through to Kodi. Follow one method at a time and keep your welcome message nearby."
+              eyebrow="Device setup"
+              title={
+                <>
+                  Set Up <TitleAccent>IPTV UK</TitleAccent> on Firestick, Smart TV,
+                  Mobile and More
+                </>
+              }
+              lead="Choose your device from the list below. Tabs run from Firestick setup through to Kodi. Follow one method at a time and keep your welcome message nearby."
             />
             <InstallationGuideTabs />
           </div>
         </section>
 
+        <InstallationGuideAdditionalDevices />
         <InstallationGuideXtream />
         <InstallationGuideEpg />
         <InstallationGuideTroubleshooting />

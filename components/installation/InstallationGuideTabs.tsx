@@ -1,7 +1,6 @@
 "use client";
 
 import {
-  Apple,
   Box,
   Cast,
   Gamepad2,
@@ -9,8 +8,6 @@ import {
   Monitor,
   PlayCircle,
   Router,
-  Smartphone,
-  TabletSmartphone,
   Tv,
   TvMinimal,
 } from "lucide-react";
@@ -26,11 +23,9 @@ import {
 const MOBILE_QUERY = "(max-width: 767px)";
 
 const guideDeviceIcons: Record<string, LucideIcon> = {
+  firestick: Tv,
   "android-tv": Tv,
   "smart-tv": Monitor,
-  "iphone-ipad": TabletSmartphone,
-  "apple-tv": Apple,
-  "android-mobile": Smartphone,
   windows: Laptop,
   mac: Laptop,
   roku: TvMinimal,

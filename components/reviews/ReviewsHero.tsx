@@ -19,7 +19,7 @@ export function ReviewsHero() {
         </>,
       ]}
       visual={
-        <ScrollReveal delay={0.18} y={20} className="telvis-visual-wrap">
+        <ScrollReveal delay={0.18} variant="media" className="telvis-visual-wrap">
           <OrbitVisual />
         </ScrollReveal>
       }
@@ -40,7 +40,7 @@ export function ReviewsHero() {
         </div>
       </HeroReveal>
 
-      <HeroReveal delay={0.3}>
+      <HeroReveal delay={0.3} variant="cta">
         <div className="telvis-actions">
           <Link href={routes.trial} className="telvis-cta-primary">
             Start a Free 24-Hour Trial

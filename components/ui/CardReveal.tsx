@@ -3,44 +3,12 @@
 import { useReducedMotion } from "motion/react";
 import type { CSSProperties, ReactNode } from "react";
 import {
-  cardChildrenStagger,
-  cardMotionDuration,
-  cardPartMotionDuration,
+  cardIconPartVariants,
+  cardPartVariants,
+  cardRevealVariants,
   getMotionComponent,
-  motionEase,
   motionViewport,
 } from "@/lib/motion";
-
-const cardVariants = {
-  hidden: { opacity: 0 },
-  visible: (delay: number) => ({
-    opacity: 1,
-    transition: {
-      duration: cardMotionDuration,
-      delay,
-      ease: motionEase,
-      when: "beforeChildren",
-      staggerChildren: cardChildrenStagger,
-      delayChildren: 0.015,
-    },
-  }),
-};
-
-const partVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { duration: cardPartMotionDuration, ease: motionEase },
-  },
-};
-
-const iconPartVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { duration: cardPartMotionDuration, ease: motionEase },
-  },
-};
 
 type CardRevealProps = {
   children: ReactNode;
@@ -87,7 +55,7 @@ export function CardReveal({
 }: CardRevealProps) {
   const reduceMotion = useReducedMotion();
   const tagProps = {
-    className,
+    className: `telvis-motion-reveal${className ? ` ${className}` : ""}`,
     id,
     role,
     hidden,
@@ -109,7 +77,7 @@ export function CardReveal({
       initial="hidden"
       whileInView="visible"
       viewport={motionViewport}
-      variants={cardVariants}
+      variants={cardRevealVariants}
     >
       {children}
     </MotionTag>
@@ -140,7 +108,7 @@ export function CardRevealPart({
     <Component
       className={className}
       id={id}
-      variants={variant === "icon" ? iconPartVariants : partVariants}
+      variants={variant === "icon" ? cardIconPartVariants : cardPartVariants}
     >
       {children}
     </Component>
@@ -162,7 +130,7 @@ export function CardRevealList({
   const Component = getMotionComponent(as);
 
   return (
-    <Component className={className} variants={partVariants}>
+    <Component className={className} variants={cardPartVariants}>
       {children}
     </Component>
   );
@@ -183,7 +151,7 @@ export function CardRevealListItem({
   const Component = getMotionComponent(as);
 
   return (
-    <Component className={className} variants={partVariants}>
+    <Component className={className} variants={cardPartVariants}>
       {children}
     </Component>
   );

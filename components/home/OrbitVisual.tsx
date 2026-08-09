@@ -76,9 +76,14 @@ function buildArcs() {
 
     if (end <= start) end += 360;
 
+    const mid = start + (end - start) / 2;
+    const node = polar(mid);
+
     return {
       key: `arc-${index}`,
       d: arcPath(start, end),
+      node,
+      delay: index * 0.35,
     };
   });
 }
@@ -103,19 +108,39 @@ export function OrbitVisual() {
               x2="100%"
               y2="100%"
             >
-              <stop offset="0%" stopColor="#5262FF" />
-              <stop offset="45%" stopColor="#8250FF" />
-              <stop offset="100%" stopColor="#C14BFF" />
+              <stop offset="0%" stopColor="#6B7CFF" />
+              <stop offset="42%" stopColor="#9B5CFF" />
+              <stop offset="100%" stopColor="#D45BFF" />
             </linearGradient>
+
+            <radialGradient id="telvis-orbit-node-fill" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stopColor="#FFFFFF" />
+              <stop offset="55%" stopColor="#E4C8FF" />
+              <stop offset="100%" stopColor="#A855FF" />
+            </radialGradient>
 
             <filter
               id="telvis-orbit-glow"
-              x="-40%"
-              y="-40%"
-              width="180%"
-              height="180%"
+              x="-50%"
+              y="-50%"
+              width="200%"
+              height="200%"
             >
-              <feGaussianBlur stdDeviation="2.2" result="blur" />
+              <feGaussianBlur stdDeviation="2.8" result="blur" />
+              <feMerge>
+                <feMergeNode in="blur" />
+                <feMergeNode in="SourceGraphic" />
+              </feMerge>
+            </filter>
+
+            <filter
+              id="telvis-orbit-node-glow"
+              x="-100%"
+              y="-100%"
+              width="300%"
+              height="300%"
+            >
+              <feGaussianBlur stdDeviation="3.5" result="blur" />
               <feMerge>
                 <feMergeNode in="blur" />
                 <feMergeNode in="SourceGraphic" />
@@ -124,18 +149,18 @@ export function OrbitVisual() {
 
             <marker
               id="telvis-orbit-arrow"
-              markerWidth="14"
-              markerHeight="14"
-              refX="10"
-              refY="7"
+              markerWidth="12"
+              markerHeight="12"
+              refX="9"
+              refY="6"
               orient="auto"
               markerUnits="userSpaceOnUse"
             >
               <path
-                d="M2 2 L12 7 L2 12 L5 7 Z"
-                fill="#D7B7FF"
-                stroke="#E8D4FF"
-                strokeWidth="0.6"
+                d="M1.5 1.5 L10.5 6 L1.5 10.5 L4.2 6 Z"
+                fill="#E8D4FF"
+                stroke="#FFFFFF"
+                strokeWidth="0.45"
               />
             </marker>
           </defs>
@@ -149,6 +174,13 @@ export function OrbitVisual() {
                 d={arc.d}
                 className="telvis-orbit-arc-arrow"
                 markerEnd="url(#telvis-orbit-arrow)"
+              />
+              <circle
+                cx={arc.node.x}
+                cy={arc.node.y}
+                r="3.2"
+                className="telvis-orbit-node"
+                style={{ animationDelay: `${arc.delay}s` }}
               />
             </g>
           ))}

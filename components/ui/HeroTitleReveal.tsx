@@ -2,9 +2,7 @@
 
 import { motion, useReducedMotion } from "motion/react";
 import type { ReactNode } from "react";
-import { motionEase } from "@/lib/motion";
-
-const ease = motionEase;
+import { heroRevealDuration, motionEase } from "@/lib/motion";
 
 type HeroTitleRevealProps = {
   id?: string;
@@ -24,7 +22,7 @@ export function HeroTitleReveal({
       {lines.map((line, index) => (
         <span key={index} className="telvis-h1-reveal-line">
           <motion.span
-            className="telvis-h1-reveal-text"
+            className="telvis-h1-reveal-text telvis-motion-reveal"
             initial={
               reduceMotion
                 ? false
@@ -32,17 +30,19 @@ export function HeroTitleReveal({
                     y: "112%",
                     skewY: 7,
                     opacity: 0,
+                    filter: "blur(10px)",
                   }
             }
             animate={{
               y: "0%",
               skewY: 0,
               opacity: 1,
+              filter: "blur(0px)",
             }}
             transition={{
-              duration: 0.82,
-              delay: 0.1 + index * 0.1,
-              ease,
+              duration: heroRevealDuration,
+              delay: 0.12 + index * 0.1,
+              ease: motionEase,
             }}
           >
             {line}

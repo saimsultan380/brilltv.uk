@@ -25,7 +25,7 @@ export function SiteFooter() {
     <footer className="telvis-footer">
       <div className="telvis-footer-inner">
         <div className="telvis-footer-top">
-          <ScrollReveal className="telvis-footer-brand-col">
+          <ScrollReveal variant="text" className="telvis-footer-brand-col">
             <Link href="/" className="telvis-footer-brand">
               <Image
                 src="/logo-mark.png"
@@ -40,7 +40,7 @@ export function SiteFooter() {
           </ScrollReveal>
 
           <div className="telvis-footer-columns">
-            <ScrollReveal delay={0.06} className="telvis-footer-col">
+            <ScrollReveal delay={0.06} variant="text" className="telvis-footer-col">
               <h2 className="telvis-footer-heading">Pages</h2>
               <nav className="telvis-footer-links" aria-label="Footer pages">
                 {navLinks.map((link) => (
@@ -51,7 +51,7 @@ export function SiteFooter() {
               </nav>
             </ScrollReveal>
 
-            <ScrollReveal delay={0.12} className="telvis-footer-col">
+            <ScrollReveal delay={0.12} variant="text" className="telvis-footer-col">
               <h2 className="telvis-footer-heading">Get Started</h2>
               <nav className="telvis-footer-links" aria-label="Footer quick links">
                 {footerQuickLinks.map((link) => (
@@ -62,7 +62,7 @@ export function SiteFooter() {
               </nav>
             </ScrollReveal>
 
-            <ScrollReveal delay={0.18} className="telvis-footer-col">
+            <ScrollReveal delay={0.18} variant="text" className="telvis-footer-col">
               <h2 className="telvis-footer-heading">Support</h2>
               <nav className="telvis-footer-links" aria-label="Footer support">
                 <Link href={siteConfig.url} className="telvis-footer-link">
@@ -80,7 +80,7 @@ export function SiteFooter() {
           </div>
         </div>
 
-        <ScrollReveal delay={0.08}>
+        <ScrollReveal delay={0.08} variant="text">
           <div className="telvis-footer-trust">
             {trustHighlights.map((item, index) => (
               <span key={item} className="telvis-footer-trust-item">
@@ -95,7 +95,15 @@ export function SiteFooter() {
           </div>
         </ScrollReveal>
 
-        <ScrollReveal delay={0.12}>
+        <ScrollReveal delay={0.1} variant="text">
+          <p className="telvis-footer-disclaimer">
+            Telvis is intended for personal, lawful use only. Users must comply with
+            all applicable laws and use only content they are legally entitled to
+            access.
+          </p>
+        </ScrollReveal>
+
+        <ScrollReveal delay={0.12} variant="text">
           <div className="telvis-footer-bottom">
             <p className="telvis-footer-copy">
               © {year} {siteConfig.name}. All rights reserved.
