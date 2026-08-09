@@ -25,7 +25,7 @@ export const supportConfig = {
 } as const;
 
 export const navLinks = [
-  { href: routes.home, label: "Homepage" },
+  { href: routes.home, label: "Home" },
   { href: routes.installation, label: "Installation Guide" },
   { href: routes.reviews, label: "Reviews" },
   { href: routes.contact, label: "Contact Us" },

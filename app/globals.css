@@ -2241,12 +2241,17 @@ main > :first-child.telvis-hero-page {
 
   .telvis-hero .telvis-copy {
     margin-bottom: 10px;
-    max-width: min(86%, 292px);
   }
 
   .telvis-hero:not(.telvis-hero-page) .telvis-copy {
+    max-width: min(88%, 336px);
     font-size: clamp(11px, 3.1vw, 13px);
     line-height: 1.52;
+  }
+
+  .telvis-hero.telvis-hero-page .telvis-copy,
+  .telvis-page-hero-copy .telvis-copy {
+    max-width: 100%;
   }
 
   .telvis-hero-trust-line {
@@ -2257,21 +2262,24 @@ main > :first-child.telvis-hero-page {
 
   .telvis-hero:not(.telvis-hero-page) .telvis-actions {
     grid-template-columns: 1fr 1fr;
-    gap: 8px;
+    gap: 7px;
     margin-top: 22px;
+    width: 100%;
+    max-width: 100%;
   }
 
   .telvis-hero:not(.telvis-hero-page) .telvis-cta-primary,
   .telvis-hero:not(.telvis-hero-page) .telvis-cta-secondary {
-    min-height: 48px;
-    padding: 9px 8px;
-    font-size: clamp(10.5px, 2.9vw, 12.5px);
-    line-height: 1.15;
-    white-space: normal;
+    min-height: 46px;
+    padding: 8px 6px;
+    font-size: clamp(9px, 2.45vw, 10.5px);
+    line-height: 1.1;
+    white-space: nowrap;
+    letter-spacing: -0.02em;
   }
 
   .telvis-hero:not(.telvis-hero-page) .telvis-cta-primary {
-    gap: 6px;
+    gap: 5px;
   }
 
   .telvis-hero:not(.telvis-hero-page) .telvis-play-icon {
@@ -2354,6 +2362,22 @@ main > :first-child.telvis-hero-page {
    SMALL MOBILE
    ========================================================= */
 
+@media (max-width: 360px) {
+  .telvis-hero:not(.telvis-hero-page) .telvis-copy {
+    max-width: min(86%, 314px);
+  }
+
+  .telvis-hero:not(.telvis-hero-page) .telvis-play-icon {
+    display: none;
+  }
+
+  .telvis-hero:not(.telvis-hero-page) .telvis-cta-primary,
+  .telvis-hero:not(.telvis-hero-page) .telvis-cta-secondary {
+    font-size: 8.5px;
+    padding: 7px 4px;
+  }
+}
+
 @media (max-width: 370px) {
   .telvis-container {
     width: calc(100% - 22px);
@@ -2380,20 +2404,21 @@ main > :first-child.telvis-hero-page {
   }
 
   .telvis-hero:not(.telvis-hero-page) .telvis-actions {
-    gap: 6px;
+    gap: 5px;
   }
 
   .telvis-hero:not(.telvis-hero-page) .telvis-cta-primary,
   .telvis-hero:not(.telvis-hero-page) .telvis-cta-secondary {
-    min-height: 44px;
-    padding: 8px 6px;
-    font-size: 10px;
+    min-height: 42px;
+    padding: 7px 5px;
+    font-size: 9px;
+    white-space: nowrap;
   }
 
   .telvis-hero:not(.telvis-hero-page) .telvis-play-icon {
-    border-top-width: 5px;
-    border-bottom-width: 5px;
-    border-left-width: 8px;
+    border-top-width: 4px;
+    border-bottom-width: 4px;
+    border-left-width: 7px;
   }
 
   .telvis-actions {
