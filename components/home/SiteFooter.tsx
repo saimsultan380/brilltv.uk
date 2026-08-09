@@ -1,0 +1,116 @@
+"use client";
+
+import Image from "next/image";
+import Link from "next/link";
+import { ScrollReveal } from "@/components/ui/ScrollReveal";
+import {
+  footerLegalLinks,
+  footerQuickLinks,
+  navLinks,
+  routes,
+  siteConfig,
+} from "@/lib/site";
+
+const trustHighlights = [
+  "24-Hour Trial",
+  "VPN Included",
+  "Guided Installation",
+  "24/7 Support",
+] as const;
+
+export function SiteFooter() {
+  const year = new Date().getFullYear();
+
+  return (
+    <footer className="telvis-footer">
+      <div className="telvis-footer-inner">
+        <div className="telvis-footer-top">
+          <ScrollReveal className="telvis-footer-brand-col">
+            <Link href="/" className="telvis-footer-brand">
+              <Image
+                src="/logo-mark.png"
+                alt="Telvis"
+                width={80}
+                height={80}
+                className="telvis-footer-logo"
+              />
+            </Link>
+
+            <p className="telvis-footer-about">{siteConfig.description}</p>
+          </ScrollReveal>
+
+          <div className="telvis-footer-columns">
+            <ScrollReveal delay={0.06} className="telvis-footer-col">
+              <h2 className="telvis-footer-heading">Pages</h2>
+              <nav className="telvis-footer-links" aria-label="Footer pages">
+                {navLinks.map((link) => (
+                  <Link key={link.href} href={link.href} className="telvis-footer-link">
+                    {link.label}
+                  </Link>
+                ))}
+              </nav>
+            </ScrollReveal>
+
+            <ScrollReveal delay={0.12} className="telvis-footer-col">
+              <h2 className="telvis-footer-heading">Get Started</h2>
+              <nav className="telvis-footer-links" aria-label="Footer quick links">
+                {footerQuickLinks.map((link) => (
+                  <Link key={link.href} href={link.href} className="telvis-footer-link">
+                    {link.label}
+                  </Link>
+                ))}
+              </nav>
+            </ScrollReveal>
+
+            <ScrollReveal delay={0.18} className="telvis-footer-col">
+              <h2 className="telvis-footer-heading">Support</h2>
+              <nav className="telvis-footer-links" aria-label="Footer support">
+                <Link href={siteConfig.url} className="telvis-footer-link">
+                  {siteConfig.url.replace("https://", "")}
+                </Link>
+                <Link href={routes.contact} className="telvis-footer-link">
+                  Contact Us
+                </Link>
+                <p className="telvis-footer-note">
+                  Email or WhatsApp support for trials, plans, installation and account
+                  questions.
+                </p>
+              </nav>
+            </ScrollReveal>
+          </div>
+        </div>
+
+        <ScrollReveal delay={0.08}>
+          <div className="telvis-footer-trust">
+            {trustHighlights.map((item, index) => (
+              <span key={item} className="telvis-footer-trust-item">
+                {item}
+                {index < trustHighlights.length - 1 ? (
+                  <span className="telvis-footer-trust-sep" aria-hidden="true">
+                    ·
+                  </span>
+                ) : null}
+              </span>
+            ))}
+          </div>
+        </ScrollReveal>
+
+        <ScrollReveal delay={0.12}>
+          <div className="telvis-footer-bottom">
+            <p className="telvis-footer-copy">
+              © {year} {siteConfig.name}. All rights reserved.
+            </p>
+
+            <nav className="telvis-footer-legal" aria-label="Legal">
+              {footerLegalLinks.map((link) => (
+                <Link key={link.href} href={link.href} className="telvis-footer-legal-link">
+                  {link.label}
+                </Link>
+              ))}
+            </nav>
+          </div>
+        </ScrollReveal>
+      </div>
+    </footer>
+  );
+}

@@ -1,26 +1,2668 @@
 @import "tailwindcss";
 
+/* =========================================================
+   TELVIS — MASTER DESIGN SYSTEM
+   ========================================================= */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* ---------- BASE ---------- */
+
+  --telvis-bg-black: #01020d;
+  --telvis-bg-main: #020316;
+  --telvis-bg-navy: #02051d;
+  --telvis-bg-blue: #03082b;
+  --telvis-bg-card: #080a22;
+
+  /* ---------- BRAND ---------- */
+
+  --telvis-blue: #4d5cff;
+  --telvis-indigo: #6246ff;
+  --telvis-violet: #744eff;
+  --telvis-purple: #9450ff;
+  --telvis-bright-purple: #b64cff;
+  --telvis-pink-purple: #c14bff;
+
+  /* ---------- TEXT ---------- */
+
+  --telvis-white: #ffffff;
+  --telvis-heading: #fbfbff;
+  --telvis-body: rgba(229, 229, 240, 0.86);
+  --telvis-muted: rgba(198, 198, 216, 0.72);
+
+  /* ---------- BORDERS ---------- */
+
+  --telvis-border-soft: rgba(112, 89, 255, 0.25);
+  --telvis-border-purple: rgba(167, 72, 255, 0.72);
+  --telvis-border-white: rgba(255, 255, 255, 0.08);
+
+  /* ---------- GLOWS ---------- */
+
+  --telvis-glow-blue: rgba(35, 77, 255, 0.3);
+  --telvis-glow-indigo: rgba(80, 57, 255, 0.28);
+  --telvis-glow-purple: rgba(134, 34, 255, 0.27);
+  --telvis-glow-violet: rgba(181, 67, 255, 0.22);
+
+  /* ---------- CTA ---------- */
+
+  --telvis-cta-start: #4a4cff;
+  --telvis-cta-mid: #6946ff;
+  --telvis-cta-end: #a82bf1;
+
+  /* ---------- RADII ---------- */
+
+  --radius-navbar: 22px;
+  --radius-button: 14px;
+  --radius-card: 17px;
+  --radius-pill: 999px;
+
+  --telvis-site-bg:
+    radial-gradient(circle at 50% 0%, rgba(120, 70, 255, 0.2), transparent 42%),
+    radial-gradient(circle at 0% 100%, rgba(40, 80, 255, 0.14), transparent 40%),
+    linear-gradient(180deg, #020316 0%, #060925 100%);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-telvis-bg-black: var(--telvis-bg-black);
+  --color-telvis-bg-main: var(--telvis-bg-main);
+  --color-telvis-bg-navy: var(--telvis-bg-navy);
+  --color-telvis-bg-blue: var(--telvis-bg-blue);
+  --color-telvis-bg-card: var(--telvis-bg-card);
+  --color-telvis-blue: var(--telvis-blue);
+  --color-telvis-indigo: var(--telvis-indigo);
+  --color-telvis-violet: var(--telvis-violet);
+  --color-telvis-purple: var(--telvis-purple);
+  --color-telvis-bright-purple: var(--telvis-bright-purple);
+  --color-telvis-pink-purple: var(--telvis-pink-purple);
+  --color-telvis-white: var(--telvis-white);
+  --color-telvis-heading: var(--telvis-heading);
+  --font-sans: var(--font-inter);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* =========================================================
+   RESET
+   ========================================================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  background-color: #020316;
+  background-image: var(--telvis-site-bg);
+  background-attachment: fixed;
+
+  font-family:
+    var(--font-inter),
+    Inter,
+    "SF Pro Display",
+    "SF Pro Text",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+
+  color: var(--telvis-white);
+
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+button,
+a {
+  font: inherit;
+}
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.telvis-hero {
+  position: relative;
+
+  min-height: 100svh;
+
+  overflow-x: clip;
+
+  color: var(--telvis-white);
+
+  background: transparent;
+}
+
+/* =========================================================
+   HERO CONTAINER
+   ========================================================= */
+
+.telvis-container {
+  position: relative;
+
+  width: min(calc(100% - 28px), 1180px);
+
+  margin-inline: auto;
+
+  padding-top: 0;
+  padding-bottom: 48px;
+}
+
+/* =========================================================
+   NAVBAR
+   ========================================================= */
+
+.telvis-header-sticky {
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  width: 100%;
+  padding: 12px 0 8px;
+  background: linear-gradient(
+    180deg,
+    rgba(4, 6, 24, 0.94) 0%,
+    rgba(4, 6, 24, 0.82) 72%,
+    rgba(4, 6, 24, 0) 100%
+  );
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.telvis-navbar {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+
+  width: 100%;
+
+  padding: 8px 10px;
+
+  border: 1px solid rgba(112, 89, 255, 0.25);
+  border-radius: var(--radius-navbar);
+
+  background: linear-gradient(
+    100deg,
+    rgba(5, 15, 58, 0.88),
+    rgba(13, 5, 43, 0.78)
+  );
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  box-shadow:
+    0 12px 35px rgba(0, 0, 0, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.025);
+}
+
+.telvis-navbar-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+  min-height: 50px;
+}
+
+.telvis-nav-center {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+.telvis-nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: auto;
+}
+
+.telvis-nav-cta-desktop {
+  display: none;
+}
+
+.telvis-nav-cta {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  margin-left: 8px;
+  padding: 9px 16px;
+  border: 1px solid rgba(207, 143, 255, 0.55);
+  border-radius: var(--radius-button);
+  background: linear-gradient(100deg, #4a4cff 0%, #6946ff 42%, #a82bf1 100%);
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 700;
+  white-space: nowrap;
+  box-shadow:
+    0 6px 18px rgba(91, 58, 255, 0.24),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18);
+  transition:
+    transform 180ms ease,
+    filter 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.telvis-nav-cta:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.06);
+}
+
+.telvis-nav-cta-mobile {
+  display: none;
+}
+
+.telvis-nav-cta-menu {
+  display: none;
+  width: 100%;
+  min-height: 46px;
+  margin-top: 6px;
+}
+
+.telvis-mobile-menu .telvis-nav-cta-menu {
+  display: inline-flex;
+}
+
+.telvis-nav-link {
+  padding: 8px 12px;
+  border-radius: 999px;
+  color: rgba(244, 244, 252, 0.9);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background 180ms ease, color 180ms ease;
+}
+
+.telvis-nav-link:hover {
+  background: rgba(112, 89, 255, 0.16);
+  color: #ffffff;
+}
+
+.telvis-mobile-menu {
+  display: grid;
+  gap: 4px;
+  width: 100%;
+  padding: 6px 4px 2px;
+  margin: 0;
+  border: none;
+  border-top: 1px solid rgba(112, 89, 255, 0.2);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+@media (max-width: 1023px) {
+  .telvis-navbar.is-menu-open {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  .telvis-mobile-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 60;
+    padding: 6px 10px 12px;
+    border: 1px solid rgba(112, 89, 255, 0.28);
+    border-top: 1px solid rgba(112, 89, 255, 0.18);
+    border-radius: 0 0 var(--radius-navbar) var(--radius-navbar);
+    background: linear-gradient(
+      180deg,
+      rgba(8, 12, 42, 0.98),
+      rgba(10, 6, 36, 0.98)
+    );
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+  }
+}
+
+.telvis-mobile-link {
+  padding: 12px 14px;
+  border-radius: 12px;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.telvis-mobile-link:hover {
+  background: rgba(112, 89, 255, 0.16);
+}
+
+/* =========================================================
+   LOGO
+   ========================================================= */
+
+.telvis-brand {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.telvis-logo {
+  display: block;
+
+  width: 60px;
+  height: 60px;
+
+  object-fit: contain;
+
+  filter:
+    drop-shadow(0 0 5px rgba(255, 255, 255, 0.25))
+    drop-shadow(0 0 8px rgba(144, 65, 255, 0.82))
+    drop-shadow(0 0 17px rgba(71, 70, 255, 0.48));
+}
+
+/* =========================================================
+   MENU
+   ========================================================= */
+
+.telvis-menu {
+  display: grid;
+  place-items: center;
+
+  width: 44px;
+  height: 44px;
+
+  padding: 0;
+
+  border-radius: 50%;
+
+  border: 1px solid rgba(127, 91, 255, 0.3);
+
+  background: rgba(25, 17, 72, 0.72);
+
+  color: #ffffff;
+
+  cursor: pointer;
+
+  box-shadow: 0 0 20px rgba(100, 52, 255, 0.12);
+
+  transition:
+    transform 180ms ease,
+    background 180ms ease;
+}
+
+.telvis-menu:hover {
+  transform: scale(1.04);
+
+  background: rgba(40, 26, 100, 0.82);
+}
+
+.telvis-menu-lines {
+  display: flex;
+  flex-direction: column;
+
+  gap: 5px;
+}
+
+.telvis-menu-lines span {
+  display: block;
+
+  width: 19px;
+  height: 2px;
+
+  border-radius: 10px;
+
+  background: #ffffff;
+}
+
+/* =========================================================
+   HERO CONTENT
+   ========================================================= */
+
+.telvis-content {
+  position: relative;
+
+  display: grid;
+  gap: 8px;
+
+  margin-top: 14px;
+}
+
+.telvis-copy-col {
+  position: relative;
+  z-index: 2;
+  min-width: 0;
+}
+
+/* =========================================================
+   EYEBROW
+   ========================================================= */
+
+.telvis-eyebrow {
+  display: inline-flex;
+  align-items: center;
+
+  width: fit-content;
+
+  gap: 9px;
+
+  margin-bottom: 17px;
+
+  padding: 7px 13px;
+
+  border: 1px solid transparent;
+  border-radius: var(--radius-pill);
+
+  background:
+    linear-gradient(#080a22, #080a22) padding-box,
+    linear-gradient(90deg, #8654ff, #b442ff, #4e5cff) border-box;
+
+  color: #ecebf6;
+
+  font-size: 11px;
+  line-height: 1;
+
+  font-weight: 500;
+
+  letter-spacing: 0.14em;
+
+  text-transform: uppercase;
+
+  box-shadow: 0 0 18px rgba(129, 51, 255, 0.12);
+}
+
+.telvis-eyebrow-dot {
+  width: 7px;
+  height: 7px;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  background: #a855ff;
+
+  box-shadow:
+    0 0 6px #a855ff,
+    0 0 14px rgba(168, 85, 255, 0.72);
+}
+
+/* =========================================================
+   H1
+   ========================================================= */
+
+.telvis-h1 {
+  max-width: 690px;
+
+  margin: 0 0 16px;
+
+  color: #fbfbff;
+
+  font-size: clamp(2rem, 8.4vw, 2.55rem);
+
+  line-height: 1.08;
+
+  font-weight: 780;
+
+  letter-spacing: -0.045em;
+
+  text-wrap: balance;
+}
+
+.telvis-h1-reveal-line {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.06em;
+}
+
+.telvis-h1-reveal-text {
+  display: inline-block;
+  transform-origin: left center;
+  will-change: transform, opacity;
+}
+
+/* EXACT H1 ACCENT */
+
+.telvis-h1-accent {
+  display: inline;
+
+  background: linear-gradient(
+    100deg,
+    #b64cff 0%,
+    #9450ff 25%,
+    #744eff 58%,
+    #5362ff 100%
+  );
+
+  background-clip: text;
+  -webkit-background-clip: text;
+
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+
+  filter: drop-shadow(0 0 12px rgba(124, 66, 255, 0.1));
+}
+
+/* =========================================================
+   BODY TEXT
+   ========================================================= */
+
+.telvis-copy {
+  max-width: 660px;
+
+  color: rgba(229, 229, 240, 0.86);
+
+  font-size: clamp(14.5px, 4.05vw, 17px);
+
+  line-height: 1.5;
+
+  font-weight: 400;
+
+  letter-spacing: -0.015em;
+}
+
+.telvis-copy p {
+  margin: 0;
+}
+
+.telvis-copy p + p {
+  margin-top: 17px;
+}
+
+/* =========================================================
+   CTA AREA
+   ========================================================= */
+
+.telvis-actions {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 11px;
+
+  width: 100%;
+
+  margin-top: 18px;
+}
+
+/* =========================================================
+   PRIMARY CTA
+   ========================================================= */
+
+.telvis-cta-primary {
+  position: relative;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 10px;
+
+  min-height: 55px;
+
+  padding: 11px 15px;
+
+  overflow: hidden;
+
+  border: 1px solid rgba(207, 143, 255, 0.6);
+  border-radius: var(--radius-button);
+
+  background: linear-gradient(
+    100deg,
+    #4a4cff 0%,
+    #6946ff 42%,
+    #a82bf1 100%
+  );
+
+  color: #ffffff;
+
+  text-align: center;
+  text-decoration: none;
+
+  font-size: 14.5px;
+
+  line-height: 1.15;
+
+  font-weight: 700;
+
+  box-shadow:
+    0 7px 24px rgba(91, 58, 255, 0.28),
+    0 0 18px rgba(153, 47, 255, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    filter 180ms ease;
+}
+
+/* button lighting */
+
+.telvis-cta-primary::before {
+  content: "";
+
+  position: absolute;
+
+  width: 130px;
+  height: 100px;
+
+  top: -68px;
+  left: 14%;
+
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.22);
+
+  filter: blur(35px);
+
+  pointer-events: none;
+}
+
+.telvis-cta-primary:hover {
+  transform: translateY(-2px);
+
+  filter: brightness(1.07);
+
+  box-shadow:
+    0 10px 30px rgba(91, 58, 255, 0.36),
+    0 0 25px rgba(160, 48, 255, 0.27);
+}
+
+.telvis-cta-primary:active {
+  transform: scale(0.985);
+}
+
+/* play icon */
+
+.telvis-play-icon {
+  width: 0;
+  height: 0;
+
+  flex-shrink: 0;
+
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+  border-left: 13px solid #ffffff;
+
+  filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.25));
+}
+
+/* =========================================================
+   SECONDARY CTA
+   ========================================================= */
+
+.telvis-cta-secondary {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  min-height: 55px;
+
+  padding: 11px 14px;
+
+  border: 1px solid rgba(255, 255, 255, 0.88);
+  border-radius: var(--radius-button);
+
+  background: linear-gradient(180deg, #ffffff 0%, #f4f3fa 100%);
+
+  color: #090a23;
+
+  text-align: center;
+
+  text-decoration: none;
+
+  font-size: 14.5px;
+
+  line-height: 1.15;
+
+  font-weight: 700;
+
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.18),
+    inset 0 1px 0 #ffffff;
+
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.telvis-cta-secondary:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.22),
+    0 0 18px rgba(102, 77, 255, 0.09);
+}
+
+/* =========================================================
+   TRUST BAR — separate pills
+   ========================================================= */
+
+.telvis-trust {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 8px;
+  width: 100%;
+  margin-top: 16px;
+}
+
+.telvis-trust-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 14px;
+  border: 1px solid rgba(104, 82, 255, 0.32);
+  border-radius: var(--radius-pill);
+  background:
+    linear-gradient(
+      165deg,
+      rgba(255, 255, 255, 0.1) 0%,
+      rgba(255, 255, 255, 0.04) 45%,
+      rgba(90, 70, 180, 0.1) 100%
+    );
+  background-color: rgba(12, 14, 40, 0.45);
+  backdrop-filter: blur(18px) saturate(160%);
+  -webkit-backdrop-filter: blur(18px) saturate(160%);
+  color: rgba(244, 244, 252, 0.92);
+  font-size: 10px;
+  line-height: 1.2;
+  font-weight: 500;
+  white-space: nowrap;
+  box-shadow:
+    0 8px 20px rgba(0, 0, 0, 0.16),
+    inset 0 1px 0 rgba(255, 255, 255, 0.14);
+}
+
+/* =========================================================
+   VISUAL / ORBIT
+   ========================================================= */
+
+.telvis-visual {
+  --orbit-radius: 187px;
+
+  position: relative;
+
+  width: min(100%, 390px);
+  aspect-ratio: 1 / 1;
+
+  margin: 20px auto 0;
+
+  overflow: visible;
+}
+
+/* subtle visual glow */
+
+.telvis-visual::before {
+  content: "";
+
+  position: absolute;
+
+  width: 72%;
+  height: 72%;
+
+  top: 14%;
+  left: 14%;
+
+  border-radius: 50%;
+
+  background: radial-gradient(
+    circle,
+    rgba(88, 54, 255, 0.18),
+    transparent 68%
+  );
+
+  filter: blur(25px);
+
+  pointer-events: none;
+}
+
+.telvis-orbit-svg {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.telvis-orbit-rotator {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  animation: telvis-orbit-spin 30s linear infinite;
+}
+
+.telvis-orbit-guide {
+  stroke: rgba(130, 105, 255, 0.22);
+  stroke-width: 1.25;
+  stroke-dasharray: 3 7;
+  animation: telvis-orbit-guide-spin 30s linear infinite reverse;
+}
+
+.telvis-orbit-arc {
+  stroke: url(#telvis-orbit-stroke);
+  stroke-width: 2;
+  stroke-linecap: round;
+  fill: none;
+  opacity: 0.95;
+  stroke-dasharray: 6 10;
+  animation: telvis-orbit-flow 1.8s linear infinite;
+}
+
+.telvis-orbit-arc-arrow {
+  stroke: transparent;
+  stroke-width: 2;
+  stroke-linecap: round;
+  fill: none;
+  pointer-events: none;
+}
+
+@keyframes telvis-orbit-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes telvis-orbit-counter-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+@keyframes telvis-orbit-guide-spin {
+  from {
+    stroke-dashoffset: 0;
+  }
+
+  to {
+    stroke-dashoffset: -40;
+  }
+}
+
+@keyframes telvis-orbit-flow {
+  from {
+    stroke-dashoffset: 0;
+  }
+
+  to {
+    stroke-dashoffset: -32;
+  }
+}
+
+/* =========================================================
+   CENTRAL EMBLEM
+   ========================================================= */
+
+.telvis-orbit-logo {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  z-index: 10;
+
+  display: grid;
+  place-items: center;
+
+  width: 31%;
+  min-width: 100px;
+  max-width: 150px;
+  aspect-ratio: 1;
+
+  transform: translate(-50%, -50%);
+
+  border: 2px solid #8657ff;
+  border-radius: 50%;
+
+  background: radial-gradient(
+    circle,
+    rgba(65, 30, 150, 0.3) 0%,
+    rgba(11, 7, 48, 0.86) 64%,
+    rgba(3, 5, 26, 0.96) 100%
+  );
+
+  box-shadow:
+    0 0 8px rgba(117, 83, 255, 0.95),
+    0 0 25px rgba(101, 63, 255, 0.6),
+    0 0 55px rgba(103, 46, 255, 0.26),
+    inset 0 0 25px rgba(107, 68, 255, 0.16);
+}
+
+.telvis-orbit-logo img {
+  width: 56%;
+
+  height: auto;
+
+  filter:
+    drop-shadow(0 0 6px rgba(255, 255, 255, 0.35))
+    drop-shadow(0 0 15px rgba(131, 55, 255, 0.76));
+}
+
+/* =========================================================
+   ORBIT CARDS — rotate on ring, stay upright
+   ========================================================= */
+
+.telvis-orbit-item {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 3;
+  width: 0;
+  height: 0;
+  overflow: visible;
+  transform-origin: 0 0;
+  transform: rotate(var(--orbit-angle)) translateY(calc(-1 * var(--orbit-radius)));
+  will-change: transform;
+}
+
+.telvis-orbit-card-shell {
+  transform-origin: 0 0;
+  transform: rotate(calc(-1 * var(--orbit-angle)));
+}
+
+.telvis-orbit-card-spin {
+  transform-origin: 0 0;
+  animation: telvis-orbit-counter-spin 30s linear infinite;
+}
+
+.telvis-orbit-card {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: max-content;
+  max-width: min(46vw, 190px);
+  min-height: 47px;
+  padding: 8px 13px;
+  border: 1px solid rgba(167, 72, 255, 0.72);
+  border-radius: var(--radius-card);
+  background: linear-gradient(
+    135deg,
+    rgba(7, 12, 41, 0.94),
+    rgba(15, 7, 45, 0.88)
+  );
+  color: rgba(255, 255, 255, 0.94);
+  white-space: normal;
+  text-align: left;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow:
+    0 0 14px rgba(91, 65, 255, 0.12),
+    0 0 22px rgba(134, 34, 255, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.035);
+  transform: translate(-50%, -50%);
+}
+
+.telvis-orbit-card svg {
+  width: 25px;
+  height: 25px;
+
+  flex-shrink: 0;
+
+  fill: none;
+  stroke: #f5f3ff;
+
+  stroke-width: 1.6;
+}
+
+.telvis-orbit-card span {
+  font-size: 13px;
+
+  line-height: 1.1;
+
+  font-weight: 450;
+}
+
+/* =========================================================
+   AMBIENT GLOW BLOBS
+   ========================================================= */
+
+.telvis-glow {
+  position: absolute;
+
+  z-index: -1;
+
+  pointer-events: none;
+
+  border-radius: 999px;
+
+  filter: blur(85px);
+}
+
+.telvis-glow-blue {
+  width: 300px;
+  height: 360px;
+
+  left: -180px;
+  top: 560px;
+
+  background: rgba(23, 68, 255, 0.3);
+}
+
+.telvis-glow-purple {
+  width: 330px;
+  height: 430px;
+
+  right: -210px;
+  top: 390px;
+
+  background: rgba(123, 25, 255, 0.27);
+}
+
+/* =========================================================
+   TABLET / DESKTOP
+   ========================================================= */
+
+@media (min-width: 768px) {
+  .telvis-header-sticky {
+    padding-top: 16px;
+  }
+
+  .telvis-navbar {
+    padding-inline: 20px 12px;
+  }
+
+  .telvis-navbar-bar {
+    min-height: 58px;
+  }
+
+  .telvis-h1 {
+    max-width: 820px;
+
+    font-size: clamp(3.5rem, 5.2vw, 5rem);
+  }
+
+  .telvis-section-title {
+    max-width: 820px;
+    font-size: clamp(3.5rem, 5.2vw, 5rem);
+  }
+
+  .telvis-copy {
+    max-width: 760px;
+
+    font-size: 18px;
+
+    line-height: 1.62;
+  }
+
+  .telvis-actions {
+    max-width: 650px;
+  }
+
+  .telvis-visual {
+    width: 560px;
+    --orbit-radius: 269px;
+  }
+
+  .telvis-orbit-logo {
+    width: 31%;
+    max-width: 150px;
+  }
+
+  .telvis-orbit-card {
+    min-height: 54px;
+
+    padding: 10px 17px;
+  }
+
+  .telvis-orbit-card span {
+    font-size: 15px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .telvis-header-sticky {
+    padding-top: 16px;
+  }
+
+  .telvis-navbar {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    padding: 8px 10px 8px 14px;
+  }
+
+  .telvis-navbar-bar {
+    display: contents;
+  }
+
+  .telvis-brand {
+    justify-self: start;
+  }
+
+  .telvis-nav-center {
+    display: flex;
+    justify-self: center;
+  }
+
+  .telvis-nav-actions {
+    justify-self: end;
+    margin-left: 0;
+  }
+
+  .telvis-nav-cta-mobile {
+    display: none;
+  }
+
+  .telvis-nav-cta-desktop {
+    display: inline-flex;
+  }
+
+  .telvis-menu {
+    display: none;
+  }
+
+  .telvis-content {
+    grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
+    align-items: center;
+    gap: 28px;
+    min-height: calc(100svh - 140px);
+  }
+
+  .telvis-copy-col {
+    padding-right: 12px;
+    overflow: visible;
+  }
+
+  .telvis-visual {
+    width: min(100%, 520px);
+    margin: 0;
+    justify-self: end;
+    align-self: center;
+    --orbit-radius: 250px;
+  }
+
+  .telvis-h1 {
+    max-width: 640px;
+    font-size: clamp(2.875rem, 2.8vw, 3rem);
+  }
+
+  .telvis-section-title {
+    max-width: 820px;
+    font-size: clamp(2.8rem, 4.2vw, 4.4rem);
+  }
+
+  .telvis-copy {
+    max-width: 620px;
+  }
+
+  .telvis-actions {
+    max-width: 560px;
+  }
+
+  .telvis-trust {
+    max-width: 560px;
+    justify-content: flex-start;
+  }
+}
+
+/* =========================================================
+   MOBILE LAYOUT
+   ========================================================= */
+
+@media (max-width: 767px) {
+  .telvis-container {
+    padding-bottom: 32px;
+  }
+
+  .telvis-section {
+    padding: 56px 0;
+  }
+
+  .telvis-section-inner {
+    width: min(calc(100% - 28px), 1180px);
+  }
+
+  .telvis-section::after,
+  .telvis-hero::after {
+    width: min(calc(100% - 28px), 1180px);
+  }
+
+  .telvis-section-header {
+    margin-bottom: 28px;
+  }
+
+  .telvis-section-note {
+    margin-top: 18px;
+  }
+
+  .telvis-split {
+    gap: 20px;
+  }
+
+  .telvis-split-copy .telvis-section-header {
+    margin-bottom: 16px;
+  }
+
+  .telvis-plan-grid,
+  .telvis-bento,
+  .telvis-feature-grid,
+  .telvis-device-grid,
+  .telvis-tips-grid,
+  .telvis-why-grid,
+  .telvis-steps,
+  .telvis-question-cloud,
+  .telvis-faq-list {
+    gap: 12px;
+  }
+
+  .telvis-plan-card,
+  .telvis-bento-card,
+  .telvis-feature-tile,
+  .telvis-device-card,
+  .telvis-why-card,
+  .telvis-step-card,
+  .telvis-question-chip {
+    padding: 20px;
+  }
+
+  .telvis-panel,
+  .telvis-tips-shell {
+    padding: 22px;
+  }
+
+  .telvis-tips-grid {
+    margin: 14px 0 16px;
+  }
+
+  .telvis-inline-actions {
+    margin-top: 22px;
+    gap: 12px;
+  }
+
+  .telvis-final-panel {
+    padding: 24px 18px;
+  }
+
+  .telvis-final-panel .telvis-section-header {
+    margin-bottom: 20px;
+  }
+
+  .telvis-final-panel .telvis-section-note {
+    margin-top: 18px;
+  }
+
+  .telvis-faq-layout {
+    gap: 18px;
+  }
+
+  .telvis-faq-item summary {
+    padding: 14px 16px;
+    font-size: 15px;
+  }
+
+  .telvis-faq-item p {
+    padding: 0 16px 14px;
+  }
+
+  .telvis-footer {
+    margin-top: 20px;
+    padding: 40px 0 28px;
+  }
+
+  .telvis-footer-top {
+    gap: 24px;
+  }
+
+  .telvis-footer-trust {
+    margin-top: 22px;
+    padding-top: 20px;
+  }
+
+  .telvis-footer-bottom {
+    margin-top: 18px;
+  }
+
+  .telvis-h1 {
+    font-size: clamp(1.8125rem, 7.5vw, 2.3125rem);
+    margin-bottom: 12px;
+  }
+
+  .telvis-content {
+    margin-top: 10px;
+    gap: 6px;
+  }
+
+  .telvis-eyebrow {
+    margin-bottom: 12px;
+  }
+
+  .telvis-copy p + p {
+    margin-top: 12px;
+  }
+
+  .telvis-actions {
+    margin-top: 4px;
+  }
+
+  .telvis-copy {
+    font-size: clamp(13px, 3.5vw, 15px);
+    line-height: 1.55;
+  }
+
+  .telvis-trust {
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    gap: clamp(4px, 1.2vw, 6px);
+    margin-top: 14px;
+    margin-bottom: 8px;
+  }
+
+  .telvis-trust-pill {
+    flex: 1 1 0;
+    min-width: 0;
+    padding: 7px clamp(4px, 1.4vw, 8px);
+    font-size: clamp(7.5px, 2.15vw, 9px);
+    letter-spacing: -0.01em;
+  }
+
+  .telvis-visual-wrap {
+    position: relative;
+    display: block;
+    width: min(100%, 370px);
+    height: 278px;
+    margin: 24px auto 0;
+    overflow: visible;
+  }
+
+  .telvis-visual {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 330px;
+    margin: 0;
+    transform: translate(-50%, -50%) scale(0.78);
+    transform-origin: center center;
+  }
+
+  .telvis-orbit-card {
+    max-width: min(36vw, 132px);
+    min-height: 42px;
+    padding: 7px 10px;
+    gap: 6px;
+  }
+
+  .telvis-orbit-card span {
+    font-size: 11px;
+    line-height: 1.15;
+  }
+
+  .telvis-orbit-card svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .telvis-orbit-logo {
+    width: 30%;
+    min-width: 90px;
+    max-width: 114px;
+  }
+}
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 370px) {
+  .telvis-container {
+    width: calc(100% - 22px);
+  }
+
+  .telvis-h1 {
+    font-size: 1.75rem;
+  }
+
+  .telvis-section-title {
+    font-size: 1.9rem;
+  }
+
+  .telvis-copy {
+    font-size: 12.5px;
+  }
+
+  .telvis-actions {
+    gap: 8px;
+  }
+
+  .telvis-cta-primary,
+  .telvis-cta-secondary {
+    padding-inline: 10px;
+
+    font-size: 13px;
+  }
+
+  .telvis-trust {
+    gap: 4px;
+  }
+
+  .telvis-trust-pill {
+    padding: 6px 4px;
+    font-size: 7.5px;
+  }
+
+  .telvis-visual-wrap {
+    width: min(100%, 340px);
+    height: 252px;
+    margin-top: 20px;
+  }
+
+  .telvis-visual {
+    width: 310px;
+    transform: translate(-50%, -50%) scale(0.74);
+  }
+
+  .telvis-orbit-card {
+    padding: 7px 10px;
+    min-height: 42px;
+    gap: 6px;
+  }
+
+  .telvis-orbit-card span {
+    font-size: 11.5px;
+  }
+
+  .telvis-orbit-card svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+/* =========================================================
+   VERY SMALL DEVICES
+   ========================================================= */
+
+@media (max-width: 330px) {
+  .telvis-actions {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================================================
+   ACCESSIBILITY — REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .telvis-orbit-rotator,
+  .telvis-orbit-card-spin,
+  .telvis-orbit-arc,
+  .telvis-orbit-guide {
+    animation: none;
+  }
+
+  .telvis-cta-primary,
+  .telvis-cta-secondary,
+  .telvis-menu {
+    transition: none;
+  }
+}
+
+/* =========================================================
+   PAGE SECTIONS — glass system + varied layouts
+   ========================================================= */
+
+.telvis-section {
+  position: relative;
+  padding: 88px 0;
+  background: transparent;
+}
+
+.telvis-section::after,
+.telvis-hero::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  z-index: 1;
+  transform: translateX(-50%);
+  width: min(calc(100% - 36px), 1180px);
+  height: 1px;
+  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(98, 70, 255, 0.12) 16%,
+    rgba(182, 76, 255, 0.55) 50%,
+    rgba(98, 70, 255, 0.12) 84%,
+    transparent 100%
+  );
+  box-shadow:
+    0 0 1px rgba(255, 255, 255, 0.08),
+    0 0 18px rgba(148, 80, 255, 0.22),
+    0 0 42px rgba(98, 70, 255, 0.1);
+}
+
+.telvis-section::before,
+.telvis-hero::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -1px;
+  z-index: 2;
+  transform: translateX(-50%);
+  width: min(120px, 28vw);
+  height: 2px;
+  pointer-events: none;
+  border-radius: 999px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.92) 48%,
+    rgba(198, 140, 255, 0.95) 52%,
+    transparent
+  );
+  filter: blur(0.4px);
+  opacity: 0.85;
+}
+
+.telvis-final-cta::after,
+.telvis-final-cta::before {
+  display: none;
+}
+
+.telvis-section-inner {
+  width: min(calc(100% - 36px), 1180px);
+  margin-inline: auto;
+}
+
+.telvis-section-header {
+  max-width: 760px;
+  margin-bottom: 40px;
+}
+
+.telvis-section-header.is-center {
+  margin-inline: auto;
+  text-align: center;
+}
+
+.telvis-section-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  margin: 0 0 14px;
+  padding: 7px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(16px) saturate(160%);
+  -webkit-backdrop-filter: blur(16px) saturate(160%);
+  color: #d8cbff;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.telvis-section-title {
+  max-width: 690px;
+  margin: 0 0 16px;
+  color: #fbfbff;
+  font-size: clamp(2rem, 8.4vw, 2.55rem);
+  line-height: 1.08;
+  font-weight: 780;
+  letter-spacing: -0.045em;
+  text-wrap: balance;
+}
+
+.telvis-section-header.is-center .telvis-section-title {
+  max-width: 820px;
+  margin-inline: auto;
+}
+
+.telvis-section-lead {
+  margin: 0;
+  color: var(--telvis-body);
+  font-size: clamp(15px, 2.1vw, 18px);
+  line-height: 1.65;
+}
+
+.telvis-section-lead.is-center,
+.telvis-section-note.is-center {
+  text-align: center;
+  max-width: 720px;
+  margin-inline: auto;
+}
+
+.telvis-section-note {
+  margin: 28px 0 0;
+  color: var(--telvis-muted);
+  font-size: 13.5px;
+  line-height: 1.6;
+}
+
+/* iOS-style glass */
+.telvis-glass {
+  position: relative;
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background:
+    linear-gradient(
+      165deg,
+      rgba(255, 255, 255, 0.12) 0%,
+      rgba(255, 255, 255, 0.04) 42%,
+      rgba(90, 70, 180, 0.12) 100%
+    );
+  background-color: rgba(12, 14, 40, 0.42);
+  backdrop-filter: blur(28px) saturate(170%);
+  -webkit-backdrop-filter: blur(28px) saturate(170%);
+  box-shadow:
+    0 18px 50px rgba(0, 0, 0, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.telvis-glass::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.08),
+    transparent 28%
+  );
+}
+
+.telvis-icon-badge {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  flex-shrink: 0;
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: linear-gradient(
+    160deg,
+    rgba(255, 255, 255, 0.16),
+    rgba(120, 90, 255, 0.16)
+  );
+  color: #e4d8ff;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.22),
+    0 8px 18px rgba(80, 50, 180, 0.18);
+}
+
+.telvis-icon-badge.is-large {
+  width: 54px;
+  height: 54px;
+  border-radius: 18px;
+}
+
+.telvis-info-title,
+.telvis-panel-title {
+  position: relative;
+  z-index: 1;
+  margin: 0 0 10px;
+  color: var(--telvis-heading);
+  font-size: 1.15rem;
+  line-height: 1.3;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.telvis-info-body {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  color: var(--telvis-body);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.telvis-info-body + .telvis-cta-primary,
+.telvis-info-body + .telvis-cta-secondary,
+.telvis-info-body + .telvis-cta-glass {
+  margin-top: 20px;
+}
+
+/* Plans */
+.telvis-plan-grid {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: 1fr;
+}
+
+.telvis-plan-card {
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+  transition:
+    transform 200ms ease,
+    border-color 200ms ease,
+    box-shadow 200ms ease;
+}
+
+.telvis-plan-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(190, 150, 255, 0.35);
+  box-shadow:
+    0 24px 55px rgba(0, 0, 0, 0.32),
+    0 0 30px rgba(120, 70, 255, 0.14),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.telvis-plan-card.is-featured {
+  border-color: rgba(190, 140, 255, 0.42);
+  background:
+    linear-gradient(
+      165deg,
+      rgba(255, 255, 255, 0.16) 0%,
+      rgba(130, 80, 255, 0.16) 45%,
+      rgba(70, 50, 160, 0.18) 100%
+    );
+  background-color: rgba(24, 16, 64, 0.5);
+}
+
+.telvis-plan-top {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.telvis-plan-duration {
+  margin: 0;
+  color: rgba(240, 236, 255, 0.9);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.telvis-plan-title {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+}
+
+.telvis-plan-price {
+  display: inline-block;
+  font-size: clamp(2rem, 4vw, 2.4rem);
+  font-weight: 780;
+  letter-spacing: -0.04em;
+  background: linear-gradient(
+    100deg,
+    #b64cff 0%,
+    #9450ff 25%,
+    #744eff 58%,
+    #5362ff 100%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+.telvis-plan-meta {
+  position: relative;
+  z-index: 1;
+  margin: 6px 0 12px;
+  color: #c9b8ff;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.telvis-plan-summary {
+  position: relative;
+  z-index: 1;
+  margin: 0 0 18px;
+  color: var(--telvis-body);
+  font-size: 14.5px;
+  line-height: 1.55;
+  min-height: 3.2em;
+}
+
+.telvis-feature-list,
+.telvis-check-list {
+  position: relative;
+  z-index: 1;
+  margin: 0 0 20px;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 11px;
+}
+
+.telvis-feature-list li,
+.telvis-check-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  color: var(--telvis-body);
+  font-size: 13.5px;
+  line-height: 1.45;
+}
+
+.telvis-feature-list li svg,
+.telvis-check-list li svg {
+  flex-shrink: 0;
+  margin-top: 1px;
+  color: #b79cff;
+}
+
+.telvis-plan-cta {
+  width: 100%;
+  margin-top: auto;
+  gap: 8px;
+}
+
+.telvis-cta-glass {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 50px;
+  padding: 11px 16px;
+  border-radius: var(--radius-button);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 14.5px;
+  font-weight: 700;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  transition:
+    transform 180ms ease,
+    background 180ms ease;
+}
+
+.telvis-cta-glass:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.telvis-inline-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: center;
+  margin-top: 32px;
+}
+
+.telvis-text-link {
+  color: #d7c8ff;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.telvis-text-link:hover {
+  color: #ffffff;
+}
+
+/* Catalogue bento */
+.telvis-bento {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: 1fr;
+}
+
+.telvis-bento-card {
+  padding: 24px;
+  display: grid;
+  gap: 14px;
+  align-content: start;
+  min-height: 100%;
+}
+
+.telvis-bento-card .telvis-info-body {
+  margin: 0;
+}
+
+/* Split layouts */
+.telvis-split {
+  display: grid;
+  gap: 28px;
+  align-items: stretch;
+}
+
+.telvis-split-copy .telvis-section-header {
+  margin-bottom: 22px;
+}
+
+.telvis-split-highlights {
+  display: grid;
+  gap: 12px;
+}
+
+.telvis-mini-stat {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 18px;
+}
+
+.telvis-mini-stat strong {
+  display: block;
+  color: var(--telvis-heading);
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.telvis-mini-stat span {
+  display: block;
+  margin-top: 3px;
+  color: var(--telvis-muted);
+  font-size: 13px;
+}
+
+.telvis-panel {
+  padding: 28px;
+}
+
+.telvis-panel-head {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.telvis-panel-head .telvis-panel-title {
+  margin: 0;
+}
+
+/* Included / features */
+.telvis-feature-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: 1fr;
+}
+
+.telvis-feature-tile {
+  padding: 26px;
+  display: grid;
+  gap: 14px;
+  align-content: start;
+  transition: transform 200ms ease;
+}
+
+.telvis-feature-tile:hover {
+  transform: translateY(-3px);
+}
+
+/* Devices */
+.telvis-device-grid {
+  display: grid;
+  gap: 16px;
+}
+
+.telvis-device-card {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 16px;
+  padding: 22px;
+  align-items: start;
+}
+
+.telvis-device-card .telvis-info-body {
+  margin-top: 8px;
+}
+
+/* Tips */
+.telvis-tips-shell {
+  padding: 28px;
+}
+
+.telvis-tips-grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 12px;
+  margin: 18px 0 22px;
+}
+
+.telvis-tip-item {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 14px;
+  align-items: center;
+  padding: 14px 16px;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.telvis-tip-item p {
+  margin: 0;
+  color: var(--telvis-body);
+  font-size: 14.5px;
+  line-height: 1.5;
+}
+
+.telvis-tips-note {
+  margin-top: 0;
+}
+
+/* Clarity table */
+.telvis-table-wrap {
+  overflow: hidden;
+  margin-bottom: 22px;
+  padding: 20px;
+}
+
+.telvis-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  min-width: 0;
+}
+
+.telvis-table th,
+.telvis-table td {
+  padding: 16px 18px;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  color: var(--telvis-body);
+  font-size: 14.5px;
+  line-height: 1.55;
+}
+
+.telvis-table thead th {
+  color: var(--telvis-heading);
+  font-weight: 700;
+  font-size: 15px;
+  background: rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 16px 18px;
+}
+
+.telvis-table thead th:first-child {
+  border-top-left-radius: 14px;
+}
+
+.telvis-table thead th:last-child {
+  border-top-right-radius: 14px;
+}
+
+.telvis-table-head {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.telvis-table tbody th {
+  color: var(--telvis-heading);
+  font-weight: 600;
+  width: 34%;
+}
+
+.telvis-table tr:last-child th,
+.telvis-table tr:last-child td {
+  border-bottom: 0;
+}
+
+.telvis-why-panel {
+  margin-top: 8px;
+}
+
+/* Steps */
+.telvis-steps {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 16px;
+  counter-reset: none;
+}
+
+.telvis-step-card {
+  padding: 24px;
+  display: grid;
+  gap: 14px;
+}
+
+.telvis-step-top {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.telvis-step-number {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+/* Questions cloud */
+.telvis-question-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin: 0 0 28px;
+  padding: 0;
+  list-style: none;
+}
+
+.telvis-question-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 18px;
+  border-radius: 999px;
+  color: var(--telvis-heading);
+  font-size: 14.5px;
+  font-weight: 600;
+}
+
+.telvis-question-chip svg {
+  color: #c4a8ff;
+}
+
+/* Why choose */
+.telvis-why-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: 1fr;
+}
+
+.telvis-why-card {
+  padding: 26px;
+  display: grid;
+  gap: 14px;
+  align-content: start;
+  min-height: 100%;
+}
+
+/* FAQ */
+.telvis-faq-layout {
+  display: grid;
+  gap: 28px;
+}
+
+.telvis-faq-intro {
+  display: grid;
+  gap: 16px;
+  align-content: start;
+}
+
+.telvis-faq-intro .telvis-section-header {
+  margin-bottom: 0;
+}
+
+.telvis-faq-list {
+  display: grid;
+  gap: 12px;
+}
+
+.telvis-faq-item {
+  padding: 0;
+  overflow: hidden;
+}
+
+.telvis-faq-item summary {
+  position: relative;
+  z-index: 1;
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 20px;
+  color: var(--telvis-heading);
+  font-size: 16px;
+  font-weight: 650;
+  letter-spacing: -0.015em;
+}
+
+.telvis-faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.telvis-faq-chevron {
+  flex-shrink: 0;
+  color: #c4a8ff;
+  transition: transform 180ms ease;
+}
+
+.telvis-faq-item[open] .telvis-faq-chevron {
+  transform: rotate(180deg);
+}
+
+.telvis-faq-item p {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  padding: 0 20px 18px;
+  color: var(--telvis-body);
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+/* Final CTA */
+.telvis-final-panel {
+  padding: clamp(28px, 5vw, 56px);
+  text-align: center;
+}
+
+.telvis-final-panel .telvis-section-header {
+  margin-inline: auto;
+  margin-bottom: 28px;
+}
+
+.telvis-final-actions {
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+.telvis-final-actions .telvis-cta-secondary {
+  gap: 8px;
+}
+
+.telvis-final-panel .telvis-section-note {
+  margin-top: 28px;
+}
+
+@media (min-width: 768px) {
+  .telvis-section {
+    padding: 110px 0;
+  }
+
+  .telvis-section-inner {
+    width: min(calc(100% - 48px), 1180px);
+  }
+
+  .telvis-section::after,
+  .telvis-hero::after {
+    width: min(calc(100% - 48px), 1180px);
+  }
+
+  .telvis-section-header {
+    margin-bottom: 48px;
+  }
+
+  .telvis-plan-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+  }
+
+  .telvis-bento {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+  }
+
+  .telvis-bento-card.is-wide {
+    grid-column: 1 / -1;
+  }
+
+  .telvis-split {
+    grid-template-columns: 1fr 1.05fr;
+    gap: 36px;
+    align-items: center;
+  }
+
+  .telvis-split.is-reverse {
+    grid-template-columns: 1.05fr 1fr;
+  }
+
+  .telvis-feature-grid,
+  .telvis-device-grid,
+  .telvis-tips-grid,
+  .telvis-why-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+  }
+
+  .telvis-steps {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+  }
+
+  .telvis-faq-layout {
+    grid-template-columns: minmax(240px, 0.8fr) 1.2fr;
+    gap: 40px;
+    align-items: start;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1099px) {
+  .telvis-why-card:nth-child(5) {
+    grid-column: 1 / -1;
+    max-width: calc(50% - 9px);
+    justify-self: center;
+  }
+}
+
+@media (min-width: 1100px) {
+  .telvis-plan-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .telvis-bento {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+
+  .telvis-bento-card.is-wide {
+    grid-column: span 6;
+  }
+
+  .telvis-bento-card:not(.is-wide) {
+    grid-column: span 3;
+  }
+
+  .telvis-bento-card:nth-child(2),
+  .telvis-bento-card:nth-child(3) {
+    grid-column: span 3;
+  }
+
+  .telvis-bento-card:nth-child(4),
+  .telvis-bento-card:nth-child(5) {
+    grid-column: span 3;
+  }
+
+  .telvis-feature-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .telvis-device-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .telvis-tips-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .telvis-why-grid {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 18px;
+  }
+
+  .telvis-why-card {
+    grid-column: span 2;
+    max-width: none;
+    justify-self: stretch;
+    width: 100%;
+  }
+
+  .telvis-why-card:nth-child(4) {
+    grid-column: 2 / span 2;
+  }
+
+  .telvis-why-card:nth-child(5) {
+    grid-column: 4 / span 2;
+  }
+
+  .telvis-steps {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 767px) {
+  .telvis-table-wrap {
+    padding: 16px;
+  }
+
+  .telvis-table thead tr {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+
+  .telvis-table thead th {
+    display: block;
+    width: 100%;
+    border-radius: 12px;
+  }
+
+  .telvis-table thead th:first-child,
+  .telvis-table thead th:last-child {
+    border-radius: 12px;
+  }
+
+  .telvis-table tbody tr {
+    display: block;
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .telvis-table tbody th,
+  .telvis-table tbody td {
+    display: block;
+    width: 100%;
+    padding: 6px 0;
+    border-bottom: 0;
+  }
+
+  .telvis-table tbody th {
+    color: #c4a8ff;
+    font-size: 13px;
+    font-weight: 600;
+    padding-bottom: 4px;
+  }
+
+  .telvis-table tbody td {
+    padding-bottom: 8px;
+    font-size: 14px;
+  }
+
+  .telvis-table tbody tr:last-child {
+    border-bottom: 0;
+  }
+}
+
+@media (max-width: 370px) {
+  .telvis-section-inner {
+    width: calc(100% - 22px);
+  }
+
+  .telvis-final-actions {
+    grid-template-columns: 1fr;
+  }
+
+  .telvis-device-card {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.telvis-footer {
+  position: relative;
+  margin-top: 32px;
+  padding: 56px 0 32px;
+  border-top: 1px solid rgba(112, 89, 255, 0.16);
+}
+
+.telvis-footer-inner {
+  width: min(calc(100% - 36px), 1180px);
+  margin-inline: auto;
+}
+
+.telvis-footer-top {
+  display: grid;
+  gap: 32px;
+}
+
+.telvis-footer-brand-col {
+  display: grid;
+  gap: 18px;
+  max-width: 420px;
+}
+
+.telvis-footer-brand {
+  display: inline-flex;
+  width: fit-content;
+  text-decoration: none;
+}
+
+.telvis-footer-logo {
+  display: block;
+  width: 76px;
+  height: 76px;
+  object-fit: contain;
+  filter:
+    drop-shadow(0 0 5px rgba(255, 255, 255, 0.25))
+    drop-shadow(0 0 10px rgba(144, 65, 255, 0.75));
+}
+
+.telvis-footer-about {
+  margin: 0;
+  color: rgba(228, 226, 245, 0.78);
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+.telvis-footer-columns {
+  display: grid;
+  gap: 28px 24px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.telvis-footer-col {
+  display: grid;
+  gap: 12px;
+  align-content: start;
+}
+
+.telvis-footer-heading {
+  margin: 0;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 650;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.telvis-footer-links {
+  display: grid;
+  gap: 10px;
+}
+
+.telvis-footer-link {
+  width: fit-content;
+  color: rgba(236, 235, 250, 0.82);
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.4;
+  transition: color 180ms ease;
+}
+
+.telvis-footer-link:hover {
+  color: #ffffff;
+}
+
+.telvis-footer-note {
+  margin: 4px 0 0;
+  max-width: 260px;
+  color: rgba(200, 195, 230, 0.62);
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.telvis-footer-trust {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 20px;
+  margin-top: 32px;
+  padding-top: 28px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.telvis-footer-trust-item {
+  color: rgba(220, 215, 245, 0.72);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.telvis-footer-bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin-top: 24px;
+  padding: 0 4px;
+  text-align: center;
+}
+
+.telvis-footer-copy {
+  margin: 0;
+  color: rgba(220, 218, 240, 0.58);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.telvis-footer-legal {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px 16px;
+}
+
+.telvis-footer-legal-link {
+  color: rgba(200, 188, 255, 0.72);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  transition: color 180ms ease;
+}
+
+.telvis-footer-legal-link:hover {
+  color: #ffffff;
+}
+
+@media (min-width: 768px) {
+  .telvis-footer {
+    padding: 72px 0 36px;
+  }
+
+  .telvis-footer-top {
+    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.25fr);
+    gap: 40px;
+    align-items: start;
+  }
+
+  .telvis-footer-columns {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .telvis-footer-bottom {
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+  }
+
+  .telvis-footer-legal {
+    justify-content: flex-end;
+  }
+}
+
+@media (min-width: 1024px) {
+  .telvis-logo {
+    width: 64px;
+    height: 64px;
+  }
+
+  .telvis-footer-logo {
+    width: 88px;
+    height: 88px;
+  }
 }
