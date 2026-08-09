@@ -1333,6 +1333,18 @@ main > :first-child.telvis-hero-page {
   gap: 8px;
 }
 
+.telvis-hero.telvis-hero-page .telvis-actions {
+  grid-template-columns: 1fr;
+  width: 100%;
+  max-width: 420px;
+}
+
+.telvis-hero.telvis-hero-page .telvis-cta-primary,
+.telvis-hero.telvis-hero-page .telvis-cta-secondary {
+  width: 100%;
+  white-space: nowrap;
+}
+
 /* =========================================================
    PRIMARY CTA
    ========================================================= */
@@ -2254,6 +2266,22 @@ main > :first-child.telvis-hero-page {
     max-width: 100%;
   }
 
+  .telvis-hero.telvis-hero-page .telvis-actions {
+    grid-template-columns: 1fr;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .telvis-hero.telvis-hero-page .telvis-cta-primary,
+  .telvis-hero.telvis-hero-page .telvis-cta-secondary {
+    width: 100%;
+    min-height: 48px;
+    padding: 10px 14px;
+    font-size: clamp(12px, 3.2vw, 14px);
+    line-height: 1.15;
+    white-space: nowrap;
+  }
+
   .telvis-hero-trust-line {
     margin-top: 14px;
     font-size: clamp(9px, 2.35vw, 10px);
@@ -2365,6 +2393,12 @@ main > :first-child.telvis-hero-page {
 @media (max-width: 360px) {
   .telvis-hero:not(.telvis-hero-page) .telvis-copy {
     max-width: min(86%, 314px);
+  }
+
+  .telvis-hero.telvis-hero-page .telvis-cta-primary,
+  .telvis-hero.telvis-hero-page .telvis-cta-secondary {
+    font-size: clamp(11px, 3vw, 12.5px);
+    padding: 9px 10px;
   }
 
   .telvis-hero:not(.telvis-hero-page) .telvis-play-icon {
