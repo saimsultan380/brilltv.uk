@@ -1,5 +1,5 @@
-import { ScrollReveal } from "@/components/ui/ScrollReveal";
-import { SectionHeader } from "@/components/ui/SectionHeader";
+import { CardReveal, CardRevealPart } from "@/components/ui/CardReveal";
+import { SectionHeader, TitleAccent } from "@/components/ui/SectionHeader";
 import { reviewCollectionSteps } from "@/lib/reviews-data";
 
 export function ReviewsCollection() {
@@ -14,25 +14,29 @@ export function ReviewsCollection() {
             <SectionHeader
               id="reviews-collection-heading"
               eyebrow="Our process"
-              title="How Reviews Are Collected"
+              title={
+                <>
+                  How <TitleAccent>Reviews</TitleAccent> Are Collected
+                </>
+              }
             />
           </div>
 
-          <ScrollReveal>
-            <div className="telvis-glass telvis-panel telvis-review-process-panel">
+          <CardReveal className="telvis-glass telvis-panel telvis-review-process-panel">
+            <CardRevealPart>
               <ol className="telvis-review-numbered-list">
                 {reviewCollectionSteps.map((step) => (
                   <li key={step}>{step}</li>
                 ))}
               </ol>
+            </CardRevealPart>
 
-              <p>
-                We do not write reviews for customers, sell higher placement or
-                turn criticism into praise. Telvis may reply to explain how a
-                reported problem was handled.
-              </p>
-            </div>
-          </ScrollReveal>
+            <CardRevealPart as="p">
+              We do not write reviews for customers, sell higher placement or
+              turn criticism into praise. Telvis may reply to explain how a
+              reported problem was handled.
+            </CardRevealPart>
+          </CardReveal>
         </div>
       </div>
     </section>

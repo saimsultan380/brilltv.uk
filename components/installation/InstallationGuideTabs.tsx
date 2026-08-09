@@ -15,8 +15,9 @@ import {
   TvMinimal,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { GuideContent } from "@/components/installation/GuideContent";
+import { CardReveal, CardRevealPart } from "@/components/ui/CardReveal";
 import {
   installationDeviceTabs,
   installationGuideDefaultId,
@@ -42,16 +43,26 @@ const guideDeviceIcons: Record<string, LucideIcon> = {
 
 export function InstallationGuideTabs() {
   const [activeId, setActiveId] = useState(installationGuideDefaultId);
+  const shouldScrollRef = useRef(false);
+
+  useEffect(() => {
+    if (!shouldScrollRef.current) return;
+    shouldScrollRef.current = false;
+
+    if (!window.matchMedia(MOBILE_QUERY).matches) return;
+
+    const panel = document.getElementById(`guide-panel-${activeId}`);
+    if (!panel) return;
+
+    requestAnimationFrame(() => {
+      panel.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  }, [activeId]);
 
   const handleTabClick = (id: string) => {
+    if (id === activeId) return;
+    shouldScrollRef.current = true;
     setActiveId(id);
-
-    if (!window.matchMedia(MOBILE_QUERY).matches) {
-      return;
-    }
-
-    const panel = document.getElementById(`guide-panel-${id}`);
-    panel?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
   return (
@@ -90,17 +101,22 @@ export function InstallationGuideTabs() {
           const isActive = activeId === section.id;
 
           return (
-            <article
+            <CardReveal
               key={section.id}
+              as="article"
               id={`guide-panel-${section.id}`}
               role="tabpanel"
               aria-labelledby={`guide-tab-${section.id}`}
               className={`telvis-glass telvis-guide-panel${isActive ? " is-active" : ""}`}
               hidden={!isActive}
             >
-              <h2 className="telvis-guide-panel-title">{section.title}</h2>
-              <GuideContent blocks={section.blocks} />
-            </article>
+              <CardRevealPart as="h2" className="telvis-guide-panel-title">
+                {section.title}
+              </CardRevealPart>
+              <CardRevealPart>
+                <GuideContent blocks={section.blocks} />
+              </CardRevealPart>
+            </CardReveal>
           );
         })}
       </div>

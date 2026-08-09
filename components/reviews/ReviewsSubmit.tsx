@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { ScrollReveal } from "@/components/ui/ScrollReveal";
-import { SectionHeader } from "@/components/ui/SectionHeader";
+import { CardReveal, CardRevealPart } from "@/components/ui/CardReveal";
+import { SectionHeader, TitleAccent } from "@/components/ui/SectionHeader";
 import { reviewSubmitChecklist } from "@/lib/reviews-data";
 import { routes, supportConfig } from "@/lib/site";
 
@@ -11,21 +11,30 @@ export function ReviewsSubmit() {
       aria-labelledby="reviews-submit-heading"
     >
       <div className="telvis-section-inner">
-        <ScrollReveal>
-          <div className="telvis-glass telvis-review-submit-panel">
+        <CardReveal className="telvis-glass telvis-review-submit-panel">
+          <CardRevealPart>
             <SectionHeader
               id="reviews-submit-heading"
               eyebrow="Share feedback"
-              title="Submit Your IPTV UK Review"
+              title={
+                <>
+                  Submit Your <TitleAccent>IPTV UK</TitleAccent> Review
+                </>
+              }
               lead="Already used the service? Send an honest review covering:"
+              animate={false}
             />
+          </CardRevealPart>
 
+          <CardRevealPart>
             <ul className="telvis-contact-check-list">
               {reviewSubmitChecklist.map((item) => (
                 <li key={item}>{item}</li>
               ))}
             </ul>
+          </CardRevealPart>
 
+          <CardRevealPart>
             <div className="telvis-review-submit-contact">
               <p>
                 Email:{" "}
@@ -42,12 +51,14 @@ export function ReviewsSubmit() {
                 </a>
               </p>
             </div>
+          </CardRevealPart>
 
-            <p className="telvis-review-submit-note">
-              Never include your password, full server address, payment
-              information or other private account details in a review.
-            </p>
+          <CardRevealPart as="p" className="telvis-review-submit-note">
+            Never include your password, full server address, payment
+            information or other private account details in a review.
+          </CardRevealPart>
 
+          <CardRevealPart>
             <div className="telvis-actions">
               <a
                 href={`mailto:${supportConfig.email}?subject=IPTV%20UK%20Customer%20Review`}
@@ -59,8 +70,8 @@ export function ReviewsSubmit() {
                 Contact Support
               </Link>
             </div>
-          </div>
-        </ScrollReveal>
+          </CardRevealPart>
+        </CardReveal>
       </div>
     </section>
   );

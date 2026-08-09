@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { CardReveal, CardRevealPart } from "@/components/ui/CardReveal";
 import { routes, siteConfig, supportConfig } from "@/lib/site";
 
 export function InstallationGuideSchema() {
@@ -86,33 +87,37 @@ export function InstallationGuideSupport() {
       aria-labelledby="installation-support-heading"
     >
       <div className="telvis-section-inner">
-        <div className="telvis-glass telvis-guide-support-card">
-          <h2 id="installation-support-heading" className="telvis-guide-panel-title">
+        <CardReveal className="telvis-glass telvis-guide-support-card">
+          <CardRevealPart as="h2" id="installation-support-heading" className="telvis-guide-panel-title">
             Still Need Help?
-          </h2>
-          <p>
+          </CardRevealPart>
+          <CardRevealPart as="p">
             Support is available 24 hours a day for installation and account
             troubleshooting.
-          </p>
-          <div className="telvis-guide-support-links">
-            <a href={supportConfig.whatsappUrl} target="_blank" rel="noopener noreferrer">
-              WhatsApp support
-            </a>
-            <a href={`mailto:${supportConfig.email}`}>{supportConfig.email}</a>
-          </div>
-          <div className="telvis-actions telvis-guide-support-cta">
-            <Link href={routes.contact} className="telvis-cta-primary">
-              Contact Installation Support
-            </Link>
-          </div>
-          <p className="telvis-section-note">
+          </CardRevealPart>
+          <CardRevealPart>
+            <div className="telvis-guide-support-links">
+              <a href={supportConfig.whatsappUrl} target="_blank" rel="noopener noreferrer">
+                WhatsApp support
+              </a>
+              <a href={`mailto:${supportConfig.email}`}>{supportConfig.email}</a>
+            </div>
+          </CardRevealPart>
+          <CardRevealPart>
+            <div className="telvis-actions telvis-guide-support-cta">
+              <Link href={routes.contact} className="telvis-cta-primary">
+                Contact Installation Support
+              </Link>
+            </div>
+          </CardRevealPart>
+          <CardRevealPart as="p" className="telvis-section-note">
             <Link href={routes.plans}>Compare IPTV UK plans</Link>
             {" • "}
             <Link href={routes.reviews}>Read customer reviews</Link>
             {" • "}
             <Link href={routes.contact}>Contact support</Link>
-          </p>
-        </div>
+          </CardRevealPart>
+        </CardReveal>
       </div>
     </section>
   );

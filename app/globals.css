@@ -284,7 +284,7 @@ a {
 .telvis-guide-standalone-title {
   margin: 0;
   color: var(--telvis-heading);
-  font-size: clamp(1.45rem, 4.2vw, 1.85rem);
+  font-size: clamp(calc(1.45rem - 3px), 4.2vw, calc(1.85rem - 3px));
   line-height: 1.15;
   font-weight: 780;
   letter-spacing: -0.035em;
@@ -598,7 +598,7 @@ a {
 .telvis-guide-panel-title {
   margin: 0 0 16px;
   color: var(--telvis-heading);
-  font-size: clamp(1.35rem, 4vw, 1.65rem);
+  font-size: clamp(calc(1.35rem - 3px), 4vw, calc(1.65rem - 3px));
   line-height: 1.2;
   font-weight: 780;
   letter-spacing: -0.03em;
@@ -718,9 +718,17 @@ a {
     border-radius: 10px;
   }
 
+  .telvis-guide-layout {
+    gap: 16px;
+  }
+
+  .telvis-guide-panels {
+    margin-top: 4px;
+  }
+
   .telvis-guide-panel {
     padding: 18px 16px;
-    scroll-margin-top: 88px;
+    scroll-margin-top: 96px;
   }
 
   .telvis-guide-before,
@@ -894,16 +902,14 @@ main > :first-child.telvis-hero-page {
   padding: 8px 10px;
 
   overflow: visible;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: none;
   border-radius: var(--radius-navbar);
 
   background: rgba(6, 8, 28, 0.78);
   backdrop-filter: blur(18px) saturate(165%);
   -webkit-backdrop-filter: blur(18px) saturate(165%);
 
-  box-shadow:
-    0 10px 40px rgba(0, 0, 0, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.07);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
 }
 
 .telvis-navbar-bar {
@@ -1024,8 +1030,7 @@ main > :first-child.telvis-hero-page {
     margin-top: 0;
     padding: 8px 10px 12px;
     overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    border: none;
     border-radius: 0 0 var(--radius-navbar) var(--radius-navbar);
     background: rgba(6, 8, 28, 0.94);
     backdrop-filter: blur(18px) saturate(165%);
@@ -1882,7 +1887,7 @@ main > :first-child.telvis-hero-page {
 
   .telvis-section-title {
     max-width: 820px;
-    font-size: clamp(3.5rem, 5.2vw, 5rem);
+    font-size: clamp(calc(3.5rem - 3px), 5.2vw, calc(5rem - 3px));
   }
 
   .telvis-copy {
@@ -1991,7 +1996,7 @@ main > :first-child.telvis-hero-page {
 
   .telvis-section-title {
     max-width: 820px;
-    font-size: clamp(2.8rem, 4.2vw, 4.4rem);
+    font-size: clamp(calc(2.8rem - 3px), 4.2vw, calc(4.4rem - 3px));
   }
 
   .telvis-copy {
@@ -2281,7 +2286,7 @@ main > :first-child.telvis-hero-page {
   }
 
   .telvis-section-title {
-    font-size: 1.9rem;
+    font-size: calc(1.9rem - 3px);
   }
 
   .telvis-copy {
@@ -2487,7 +2492,7 @@ main > :first-child.telvis-hero-page {
   max-width: 690px;
   margin: 0 0 16px;
   color: #fbfbff;
-  font-size: clamp(2rem, 8.4vw, 2.55rem);
+  font-size: clamp(calc(2rem - 3px), 8.4vw, calc(2.55rem - 3px));
   line-height: 1.08;
   font-weight: 780;
   letter-spacing: -0.045em;
@@ -2521,49 +2526,36 @@ main > :first-child.telvis-hero-page {
 }
 
 /* Glass surface */
+.telvis-card-reveal-wrap,
+.telvis-scroll-reveal-wrap {
+  width: 100%;
+  min-width: 0;
+}
+
+.telvis-plan-grid,
+.telvis-bento,
+.telvis-feature-grid,
+.telvis-device-grid,
+.telvis-tips-grid,
+.telvis-why-grid,
+.telvis-steps {
+  align-items: stretch;
+}
+
 .telvis-glass {
   position: relative;
   overflow: hidden;
   border-radius: 20px;
-  border: 1px solid var(--telvis-glass-border);
+  border: none;
   background: var(--telvis-glass-bg);
   backdrop-filter: var(--telvis-glass-blur);
   -webkit-backdrop-filter: var(--telvis-glass-blur);
   box-shadow: var(--telvis-glass-shadow);
 }
 
-.telvis-glass::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    var(--telvis-glass-edge),
-    transparent
-  );
-  pointer-events: none;
-  z-index: 0;
-}
-
+.telvis-glass::before,
 .telvis-glass::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 1px;
-  height: 100%;
-  background: linear-gradient(
-    180deg,
-    var(--telvis-glass-edge),
-    transparent,
-    rgba(255, 255, 255, 0.06)
-  );
-  pointer-events: none;
-  z-index: 0;
+  display: none;
 }
 
 .telvis-icon-badge {
@@ -2631,6 +2623,8 @@ main > :first-child.telvis-hero-page {
   display: flex;
   flex-direction: column;
   padding: 24px;
+  height: 100%;
+  min-height: 100%;
   transition:
     transform 200ms ease,
     border-color 200ms ease,
@@ -2817,6 +2811,7 @@ main > :first-child.telvis-hero-page {
   display: grid;
   gap: 14px;
   align-content: start;
+  height: 100%;
   min-height: 100%;
 }
 
@@ -2890,6 +2885,8 @@ main > :first-child.telvis-hero-page {
   display: grid;
   gap: 14px;
   align-content: start;
+  height: 100%;
+  min-height: 100%;
   transition: transform 200ms ease;
 }
 
@@ -2909,6 +2906,8 @@ main > :first-child.telvis-hero-page {
   gap: 16px;
   padding: 22px;
   align-items: start;
+  height: 100%;
+  min-height: 100%;
 }
 
 .telvis-device-card .telvis-info-body {
@@ -2937,6 +2936,8 @@ main > :first-child.telvis-hero-page {
   border-radius: 18px;
   border: 1px solid rgba(255, 255, 255, 0.08);
   background: rgba(255, 255, 255, 0.04);
+  height: 100%;
+  min-height: 100%;
 }
 
 .telvis-tip-item p {
@@ -3027,6 +3028,8 @@ main > :first-child.telvis-hero-page {
   padding: 24px;
   display: grid;
   gap: 14px;
+  height: 100%;
+  min-height: 100%;
 }
 
 .telvis-step-top {
@@ -3088,6 +3091,7 @@ main > :first-child.telvis-hero-page {
   display: grid;
   gap: 14px;
   align-content: start;
+  height: 100%;
   min-height: 100%;
 }
 
@@ -3648,7 +3652,7 @@ main > :first-child.telvis-hero-page {
 .telvis-contact-topic-title {
   margin: 0;
   color: var(--telvis-heading);
-  font-size: clamp(1.5rem, 4.5vw, 2rem);
+  font-size: clamp(calc(1.5rem - 3px), 4.5vw, calc(2rem - 3px));
   line-height: 1.12;
   font-weight: 780;
   letter-spacing: -0.035em;

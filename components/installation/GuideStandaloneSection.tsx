@@ -1,4 +1,5 @@
 import type { LucideIcon } from "lucide-react";
+import type { ReactNode } from "react";
 import {
   CheckCircle2,
   ClipboardList,
@@ -10,11 +11,12 @@ import {
 } from "lucide-react";
 import type { GuideBlock } from "@/lib/installation-guide-data";
 import { formatGuideText } from "@/lib/installation-guide-data";
+import { CardReveal, CardRevealPart } from "@/components/ui/CardReveal";
 
 type GuideStandaloneSectionProps = {
   id: string;
   eyebrow: string;
-  title: string;
+  title: ReactNode;
   blocks: GuideBlock[];
   variant: "checklist" | "steps" | "fields" | "ordered";
   icon: LucideIcon;
@@ -200,26 +202,28 @@ export function GuideStandaloneSection({
   return (
     <section className="telvis-section telvis-guide-standalone" aria-labelledby={id}>
       <div className="telvis-section-inner">
-        <article className="telvis-glass telvis-guide-standalone-card">
-          <header className="telvis-guide-standalone-head">
-            <div className="telvis-guide-standalone-head-main">
-              <span className="telvis-guide-standalone-eyebrow">{eyebrow}</span>
-              <h2 id={id} className="telvis-guide-standalone-title">
-                {title}
-              </h2>
-            </div>
-            <span className="telvis-guide-standalone-icon" aria-hidden="true">
-              <Icon size={22} strokeWidth={1.8} />
-            </span>
-          </header>
+        <CardReveal as="article" className="telvis-glass telvis-guide-standalone-card">
+          <CardRevealPart>
+            <header className="telvis-guide-standalone-head">
+              <div className="telvis-guide-standalone-head-main">
+                <span className="telvis-guide-standalone-eyebrow">{eyebrow}</span>
+                <h2 id={id} className="telvis-guide-standalone-title">
+                  {title}
+                </h2>
+              </div>
+              <span className="telvis-guide-standalone-icon" aria-hidden="true">
+                <Icon size={22} strokeWidth={1.8} />
+              </span>
+            </header>
+          </CardRevealPart>
 
-          <div className="telvis-guide-standalone-body">
+          <CardRevealPart className="telvis-guide-standalone-body">
             {variant === "checklist" ? <ChecklistBody blocks={blocks} /> : null}
             {variant === "steps" ? <StepsBody blocks={blocks} /> : null}
             {variant === "fields" ? <FieldsBody blocks={blocks} /> : null}
             {variant === "ordered" ? <OrderedBody blocks={blocks} /> : null}
-          </div>
-        </article>
+          </CardRevealPart>
+        </CardReveal>
       </div>
     </section>
   );

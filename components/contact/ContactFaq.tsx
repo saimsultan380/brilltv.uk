@@ -1,6 +1,6 @@
 import { ChevronDown } from "lucide-react";
 import { CardReveal, CardRevealPart } from "@/components/ui/CardReveal";
-import { SectionHeader } from "@/components/ui/SectionHeader";
+import { SectionHeader, TitleAccent } from "@/components/ui/SectionHeader";
 import { staggerDelay } from "@/lib/motion";
 
 const contactFaqs = [
@@ -42,7 +42,11 @@ export function ContactFaq() {
           <SectionHeader
             id="contact-faq-heading"
             eyebrow="FAQ"
-            title="Frequently Asked Contact Questions"
+            title={
+              <>
+                Frequently Asked <TitleAccent>Contact</TitleAccent> Questions
+              </>
+            }
           />
         </div>
 

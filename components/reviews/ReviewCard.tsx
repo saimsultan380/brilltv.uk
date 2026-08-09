@@ -1,3 +1,4 @@
+import { CardReveal, CardRevealPart } from "@/components/ui/CardReveal";
 import { StarRating } from "@/components/reviews/StarRating";
 import type { PublishedReview } from "@/lib/reviews-data";
 
@@ -16,22 +17,29 @@ export function ReviewCard({ review, className = "" }: ReviewCardProps) {
   ].filter(Boolean);
 
   return (
-    <article
+    <CardReveal
+      as="article"
       className={`telvis-glass telvis-review-card${className ? ` ${className}` : ""}`}
     >
-      <div className="telvis-review-card-header">
-        <StarRating rating={review.rating} />
-        <h3 className="telvis-review-card-title">{review.title}</h3>
-      </div>
+      <CardRevealPart>
+        <div className="telvis-review-card-header">
+          <StarRating rating={review.rating} />
+          <h3 className="telvis-review-card-title">{review.title}</h3>
+        </div>
+      </CardRevealPart>
 
-      <blockquote className="telvis-review-card-quote">
-        &ldquo;{review.body}&rdquo;
-      </blockquote>
+      <CardRevealPart>
+        <blockquote className="telvis-review-card-quote">
+          &ldquo;{review.body}&rdquo;
+        </blockquote>
+      </CardRevealPart>
 
-      <footer className="telvis-review-card-meta">
-        <cite className="telvis-review-card-author">{review.author}</cite>
-        <span>{details.join(" • ")}</span>
-      </footer>
-    </article>
+      <CardRevealPart>
+        <footer className="telvis-review-card-meta">
+          <cite className="telvis-review-card-author">{review.author}</cite>
+          <span>{details.join(" • ")}</span>
+        </footer>
+      </CardRevealPart>
+    </CardReveal>
   );
 }

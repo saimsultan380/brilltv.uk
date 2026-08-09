@@ -1,8 +1,8 @@
 "use client";
 
-import { motion, useReducedMotion } from "motion/react";
+import { useReducedMotion } from "motion/react";
 import type { CSSProperties, ReactNode } from "react";
-import { motionEase, motionViewport } from "@/lib/motion";
+import { getMotionComponent, motionEase, motionViewport } from "@/lib/motion";
 
 type ScrollRevealProps = {
   children: ReactNode;
@@ -17,23 +17,33 @@ export function ScrollReveal({
   children,
   className,
   delay = 0,
-  y = 16,
+  y = 0,
   as = "div",
   style,
 }: ScrollRevealProps) {
   const reduceMotion = useReducedMotion();
-  const Component = motion[as];
+  const Tag = as;
+
+  if (reduceMotion) {
+    return (
+      <Tag className={className} style={style}>
+        {children}
+      </Tag>
+    );
+  }
+
+  const MotionTag = getMotionComponent(as);
 
   return (
-    <Component
+    <MotionTag
       className={className}
       style={style}
-      initial={reduceMotion ? false : { opacity: 0, y }}
+      initial={{ opacity: 0, y }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={motionViewport}
-      transition={{ duration: 0.38, delay, ease: motionEase }}
+      transition={{ duration: 0.24, delay, ease: motionEase }}
     >
       {children}
-    </Component>
+    </MotionTag>
   );
 }

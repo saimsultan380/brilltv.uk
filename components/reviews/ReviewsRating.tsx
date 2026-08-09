@@ -1,6 +1,6 @@
-import { ScrollReveal } from "@/components/ui/ScrollReveal";
-import { SectionHeader } from "@/components/ui/SectionHeader";
 import { StarRating } from "@/components/reviews/StarRating";
+import { CardReveal, CardRevealPart } from "@/components/ui/CardReveal";
+import { SectionHeader, TitleAccent } from "@/components/ui/SectionHeader";
 import {
   getPublishedReviewStats,
   publishedReviews,
@@ -16,16 +16,23 @@ export function ReviewsRating() {
       aria-labelledby="reviews-rating-heading"
     >
       <div className="telvis-section-inner">
-        <ScrollReveal>
-          <div className="telvis-glass telvis-review-rating-panel">
+        <CardReveal className="telvis-glass telvis-review-rating-panel">
+          <CardRevealPart>
             <SectionHeader
               id="reviews-rating-heading"
               eyebrow="Overall rating"
-              title="Overall Customer Rating"
+              title={
+                <>
+                  Overall Customer <TitleAccent>Rating</TitleAccent>
+                </>
+              }
               align="center"
+              animate={false}
             />
+          </CardRevealPart>
 
-            {stats ? (
+          {stats ? (
+            <CardRevealPart>
               <div className="telvis-review-rating-summary">
                 <StarRating
                   rating={stats.average}
@@ -45,15 +52,15 @@ export function ReviewsRating() {
                   ) : null}
                 </p>
               </div>
-            ) : (
-              <p className="telvis-review-rating-placeholder">
-                Verified customer ratings are published only when genuine reviews
-                are visible on this page. The overall score and review count will
-                appear here once approved reviews are available.
-              </p>
-            )}
-          </div>
-        </ScrollReveal>
+            </CardRevealPart>
+          ) : (
+            <CardRevealPart as="p" className="telvis-review-rating-placeholder">
+              Verified customer ratings are published only when genuine reviews
+              are visible on this page. The overall score and review count will
+              appear here once approved reviews are available.
+            </CardRevealPart>
+          )}
+        </CardReveal>
       </div>
     </section>
   );

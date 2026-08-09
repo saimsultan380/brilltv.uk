@@ -9,6 +9,7 @@ type SectionHeaderProps = {
   title: ReactNode;
   lead?: string;
   align?: "left" | "center";
+  animate?: boolean;
 };
 
 export function SectionHeader({
@@ -17,11 +18,24 @@ export function SectionHeader({
   title,
   lead,
   align = "left",
+  animate = true,
 }: SectionHeaderProps) {
+  const headerClass = `telvis-section-header${align === "center" ? " is-center" : ""}`;
+
+  if (!animate) {
+    return (
+      <header className={headerClass}>
+        {eyebrow ? <p className="telvis-section-eyebrow">{eyebrow}</p> : null}
+        <h2 id={id} className="telvis-section-title">
+          {title}
+        </h2>
+        {lead ? <p className="telvis-section-lead">{lead}</p> : null}
+      </header>
+    );
+  }
+
   return (
-    <header
-      className={`telvis-section-header${align === "center" ? " is-center" : ""}`}
-    >
+    <header className={headerClass}>
       {eyebrow ? (
         <ScrollReveal delay={0}>
           <p className="telvis-section-eyebrow">{eyebrow}</p>

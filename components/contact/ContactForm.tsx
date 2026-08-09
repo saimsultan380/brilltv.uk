@@ -2,8 +2,8 @@
 
 import { FormEvent, useState } from "react";
 import { supportConfig } from "@/lib/site";
-import { SectionHeader } from "@/components/ui/SectionHeader";
-import { ScrollReveal } from "@/components/ui/ScrollReveal";
+import { CardReveal, CardRevealPart } from "@/components/ui/CardReveal";
+import { SectionHeader, TitleAccent } from "@/components/ui/SectionHeader";
 
 const helpTopics = [
   "24-hour trial",
@@ -62,15 +62,22 @@ export function ContactForm() {
       aria-labelledby="contact-form-heading"
     >
       <div className="telvis-section-inner">
-        <ScrollReveal>
-          <div className="telvis-glass telvis-contact-form-panel">
+        <CardReveal className="telvis-glass telvis-contact-form-panel">
+          <CardRevealPart>
             <SectionHeader
               id="contact-form-heading"
               eyebrow="Send a message"
-              title="Contact Form"
+              title={
+                <>
+                  <TitleAccent>Contact</TitleAccent> Form
+                </>
+              }
               lead="Include your device, app and a clear description so support can help faster."
+              animate={false}
             />
+          </CardRevealPart>
 
+          <CardRevealPart>
           <form className="telvis-contact-form" onSubmit={handleSubmit}>
             <div className="telvis-form-field">
               <label htmlFor="contact-name">Name</label>
@@ -175,8 +182,8 @@ export function ContactForm() {
               </p>
             ) : null}
           </form>
-          </div>
-        </ScrollReveal>
+          </CardRevealPart>
+        </CardReveal>
       </div>
     </section>
   );

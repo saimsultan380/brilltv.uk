@@ -1,4 +1,5 @@
 import { GuideStandaloneSection, guideStandaloneIcons } from "@/components/installation/GuideStandaloneSection";
+import { TitleAccent } from "@/components/ui/SectionHeader";
 import { beforeYouBeginSection } from "@/lib/installation-guide-data";
 
 export function InstallationGuideBefore() {
@@ -6,7 +7,11 @@ export function InstallationGuideBefore() {
     <GuideStandaloneSection
       id="guide-before-heading"
       eyebrow="Getting ready"
-      title={beforeYouBeginSection.title}
+      title={
+        <>
+          <TitleAccent>Before</TitleAccent> You Begin
+        </>
+      }
       blocks={beforeYouBeginSection.blocks}
       variant="checklist"
       icon={guideStandaloneIcons.before}

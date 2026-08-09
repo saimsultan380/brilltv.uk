@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ScrollReveal } from "@/components/ui/ScrollReveal";
+import { CardReveal, CardRevealPart } from "@/components/ui/CardReveal";
 import { routes, siteConfig, supportConfig } from "@/lib/site";
 
 export function ContactSchema() {
@@ -70,17 +70,19 @@ export function ContactFinalCta() {
       aria-labelledby="contact-final-heading"
     >
       <div className="telvis-section-inner">
-        <ScrollReveal>
-          <div className="telvis-glass telvis-final-panel">
+        <CardReveal className="telvis-glass telvis-final-panel">
+          <CardRevealPart>
             <h2 id="contact-final-heading" className="telvis-guide-panel-title is-center">
               We&apos;re Ready to Help
             </h2>
-            <p className="telvis-section-lead is-center">
-              Contact us for a trial, plan advice or technical help. Include your
-              device, app and a clear description in your first message for a faster
-              answer.
-            </p>
+          </CardRevealPart>
+          <CardRevealPart as="p" className="telvis-section-lead is-center">
+            Contact us for a trial, plan advice or technical help. Include your
+            device, app and a clear description in your first message for a faster
+            answer.
+          </CardRevealPart>
 
+          <CardRevealPart>
             <div className="telvis-actions telvis-final-actions">
               <a
                 href={supportConfig.whatsappUrl}
@@ -97,16 +99,16 @@ export function ContactFinalCta() {
                 Send an Email
               </a>
             </div>
+          </CardRevealPart>
 
-            <p className="telvis-section-note is-center">
-              <Link href={routes.home}>IPTV UK Homepage</Link>
-              {" • "}
-              <Link href={routes.installation}>Installation Guide</Link>
-              {" • "}
-              <Link href={routes.reviews}>Customer Reviews</Link>
-            </p>
-          </div>
-        </ScrollReveal>
+          <CardRevealPart as="p" className="telvis-section-note is-center">
+            <Link href={routes.home}>IPTV UK Homepage</Link>
+            {" • "}
+            <Link href={routes.installation}>Installation Guide</Link>
+            {" • "}
+            <Link href={routes.reviews}>Customer Reviews</Link>
+          </CardRevealPart>
+        </CardReveal>
       </div>
     </section>
   );

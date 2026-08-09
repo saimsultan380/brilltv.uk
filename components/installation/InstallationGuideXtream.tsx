@@ -1,4 +1,5 @@
 import { GuideStandaloneSection, guideStandaloneIcons } from "@/components/installation/GuideStandaloneSection";
+import { TitleAccent } from "@/components/ui/SectionHeader";
 import {
   refreshEpgSection,
   xtreamCodesSection,
@@ -9,7 +10,11 @@ export function InstallationGuideXtream() {
     <GuideStandaloneSection
       id="guide-xtream-heading"
       eyebrow="Login details"
-      title={xtreamCodesSection.title}
+      title={
+        <>
+          How to Enter <TitleAccent>Xtream Codes</TitleAccent> Correctly
+        </>
+      }
       blocks={xtreamCodesSection.blocks}
       variant="fields"
       icon={guideStandaloneIcons.xtream}
@@ -22,7 +27,11 @@ export function InstallationGuideEpg() {
     <GuideStandaloneSection
       id="guide-epg-heading"
       eyebrow="Programme guide"
-      title={refreshEpgSection.title}
+      title={
+        <>
+          Refresh the <TitleAccent>EPG</TitleAccent>
+        </>
+      }
       blocks={refreshEpgSection.blocks}
       variant="ordered"
       icon={guideStandaloneIcons.epg}
