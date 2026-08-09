@@ -1,0 +1,63 @@
+"use client";
+
+import Link from "next/link";
+import { HeroReveal } from "@/components/ui/HeroReveal";
+import { PageHero } from "@/components/ui/PageHero";
+import { OrbitVisual } from "@/components/home/OrbitVisual";
+import { ScrollReveal } from "@/components/ui/ScrollReveal";
+import { routes, supportConfig } from "@/lib/site";
+
+export function InstallationGuideHero() {
+  return (
+    <PageHero
+      eyebrow="Installation Guide"
+      headingId="installation-guide-heading"
+      titleLines={[
+        <>IPTV UK Installation Guide for</>,
+        <>
+          <span className="telvis-h1-accent">Supported Devices</span>
+        </>,
+      ]}
+      visual={
+        <ScrollReveal delay={0.18} y={20} className="telvis-visual-wrap">
+          <OrbitVisual />
+        </ScrollReveal>
+      }
+    >
+      <HeroReveal delay={0.22}>
+        <div className="telvis-copy">
+          <p>
+            Set up Telvis with the dedicated app or a compatible Xtream Codes
+            player. Choose your device below, keep your welcome message nearby and
+            enter every detail exactly as supplied.
+          </p>
+          <p>
+            Most setup problems come from the wrong app, a typing mistake, an
+            incomplete server address or a blocked installation setting. Follow one
+            method at a time so you can see where the problem starts.
+          </p>
+          <p>
+            Need help now? Contact 24/7 support by{" "}
+            <a
+              href={supportConfig.whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              WhatsApp
+            </a>{" "}
+            or email{" "}
+            <a href={`mailto:${supportConfig.email}`}>{supportConfig.email}</a>.
+          </p>
+        </div>
+      </HeroReveal>
+
+      <HeroReveal delay={0.3}>
+        <div className="telvis-actions">
+          <Link href={routes.contact} className="telvis-cta-primary">
+            Get Installation Help
+          </Link>
+        </div>
+      </HeroReveal>
+    </PageHero>
+  );
+}

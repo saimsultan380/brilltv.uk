@@ -12,10 +12,16 @@ export const routes = {
   home: "/",
   trial: "/free-trial",
   plans: "/#plans",
-  installation: "/installation",
+  installation: "/installation-guide",
   reviews: "/reviews",
   contact: "/contact",
   refund: "/refund-policy",
+} as const;
+
+export const supportConfig = {
+  email: "support@telvis.uk",
+  whatsappUrl: "https://wa.me/440000000000",
+  downloaderCode: "TELVIS",
 } as const;
 
 export const navLinks = [

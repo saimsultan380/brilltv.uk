@@ -2,38 +2,34 @@
 
 import { motion, useReducedMotion } from "motion/react";
 import type { CSSProperties, ReactNode } from "react";
-import { motionEase, motionViewport } from "@/lib/motion";
+import { motionEase } from "@/lib/motion";
 
-type ScrollRevealProps = {
+type HeroRevealProps = {
   children: ReactNode;
   className?: string;
   delay?: number;
   y?: number;
-  as?: "div" | "article" | "li" | "p" | "section" | "details";
   style?: CSSProperties;
 };
 
-export function ScrollReveal({
+export function HeroReveal({
   children,
   className,
   delay = 0,
   y = 16,
-  as = "div",
   style,
-}: ScrollRevealProps) {
+}: HeroRevealProps) {
   const reduceMotion = useReducedMotion();
-  const Component = motion[as];
 
   return (
-    <Component
+    <motion.div
       className={className}
       style={style}
       initial={reduceMotion ? false : { opacity: 0, y }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={motionViewport}
+      animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.38, delay, ease: motionEase }}
     >
       {children}
-    </Component>
+    </motion.div>
   );
 }

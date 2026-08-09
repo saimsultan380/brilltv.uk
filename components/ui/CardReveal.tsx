@@ -1,20 +1,4 @@
-"use client";
-
-import { motion, useReducedMotion } from "motion/react";
-import type { CSSProperties, ElementType, ReactNode } from "react";
-import { motionEase, motionViewport } from "@/lib/motion";
-
-const motionTagCache = new Map<string, ElementType>();
-
-function getMotionComponent(tag: string): ElementType {
-  const cached = motionTagCache.get(tag);
-  if (cached) return cached;
-
-  const motionRecord = motion as unknown as Record<string, ElementType | undefined>;
-  const component = motionRecord[tag] ?? motion.create(tag);
-  motionTagCache.set(tag, component);
-  return component;
-}
+import type { CSSProperties, ReactNode } from "react";
 
 type CardRevealProps = {
   children: ReactNode;
@@ -46,34 +30,15 @@ type CardRevealListItemProps = {
 export function CardReveal({
   children,
   className,
-  delay = 0,
   as = "article",
   style,
 }: CardRevealProps) {
-  const reduceMotion = useReducedMotion();
   const Tag = as;
 
-  if (reduceMotion) {
-    return (
-      <Tag className={className} style={style}>
-        {children}
-      </Tag>
-    );
-  }
-
-  const Component = getMotionComponent(as);
-
   return (
-    <Component
-      className={className}
-      style={style}
-      initial={{ opacity: 0, y: 14 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={motionViewport}
-      transition={{ duration: 0.34, delay, ease: motionEase }}
-    >
+    <Tag className={className} style={style}>
       {children}
-    </Component>
+    </Tag>
   );
 }
 
