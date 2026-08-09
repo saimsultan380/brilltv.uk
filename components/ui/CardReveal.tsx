@@ -16,49 +16,6 @@ function getMotionComponent(tag: string): ElementType {
   return component;
 }
 
-const cardVariants = {
-  hidden: { opacity: 0 },
-  visible: (delay: number) => ({
-    opacity: 1,
-    transition: {
-      duration: 0.45,
-      delay,
-      ease: motionEase,
-      when: "beforeChildren",
-      staggerChildren: 0.09,
-    },
-  }),
-};
-
-const iconVariants = {
-  hidden: { opacity: 0, scale: 0.84, y: 10 },
-  visible: {
-    opacity: 1,
-    scale: 1,
-    y: 0,
-    transition: { duration: 0.5, ease: motionEase },
-  },
-};
-
-const contentVariants = {
-  hidden: { opacity: 0, y: 16 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.5, ease: motionEase },
-  },
-};
-
-const listVariants = {
-  hidden: {},
-  visible: {
-    transition: {
-      staggerChildren: 0.06,
-      delayChildren: 0.04,
-    },
-  },
-};
-
 type CardRevealProps = {
   children: ReactNode;
   className?: string;
@@ -110,11 +67,10 @@ export function CardReveal({
     <Component
       className={className}
       style={style}
-      custom={delay}
-      initial="hidden"
-      whileInView="visible"
+      initial={{ opacity: 0, y: 14 }}
+      whileInView={{ opacity: 1, y: 0 }}
       viewport={motionViewport}
-      variants={cardVariants}
+      transition={{ duration: 0.34, delay, ease: motionEase }}
     >
       {children}
     </Component>
@@ -124,24 +80,10 @@ export function CardReveal({
 export function CardRevealPart({
   children,
   className,
-  variant = "content",
   as = "div",
 }: CardRevealPartProps) {
-  const reduceMotion = useReducedMotion();
   const Tag = as;
-  const variants = variant === "icon" ? iconVariants : contentVariants;
-
-  if (reduceMotion) {
-    return <Tag className={className}>{children}</Tag>;
-  }
-
-  const Component = getMotionComponent(as);
-
-  return (
-    <Component className={className} variants={variants}>
-      {children}
-    </Component>
-  );
+  return <Tag className={className}>{children}</Tag>;
 }
 
 export function CardRevealList({
@@ -149,20 +91,8 @@ export function CardRevealList({
   className,
   as = "ul",
 }: CardRevealListProps) {
-  const reduceMotion = useReducedMotion();
   const Tag = as;
-
-  if (reduceMotion) {
-    return <Tag className={className}>{children}</Tag>;
-  }
-
-  const Component = getMotionComponent(as);
-
-  return (
-    <Component className={className} variants={listVariants}>
-      {children}
-    </Component>
-  );
+  return <Tag className={className}>{children}</Tag>;
 }
 
 export function CardRevealListItem({
@@ -170,18 +100,6 @@ export function CardRevealListItem({
   className,
   as = "li",
 }: CardRevealListItemProps) {
-  const reduceMotion = useReducedMotion();
   const Tag = as;
-
-  if (reduceMotion) {
-    return <Tag className={className}>{children}</Tag>;
-  }
-
-  const Component = getMotionComponent(as);
-
-  return (
-    <Component className={className} variants={contentVariants}>
-      {children}
-    </Component>
-  );
+  return <Tag className={className}>{children}</Tag>;
 }

@@ -149,11 +149,11 @@ export function PlansSection() {
         </ScrollReveal>
 
         <ScrollReveal delay={0.08}>
-          <div className="telvis-inline-actions">
-          <Link href={routes.trial} className="telvis-cta-secondary">
+          <div className="telvis-inline-actions is-row">
+          <Link href={routes.trial} className="telvis-cta-primary">
             Start Your 24-Hour Trial
           </Link>
-          <Link href={routes.plans} className="telvis-text-link">
+          <Link href={routes.plans} className="telvis-cta-outline">
             Compare IPTV UK Plans
           </Link>
           </div>

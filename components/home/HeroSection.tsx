@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { OrbitVisual } from "@/components/home/OrbitVisual";
-import { SiteHeader } from "@/components/home/SiteHeader";
 import { HeroTitleReveal } from "@/components/ui/HeroTitleReveal";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { routes } from "@/lib/site";
@@ -11,8 +10,6 @@ export function HeroSection() {
   return (
     <section className="telvis-hero" aria-labelledby="telvis-hero-heading">
       <div className="telvis-container">
-        <SiteHeader />
-
         <div className="telvis-content">
           <div className="telvis-copy-col">
             <ScrollReveal delay={0.05}>
@@ -85,6 +82,7 @@ export function HeroSection() {
           </ScrollReveal>
         </div>
       </div>
+      <span className="telvis-section-end-line" aria-hidden="true" />
     </section>
   );
 }

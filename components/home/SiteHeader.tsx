@@ -10,6 +10,7 @@ export function SiteHeader() {
 
   return (
     <header className="telvis-header-sticky">
+      <div className="telvis-header-inner">
       <nav
         className={`telvis-navbar${open ? " is-menu-open" : ""}`}
         aria-label="Primary"
@@ -79,6 +80,7 @@ export function SiteHeader() {
           </div>
         ) : null}
       </nav>
+      </div>
     </header>
   );
 }

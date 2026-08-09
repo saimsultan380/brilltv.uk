@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { SiteFooter } from "@/components/home/SiteFooter";
+import { SiteHeader } from "@/components/home/SiteHeader";
 import { ButtonClickSound } from "@/components/ui/ButtonClickSound";
+import { SmoothScroll } from "@/components/ui/SmoothScroll";
 import { siteConfig } from "@/lib/site";
 import "./globals.css";
 
@@ -54,9 +56,12 @@ export default function RootLayout({
   return (
     <html lang="en-GB" className={`${inter.variable} h-full antialiased`}>
       <body className="min-h-full">
-        <ButtonClickSound />
-        {children}
-        <SiteFooter />
+        <SmoothScroll>
+          <ButtonClickSound />
+          <SiteHeader />
+          {children}
+          <SiteFooter />
+        </SmoothScroll>
       </body>
     </html>
   );

@@ -9,6 +9,7 @@ const BUTTON_SELECTORS = [
   ".telvis-cta-primary",
   ".telvis-cta-secondary",
   ".telvis-cta-glass",
+  ".telvis-cta-outline",
   ".telvis-nav-cta",
 ].join(", ");
 

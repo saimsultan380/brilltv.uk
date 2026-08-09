@@ -17,7 +17,7 @@ export function ScrollReveal({
   children,
   className,
   delay = 0,
-  y = 28,
+  y = 16,
   as = "div",
   style,
 }: ScrollRevealProps) {
@@ -31,7 +31,7 @@ export function ScrollReveal({
       initial={reduceMotion ? false : { opacity: 0, y }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={motionViewport}
-      transition={{ duration: 0.65, delay, ease: motionEase }}
+      transition={{ duration: 0.38, delay, ease: motionEase }}
     >
       {children}
     </Component>
@@ -78,7 +78,7 @@ export function ScrollStagger({
                 visible: {
                   opacity: 1,
                   y: 0,
-                  transition: { duration: 0.6, ease: motionEase },
+                  transition: { duration: 0.34, ease: motionEase },
                 },
               }}
             >
