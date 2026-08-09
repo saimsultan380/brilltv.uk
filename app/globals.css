@@ -2202,6 +2202,20 @@ main > :first-child.telvis-hero-page {
     margin-top: 18px;
   }
 
+  .telvis-final-actions {
+    grid-template-columns: 1fr;
+    width: 100%;
+    max-width: 100%;
+    gap: 10px;
+  }
+
+  .telvis-final-actions .telvis-cta-primary,
+  .telvis-final-actions .telvis-cta-secondary,
+  .telvis-final-actions .telvis-cta-outline {
+    width: 100%;
+    min-height: 48px;
+  }
+
   .telvis-faq-layout {
     gap: 18px;
   }
