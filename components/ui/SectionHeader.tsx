@@ -35,23 +35,15 @@ export function SectionHeader({
   }
 
   return (
-    <header className={headerClass}>
-      {eyebrow ? (
-        <ScrollReveal delay={0} variant="text">
-          <p className="telvis-section-eyebrow">{eyebrow}</p>
-        </ScrollReveal>
-      ) : null}
-      <ScrollReveal delay={eyebrow ? 0.06 : 0} variant="text">
+    <ScrollReveal delay={0} variant="text">
+      <header className={headerClass}>
+        {eyebrow ? <p className="telvis-section-eyebrow">{eyebrow}</p> : null}
         <h2 id={id} className="telvis-section-title">
           {title}
         </h2>
-      </ScrollReveal>
-      {lead ? (
-        <ScrollReveal delay={eyebrow ? 0.12 : 0.06} variant="text">
-          <p className="telvis-section-lead">{lead}</p>
-        </ScrollReveal>
-      ) : null}
-    </header>
+        {lead ? <p className="telvis-section-lead">{lead}</p> : null}
+      </header>
+    </ScrollReveal>
   );
 }
 

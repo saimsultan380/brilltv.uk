@@ -3,8 +3,6 @@
 import { useReducedMotion } from "motion/react";
 import type { CSSProperties, ReactNode } from "react";
 import {
-  cardIconPartVariants,
-  cardPartVariants,
   cardRevealVariants,
   getMotionComponent,
   motionViewport,
@@ -88,30 +86,14 @@ export function CardRevealPart({
   children,
   className,
   id,
-  variant = "content",
   as = "div",
 }: CardRevealPartProps) {
-  const reduceMotion = useReducedMotion();
   const Tag = as;
 
-  if (reduceMotion) {
-    return (
-      <Tag className={className} id={id}>
-        {children}
-      </Tag>
-    );
-  }
-
-  const Component = getMotionComponent(as);
-
   return (
-    <Component
-      className={className}
-      id={id}
-      variants={variant === "icon" ? cardIconPartVariants : cardPartVariants}
-    >
+    <Tag className={className} id={id}>
       {children}
-    </Component>
+    </Tag>
   );
 }
 
@@ -120,20 +102,9 @@ export function CardRevealList({
   className,
   as = "ul",
 }: CardRevealListProps) {
-  const reduceMotion = useReducedMotion();
   const Tag = as;
 
-  if (reduceMotion) {
-    return <Tag className={className}>{children}</Tag>;
-  }
-
-  const Component = getMotionComponent(as);
-
-  return (
-    <Component className={className} variants={cardPartVariants}>
-      {children}
-    </Component>
-  );
+  return <Tag className={className}>{children}</Tag>;
 }
 
 export function CardRevealListItem({
@@ -141,18 +112,7 @@ export function CardRevealListItem({
   className,
   as = "li",
 }: CardRevealListItemProps) {
-  const reduceMotion = useReducedMotion();
   const Tag = as;
 
-  if (reduceMotion) {
-    return <Tag className={className}>{children}</Tag>;
-  }
-
-  const Component = getMotionComponent(as);
-
-  return (
-    <Component className={className} variants={cardPartVariants}>
-      {children}
-    </Component>
-  );
+  return <Tag className={className}>{children}</Tag>;
 }

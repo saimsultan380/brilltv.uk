@@ -79,9 +79,6 @@ export const cardRevealVariants = {
       duration: cardMotionDuration,
       delay,
       ease: motionEase,
-      when: "beforeChildren",
-      staggerChildren: cardChildrenStagger,
-      delayChildren: 0.04,
     },
   }),
 };
