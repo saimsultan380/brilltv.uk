@@ -8,6 +8,8 @@ import {
   Monitor,
   PlayCircle,
   Router,
+  Smartphone,
+  TabletSmartphone,
   Tv,
   TvMinimal,
 } from "lucide-react";
@@ -25,6 +27,8 @@ const MOBILE_QUERY = "(max-width: 767px)";
 const guideDeviceIcons: Record<string, LucideIcon> = {
   firestick: Tv,
   "android-tv": Tv,
+  "android-mobile": Smartphone,
+  ios: TabletSmartphone,
   "smart-tv": Monitor,
   windows: Laptop,
   mac: Laptop,
@@ -105,10 +109,11 @@ export function InstallationGuideTabs() {
               className={`telvis-glass telvis-guide-panel${isActive ? " is-active" : ""}`}
               hidden={!isActive}
             >
-              <CardRevealPart as="h2" className="telvis-guide-panel-title">
-                {section.title}
+              <CardRevealPart className="telvis-guide-panel-head">
+                <span className="telvis-guide-panel-eyebrow">Main Setup</span>
+                <h2 className="telvis-guide-panel-title">{section.title}</h2>
               </CardRevealPart>
-              <CardRevealPart>
+              <CardRevealPart className="telvis-guide-panel-body">
                 <GuideContent blocks={section.blocks} />
               </CardRevealPart>
             </CardReveal>

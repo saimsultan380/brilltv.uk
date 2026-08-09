@@ -591,6 +591,33 @@ a {
   padding: clamp(22px, 4vw, 30px);
 }
 
+.telvis-guide-panel-head {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 18px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.telvis-guide-panel-eyebrow {
+  display: inline-flex;
+  width: fit-content;
+  padding: 6px 11px;
+  border-radius: 999px;
+  border: 1px solid rgba(190, 140, 255, 0.35);
+  background: rgba(130, 80, 255, 0.1);
+  color: #d8cbff;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.telvis-guide-panel-body {
+  display: grid;
+  gap: 0;
+}
+
 .telvis-guide-panel:not(.is-active) {
   display: none;
 }

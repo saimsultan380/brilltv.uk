@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { InstallationGuideAdditionalDevices } from "@/components/installation/InstallationGuideAdditionalDevices";
 import { InstallationGuideBefore } from "@/components/installation/InstallationGuideBefore";
 import { InstallationGuideHero } from "@/components/installation/InstallationGuideHero";
 import {
@@ -71,7 +70,6 @@ export default function InstallationGuidePage() {
           </div>
         </section>
 
-        <InstallationGuideAdditionalDevices />
         <InstallationGuideXtream />
         <InstallationGuideEpg />
         <InstallationGuideTroubleshooting />
