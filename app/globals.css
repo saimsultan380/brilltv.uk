@@ -699,6 +699,12 @@ a {
 
 .telvis-guide-support-cta {
   margin-top: 20px;
+  grid-template-columns: 1fr;
+  max-width: none;
+}
+
+.telvis-guide-support-cta .telvis-cta-primary {
+  width: 100%;
 }
 
 @media (min-width: 768px) {

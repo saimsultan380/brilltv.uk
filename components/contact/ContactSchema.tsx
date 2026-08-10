@@ -45,6 +45,7 @@ export function ContactSchema() {
             "@type": "ContactPoint",
             contactType: "customer support",
             email: supportConfig.email,
+            telephone: supportConfig.whatsapp,
             url: supportConfig.whatsappUrl,
             availableLanguage: ["English"],
             areaServed: "GB",

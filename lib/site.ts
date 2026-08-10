@@ -20,7 +20,8 @@ export const routes = {
 
 export const supportConfig = {
   email: "support@telvis.uk",
-  whatsappUrl: "https://wa.me/440000000000",
+  whatsapp: "+44 7482 794475",
+  whatsappUrl: "https://wa.me/447482794475",
   downloaderCode: "TELVIS",
 } as const;
 

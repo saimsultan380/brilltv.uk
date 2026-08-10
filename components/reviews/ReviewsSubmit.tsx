@@ -47,7 +47,7 @@ export function ReviewsSubmit() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Open chat
+                  {supportConfig.whatsapp}
                 </a>
               </p>
             </div>

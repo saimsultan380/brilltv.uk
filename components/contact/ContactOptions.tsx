@@ -32,7 +32,7 @@ export function ContactOptions() {
             <CardRevealPart as="p" className="telvis-contact-detail">
               WhatsApp:{" "}
               <a href={supportConfig.whatsappUrl} target="_blank" rel="noopener noreferrer">
-                Open chat
+                {supportConfig.whatsapp}
               </a>
             </CardRevealPart>
             <CardRevealPart>
