@@ -9,8 +9,9 @@ import { ReviewsResponse } from "@/components/reviews/ReviewsResponse";
 import { ReviewsSchema } from "@/components/reviews/ReviewsSchema";
 import { ReviewsSubmit } from "@/components/reviews/ReviewsSubmit";
 import { routes, siteConfig } from "@/lib/site";
+import { canonicalUrl } from "@/lib/seo";
 
-const pageUrl = `${siteConfig.url}${routes.reviews}/`;
+const pageUrl = canonicalUrl(routes.reviews);
 
 export const metadata: Metadata = {
   title: "IPTV UK Reviews – Genuine Customer Experiences",

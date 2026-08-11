@@ -2,10 +2,11 @@ import {
   getPublishedReviewStats,
   publishedReviews,
 } from "@/lib/reviews-data";
-import { routes, siteConfig } from "@/lib/site";
+import { routes } from "@/lib/site";
+import { buildBreadcrumbList, canonicalUrl } from "@/lib/seo";
 
 export function ReviewsSchema() {
-  const pageUrl = `${siteConfig.url}${routes.reviews}/`;
+  const pageUrl = canonicalUrl(routes.reviews);
   const stats = getPublishedReviewStats(publishedReviews);
 
   const webPage: Record<string, unknown> = {
@@ -16,7 +17,7 @@ export function ReviewsSchema() {
     description:
       "Read genuine IPTV UK customer reviews covering setup, device compatibility, support and everyday viewing. Learn how feedback is collected.",
     inLanguage: "en-GB",
-    isPartOf: { "@id": `${siteConfig.url}/#website` },
+    isPartOf: { "@id": `${canonicalUrl("/")}#website` },
   };
 
   if (stats) {
@@ -52,23 +53,10 @@ export function ReviewsSchema() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
-      {
-        "@type": "BreadcrumbList",
-        itemListElement: [
-          {
-            "@type": "ListItem",
-            position: 1,
-            name: "Home",
-            item: siteConfig.url,
-          },
-          {
-            "@type": "ListItem",
-            position: 2,
-            name: "IPTV UK Reviews",
-            item: pageUrl,
-          },
-        ],
-      },
+      buildBreadcrumbList([
+        { name: "Home", path: "/" },
+        { name: "IPTV UK Reviews", path: routes.reviews },
+      ]),
       webPage,
     ],
   };

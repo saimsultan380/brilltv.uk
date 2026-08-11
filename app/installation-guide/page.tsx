@@ -13,8 +13,9 @@ import {
 } from "@/components/installation/InstallationGuideXtream";
 import { SectionHeader, TitleAccent } from "@/components/ui/SectionHeader";
 import { routes, siteConfig } from "@/lib/site";
+import { canonicalUrl } from "@/lib/seo";
 
-const pageUrl = `${siteConfig.url}${routes.installation}`;
+const pageUrl = canonicalUrl(routes.installation);
 
 export const metadata: Metadata = {
   title: "IPTV UK Installation Guide – Firestick, TV & Mobile",

@@ -9,8 +9,9 @@ import {
   ContactSchema,
 } from "@/components/contact/ContactSchema";
 import { routes, siteConfig } from "@/lib/site";
+import { canonicalUrl } from "@/lib/seo";
 
-const pageUrl = `${siteConfig.url}${routes.contact}`;
+const pageUrl = canonicalUrl(routes.contact);
 
 export const metadata: Metadata = {
   title: "Contact IPTV UK – Sales, Setup & Account Support",

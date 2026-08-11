@@ -1,19 +1,22 @@
+import { buildBreadcrumbList, canonicalUrl, organizationLogoSchema } from "@/lib/seo";
 import { siteConfig } from "@/lib/site";
+
+const homeUrl = canonicalUrl("/");
 
 const organization = {
   "@type": "Organization",
-  "@id": `${siteConfig.url}/#organization`,
+  "@id": `${homeUrl}#organization`,
   name: siteConfig.name,
-  url: siteConfig.url,
-  logo: `${siteConfig.url}/logo.PNG`,
+  url: homeUrl,
+  logo: organizationLogoSchema(),
 };
 
 const website = {
   "@type": "WebSite",
-  "@id": `${siteConfig.url}/#website`,
-  url: siteConfig.url,
+  "@id": `${homeUrl}#website`,
+  url: homeUrl,
   name: siteConfig.name,
-  publisher: { "@id": `${siteConfig.url}/#organization` },
+  publisher: { "@id": `${homeUrl}#organization` },
   inLanguage: "en-GB",
 };
 
@@ -49,11 +52,11 @@ const products = [
   description: siteConfig.description,
   offers: {
     "@type": "Offer",
-    url: `${siteConfig.url}/#plans`,
+    url: `${homeUrl}#plans`,
     priceCurrency: "GBP",
     price: plan.price,
     availability: "https://schema.org/InStock",
-    seller: { "@id": `${siteConfig.url}/#organization` },
+    seller: { "@id": `${homeUrl}#organization` },
   },
 }));
 
@@ -125,12 +128,13 @@ const faqEntities = [
 const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
+    buildBreadcrumbList([{ name: "Home", path: "/" }]),
     organization,
     website,
     ...products,
     {
       "@type": "FAQPage",
-      "@id": `${siteConfig.url}/#faq`,
+      "@id": `${homeUrl}#faq`,
       mainEntity: faqEntities,
     },
   ],

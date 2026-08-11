@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { CatalogueSection } from "@/components/home/CatalogueSection";
 import { ClaritySection } from "@/components/home/ClaritySection";
 import { ConnectionsSection } from "@/components/home/ConnectionsSection";
@@ -13,6 +14,13 @@ import { ViewersWantSection } from "@/components/home/ViewersWantSection";
 import { ViewingTipsSection } from "@/components/home/ViewingTipsSection";
 import { WhyChooseSection } from "@/components/home/WhyChooseSection";
 import { JsonLd } from "@/components/seo/JsonLd";
+import { canonicalUrl } from "@/lib/seo";
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: canonicalUrl("/"),
+  },
+};
 
 export default function HomePage() {
   return (

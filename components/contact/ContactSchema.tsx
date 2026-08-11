@@ -1,30 +1,18 @@
 import Link from "next/link";
 import { CardReveal, CardRevealPart } from "@/components/ui/CardReveal";
+import { buildBreadcrumbList, canonicalUrl, organizationLogoSchema } from "@/lib/seo";
 import { routes, siteConfig, supportConfig } from "@/lib/site";
 
 export function ContactSchema() {
-  const pageUrl = `${siteConfig.url}${routes.contact}`;
+  const pageUrl = canonicalUrl(routes.contact);
 
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
-      {
-        "@type": "BreadcrumbList",
-        itemListElement: [
-          {
-            "@type": "ListItem",
-            position: 1,
-            name: "Home",
-            item: siteConfig.url,
-          },
-          {
-            "@type": "ListItem",
-            position: 2,
-            name: "Contact IPTV UK Support",
-            item: pageUrl,
-          },
-        ],
-      },
+      buildBreadcrumbList([
+        { name: "Home", path: "/" },
+        { name: "Contact IPTV UK Support", path: routes.contact },
+      ]),
       {
         "@type": "ContactPage",
         "@id": `${pageUrl}#contactpage`,
@@ -33,13 +21,14 @@ export function ContactSchema() {
         description:
           "Contact IPTV UK for trial access, plan questions, installation help, account support and troubleshooting by email or WhatsApp, 24 hours a day.",
         inLanguage: "en-GB",
-        isPartOf: { "@id": `${siteConfig.url}/#website` },
+        isPartOf: { "@id": `${canonicalUrl("/")}#website` },
       },
       {
         "@type": "Organization",
-        "@id": `${siteConfig.url}/#organization`,
+        "@id": `${canonicalUrl("/")}#organization`,
         name: siteConfig.name,
-        url: siteConfig.url,
+        url: canonicalUrl("/"),
+        logo: organizationLogoSchema(),
         contactPoint: [
           {
             "@type": "ContactPoint",

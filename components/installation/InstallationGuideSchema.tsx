@@ -1,30 +1,18 @@
 import Link from "next/link";
 import { CardReveal, CardRevealPart } from "@/components/ui/CardReveal";
+import { buildBreadcrumbList, canonicalUrl } from "@/lib/seo";
 import { routes, siteConfig, supportConfig } from "@/lib/site";
 
 export function InstallationGuideSchema() {
-  const pageUrl = `${siteConfig.url}${routes.installation}`;
+  const pageUrl = canonicalUrl(routes.installation);
 
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
-      {
-        "@type": "BreadcrumbList",
-        itemListElement: [
-          {
-            "@type": "ListItem",
-            position: 1,
-            name: "Home",
-            item: siteConfig.url,
-          },
-          {
-            "@type": "ListItem",
-            position: 2,
-            name: "IPTV UK Installation Guide",
-            item: pageUrl,
-          },
-        ],
-      },
+      buildBreadcrumbList([
+        { name: "Home", path: "/" },
+        { name: "IPTV UK Installation Guide", path: routes.installation },
+      ]),
       {
         "@type": "HowTo",
         name: "Firestick and Fire TV Setup with the Dedicated App",
