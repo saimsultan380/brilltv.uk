@@ -25,6 +25,11 @@ const nextConfig: NextConfig = {
         destination: "/refund-policy/",
         permanent: true,
       },
+      {
+        source: "/favicon.ico/",
+        destination: "/favicon.ico",
+        permanent: true,
+      },
     ];
   },
 };

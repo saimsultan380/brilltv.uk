@@ -4,8 +4,8 @@
   "description": "IPTV UK subscription with live TV, movies, series and guided setup.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#0b0828",
-  "theme_color": "#0b0828",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
   "icons": [
     {
       "src": "/favicon-48.png",
