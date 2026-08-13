@@ -4521,3 +4521,9 @@ main > :first-child.telvis-hero-page {
     max-width: 560px;
   }
 }
+
+.telvis-policy-stack {
+  display: grid;
+  gap: 20px;
+}
+

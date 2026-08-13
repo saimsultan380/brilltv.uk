@@ -8,34 +8,21 @@ import { ReviewsRating } from "@/components/reviews/ReviewsRating";
 import { ReviewsResponse } from "@/components/reviews/ReviewsResponse";
 import { ReviewsSchema } from "@/components/reviews/ReviewsSchema";
 import { ReviewsSubmit } from "@/components/reviews/ReviewsSubmit";
-import { routes, siteConfig } from "@/lib/site";
-import { canonicalUrl } from "@/lib/seo";
+import { routes } from "@/lib/site";
+import { pageMetadata } from "@/lib/seo";
 
-const pageUrl = canonicalUrl(routes.reviews);
-
-export const metadata: Metadata = {
-  title: "IPTV UK Reviews – Genuine Customer Experiences",
+export const metadata: Metadata = pageMetadata({
+  path: routes.reviews,
+  title: "IPTV UK Reviews – Customer Feedback & User Experiences",
   description:
-    "Read genuine IPTV UK customer reviews covering setup, device compatibility, support and everyday viewing. Learn how feedback is collected.",
-  alternates: {
-    canonical: pageUrl,
-  },
+    "Read IPTV UK customer reviews covering setup, streaming quality, device compatibility, support and everyday viewing experience.",
   keywords: [
     "IPTV UK reviews",
     "IPTV customer reviews UK",
     "IPTV service feedback",
     "IPTV subscription reviews",
   ],
-  openGraph: {
-    type: "website",
-    url: pageUrl,
-    title: "IPTV UK Reviews – Genuine Customer Experiences",
-    description:
-      "Read genuine IPTV UK customer reviews covering setup, device compatibility, support and everyday viewing. Learn how feedback is collected.",
-    siteName: siteConfig.name,
-    locale: "en-GB",
-  },
-};
+});
 
 export default function ReviewsPage() {
   return (

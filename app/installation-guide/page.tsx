@@ -12,18 +12,14 @@ import {
   InstallationGuideXtream,
 } from "@/components/installation/InstallationGuideXtream";
 import { SectionHeader, TitleAccent } from "@/components/ui/SectionHeader";
-import { routes, siteConfig } from "@/lib/site";
-import { canonicalUrl } from "@/lib/seo";
+import { routes } from "@/lib/site";
+import { pageMetadata } from "@/lib/seo";
 
-const pageUrl = canonicalUrl(routes.installation);
-
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
+  path: routes.installation,
   title: "IPTV UK Installation Guide – Firestick, TV & Mobile",
   description:
     "Install IPTV UK on Firestick, Android TV, Smart TV, Apple devices, Windows or Mac. Follow dedicated-app and Xtream Codes setup steps.",
-  alternates: {
-    canonical: pageUrl,
-  },
   keywords: [
     "IPTV UK installation guide",
     "install IPTV on Firestick",
@@ -32,16 +28,8 @@ export const metadata: Metadata = {
     "Xtream Codes setup",
     "IPTV player installation",
   ],
-  openGraph: {
-    type: "article",
-    url: pageUrl,
-    title: "IPTV UK Installation Guide – Firestick, TV & Mobile",
-    description:
-      "Install IPTV UK on Firestick, Android TV, Smart TV, Apple devices, Windows or Mac. Follow dedicated-app and Xtream Codes setup steps.",
-    siteName: siteConfig.name,
-    locale: "en-GB",
-  },
-};
+  ogType: "article",
+});
 
 export default function InstallationGuidePage() {
   return (

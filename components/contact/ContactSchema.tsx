@@ -1,11 +1,10 @@
 import Link from "next/link";
 import { CardReveal, CardRevealPart } from "@/components/ui/CardReveal";
-import { buildBreadcrumbList, canonicalUrl, organizationLogoSchema } from "@/lib/seo";
-import { routes, siteConfig, supportConfig } from "@/lib/site";
+import { JsonLdScript } from "@/components/seo/JsonLdScript";
+import { buildBreadcrumbList, webPageSchema } from "@/lib/seo";
+import { routes, supportConfig } from "@/lib/site";
 
 export function ContactSchema() {
-  const pageUrl = canonicalUrl(routes.contact);
-
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
@@ -13,44 +12,17 @@ export function ContactSchema() {
         { name: "Home", path: "/" },
         { name: "Contact IPTV UK Support", path: routes.contact },
       ]),
-      {
-        "@type": "ContactPage",
-        "@id": `${pageUrl}#contactpage`,
-        url: pageUrl,
+      webPageSchema({
+        type: "ContactPage",
+        path: routes.contact,
         name: "Contact IPTV UK Support",
         description:
           "Contact IPTV UK for trial access, plan questions, installation help, account support and troubleshooting by email or WhatsApp, 24 hours a day.",
-        inLanguage: "en-GB",
-        isPartOf: { "@id": `${canonicalUrl("/")}#website` },
-      },
-      {
-        "@type": "Organization",
-        "@id": `${canonicalUrl("/")}#organization`,
-        name: siteConfig.name,
-        url: canonicalUrl("/"),
-        logo: organizationLogoSchema(),
-        contactPoint: [
-          {
-            "@type": "ContactPoint",
-            contactType: "customer support",
-            email: supportConfig.email,
-            telephone: supportConfig.whatsapp,
-            url: supportConfig.whatsappUrl,
-            availableLanguage: ["English"],
-            areaServed: "GB",
-            hoursAvailable: "24/7",
-          },
-        ],
-      },
+      }),
     ],
   };
 
-  return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-    />
-  );
+  return <JsonLdScript data={jsonLd} />;
 }
 
 export function ContactFinalCta() {

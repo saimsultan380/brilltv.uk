@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { SiteFooter } from "@/components/home/SiteFooter";
 import { SiteHeader } from "@/components/home/SiteHeader";
+import { SitewideJsonLd } from "@/components/seo/SitewideJsonLd";
 import { ButtonClickSound } from "@/components/ui/ButtonClickSound";
-import { canonicalUrl } from "@/lib/seo";
 import { brandAssets, siteConfig } from "@/lib/site";
 import "./globals.css";
 
@@ -15,8 +15,12 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
-  title: siteConfig.title,
+  title: {
+    default: siteConfig.title,
+    template: `%s | ${siteConfig.name}`,
+  },
   description: siteConfig.description,
+  applicationName: siteConfig.name,
   keywords: [
     "IPTV UK",
     "IPTV subscription UK",
@@ -28,20 +32,21 @@ export const metadata: Metadata = {
   ],
   icons: {
     icon: [
+      { url: "/favicon.ico", sizes: "48x48", type: "image/x-icon" },
       { url: brandAssets.favicon48, sizes: "48x48", type: "image/png" },
-      { url: "/favicon-32.png", sizes: "32x32", type: "image/png" },
-      { url: "/favicon-16.png", sizes: "16x16", type: "image/png" },
       { url: "/favicon-96.png", sizes: "96x96", type: "image/png" },
+      { url: "/favicon-32.png", sizes: "32x32", type: "image/png" },
     ],
-    apple: brandAssets.appleTouchIcon,
-    shortcut: brandAssets.favicon48,
+    apple: {
+      url: brandAssets.appleTouchIcon,
+      sizes: "180x180",
+      type: "image/png",
+    },
+    shortcut: "/favicon.ico",
   },
   manifest: brandAssets.manifest,
   openGraph: {
     type: "website",
-    url: canonicalUrl("/"),
-    title: siteConfig.title,
-    description: siteConfig.description,
     siteName: siteConfig.name,
     locale: "en_GB",
     images: [
@@ -55,13 +60,18 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: siteConfig.title,
-    description: siteConfig.description,
     images: [brandAssets.ogImage],
   },
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
   },
   verification: {
     google: "Jt2OnqpJWhVGo23q5ZQmyhLU6La_C4ihXbDd4iWohuk",
@@ -75,6 +85,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en-GB" className={`${inter.variable} h-full antialiased`}>
+      <head>
+        <SitewideJsonLd />
+      </head>
       <body className="min-h-full">
         <ButtonClickSound />
         <SiteHeader />

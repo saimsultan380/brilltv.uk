@@ -1,24 +1,8 @@
-import { buildBreadcrumbList, canonicalUrl, organizationLogoSchema } from "@/lib/seo";
+import { JsonLdScript } from "@/components/seo/JsonLdScript";
+import { canonicalUrl } from "@/lib/seo";
 import { siteConfig } from "@/lib/site";
 
 const homeUrl = canonicalUrl("/");
-
-const organization = {
-  "@type": "Organization",
-  "@id": `${homeUrl}#organization`,
-  name: siteConfig.name,
-  url: homeUrl,
-  logo: organizationLogoSchema(),
-};
-
-const website = {
-  "@type": "WebSite",
-  "@id": `${homeUrl}#website`,
-  url: homeUrl,
-  name: siteConfig.name,
-  publisher: { "@id": `${homeUrl}#organization` },
-  inLanguage: "en-GB",
-};
 
 const products = [
   {
@@ -128,23 +112,16 @@ const faqEntities = [
 const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
-    buildBreadcrumbList([{ name: "Home", path: "/" }]),
-    organization,
-    website,
     ...products,
     {
       "@type": "FAQPage",
       "@id": `${homeUrl}#faq`,
+      url: homeUrl,
       mainEntity: faqEntities,
     },
   ],
 };
 
 export function JsonLd() {
-  return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-    />
-  );
+  return <JsonLdScript data={jsonLd} />;
 }

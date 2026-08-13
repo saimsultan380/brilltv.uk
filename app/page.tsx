@@ -14,13 +14,23 @@ import { ViewersWantSection } from "@/components/home/ViewersWantSection";
 import { ViewingTipsSection } from "@/components/home/ViewingTipsSection";
 import { WhyChooseSection } from "@/components/home/WhyChooseSection";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { canonicalUrl } from "@/lib/seo";
+import { pageMetadata } from "@/lib/seo";
+import { siteConfig } from "@/lib/site";
 
-export const metadata: Metadata = {
-  alternates: {
-    canonical: canonicalUrl("/"),
-  },
-};
+export const metadata: Metadata = pageMetadata({
+  path: "/",
+  title: siteConfig.title,
+  description: siteConfig.description,
+  keywords: [
+    "IPTV UK",
+    "IPTV subscription UK",
+    "IPTV service UK",
+    "IPTV plans UK",
+    "UK IPTV subscription",
+    "IPTV free trial",
+    "IPTV installation",
+  ],
+});
 
 export default function HomePage() {
   return (

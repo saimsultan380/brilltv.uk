@@ -15,6 +15,16 @@ const nextConfig: NextConfig = {
         destination: "/installation-guide/",
         permanent: true,
       },
+      {
+        source: "/trial",
+        destination: "/free-trial/",
+        permanent: true,
+      },
+      {
+        source: "/refund",
+        destination: "/refund-policy/",
+        permanent: true,
+      },
     ];
   },
 };

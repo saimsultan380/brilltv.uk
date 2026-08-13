@@ -1,7 +1,8 @@
 import Link from "next/link";
 import { CardReveal, CardRevealPart } from "@/components/ui/CardReveal";
-import { buildBreadcrumbList, canonicalUrl } from "@/lib/seo";
-import { routes, siteConfig, supportConfig } from "@/lib/site";
+import { JsonLdScript } from "@/components/seo/JsonLdScript";
+import { buildBreadcrumbList, canonicalUrl, webPageSchema } from "@/lib/seo";
+import { routes, supportConfig } from "@/lib/site";
 
 export function InstallationGuideSchema() {
   const pageUrl = canonicalUrl(routes.installation);
@@ -13,8 +14,16 @@ export function InstallationGuideSchema() {
         { name: "Home", path: "/" },
         { name: "IPTV UK Installation Guide", path: routes.installation },
       ]),
+      webPageSchema({
+        path: routes.installation,
+        name: "IPTV UK Installation Guide – Firestick, TV & Mobile",
+        description:
+          "Install IPTV UK on Firestick, Android TV, Smart TV, Apple devices, Windows or Mac. Follow dedicated-app and Xtream Codes setup steps.",
+      }),
       {
         "@type": "HowTo",
+        "@id": `${pageUrl}#howto`,
+        url: pageUrl,
         name: "Firestick and Fire TV Setup with the Dedicated App",
         description:
           "Install the Telvis dedicated app on Firestick or Fire TV using Downloader and your account credentials.",
@@ -60,12 +69,7 @@ export function InstallationGuideSchema() {
     ],
   };
 
-  return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-    />
-  );
+  return <JsonLdScript data={jsonLd} />;
 }
 
 export function InstallationGuideSupport() {

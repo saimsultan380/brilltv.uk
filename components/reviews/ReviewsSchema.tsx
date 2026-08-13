@@ -1,24 +1,20 @@
+import { JsonLdScript } from "@/components/seo/JsonLdScript";
 import {
   getPublishedReviewStats,
   publishedReviews,
 } from "@/lib/reviews-data";
 import { routes } from "@/lib/site";
-import { buildBreadcrumbList, canonicalUrl } from "@/lib/seo";
+import { buildBreadcrumbList, webPageSchema } from "@/lib/seo";
 
 export function ReviewsSchema() {
-  const pageUrl = canonicalUrl(routes.reviews);
   const stats = getPublishedReviewStats(publishedReviews);
 
-  const webPage: Record<string, unknown> = {
-    "@type": "WebPage",
-    "@id": `${pageUrl}#webpage`,
-    url: pageUrl,
-    name: "IPTV UK Reviews – Genuine Customer Experiences",
+  const webPage: Record<string, unknown> = webPageSchema({
+    path: routes.reviews,
+    name: "IPTV UK Reviews – Customer Feedback & User Experiences",
     description:
-      "Read genuine IPTV UK customer reviews covering setup, device compatibility, support and everyday viewing. Learn how feedback is collected.",
-    inLanguage: "en-GB",
-    isPartOf: { "@id": `${canonicalUrl("/")}#website` },
-  };
+      "Read IPTV UK customer reviews covering setup, streaming quality, device compatibility, support and everyday viewing experience.",
+  });
 
   if (stats) {
     webPage.mainEntity = {
@@ -61,10 +57,5 @@ export function ReviewsSchema() {
     ],
   };
 
-  return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-    />
-  );
+  return <JsonLdScript data={jsonLd} />;
 }

@@ -2,10 +2,11 @@ export const siteConfig = {
   name: "Telvis",
   url: "https://telvis.uk",
   primaryKeyword: "IPTV UK",
-  title: "IPTV UK Subscription from £9.99 & Free Trial | Telvis",
+  title:
+    "IPTV UK – Premium IPTV Subscription UK | 20,000+ Channels & Free Trial",
   description:
-    "Compare IPTV UK plans from £9.99 with 20,000+ listed live channels, 80,000+ movies and series, a free 24-hour trial and guided setup.",
-  h1: "IPTV UK Subscription for Live TV, Movies and Series",
+    "Access IPTV UK with 20,000+ live channels, sports, movies and series. Free trial available, instant activation, guided setup and 24/7 support.",
+  h1: "IPTV UK – Premium IPTV Subscription from £9.99 with Free 24-Hour Trial",
 } as const;
 
 export const routes = {
