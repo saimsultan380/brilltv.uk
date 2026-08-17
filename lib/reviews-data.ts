@@ -9,6 +9,8 @@ export type PublishedReview = {
   subscriptionLength?: string;
   verified: boolean;
   date: string;
+  /** ISO 8601 date for Review structured data. */
+  datePublished: string;
 };
 
 /** Add genuine verified reviews here before they appear on the page. */
@@ -25,6 +27,7 @@ export const publishedReviews: PublishedReview[] = [
     subscriptionLength: "6-month plan",
     verified: true,
     date: "July 2026",
+    datePublished: "2026-07-01",
   },
   {
     id: "review-sarah-t",
@@ -38,6 +41,7 @@ export const publishedReviews: PublishedReview[] = [
     subscriptionLength: "3-month plan",
     verified: true,
     date: "July 2026",
+    datePublished: "2026-07-12",
   },
   {
     id: "review-david-k",
@@ -51,6 +55,7 @@ export const publishedReviews: PublishedReview[] = [
     subscriptionLength: "1-month plan",
     verified: true,
     date: "June 2026",
+    datePublished: "2026-06-08",
   },
   {
     id: "review-emma-r",
@@ -64,6 +69,7 @@ export const publishedReviews: PublishedReview[] = [
     subscriptionLength: "12-month plan",
     verified: true,
     date: "June 2026",
+    datePublished: "2026-06-22",
   },
   {
     id: "review-michael-p",
@@ -77,6 +83,7 @@ export const publishedReviews: PublishedReview[] = [
     subscriptionLength: "6-month plan",
     verified: true,
     date: "May 2026",
+    datePublished: "2026-05-10",
   },
   {
     id: "review-lauren-h",
@@ -90,6 +97,7 @@ export const publishedReviews: PublishedReview[] = [
     subscriptionLength: "6-month plan",
     verified: true,
     date: "May 2026",
+    datePublished: "2026-05-24",
   },
 ];
 

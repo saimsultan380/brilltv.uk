@@ -96,6 +96,7 @@ export function PlansSection() {
             <CardReveal
               key={plan.id}
               as="article"
+              id={`plan-${plan.id}`}
               delay={staggerDelay(index)}
               className={`telvis-glass telvis-plan-card${plan.featured ? " is-featured" : ""}`}
             >

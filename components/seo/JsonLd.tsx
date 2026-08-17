@@ -1,48 +1,8 @@
 import { JsonLdScript } from "@/components/seo/JsonLdScript";
+import { homeProductGraph } from "@/lib/product-schema";
 import { canonicalUrl } from "@/lib/seo";
-import { siteConfig } from "@/lib/site";
 
 const homeUrl = canonicalUrl("/");
-
-const products = [
-  {
-    name: "Telvis IPTV UK 1-Month Plan",
-    sku: "telvis-1-month",
-    price: "9.99",
-  },
-  {
-    name: "Telvis IPTV UK 3-Month Plan",
-    sku: "telvis-3-month",
-    price: "24.99",
-  },
-  {
-    name: "Telvis IPTV UK 6-Month Plan",
-    sku: "telvis-6-month",
-    price: "39.99",
-  },
-  {
-    name: "Telvis IPTV UK 12-Month Plan",
-    sku: "telvis-12-month",
-    price: "49.99",
-  },
-].map((plan) => ({
-  "@type": "Product",
-  name: plan.name,
-  sku: plan.sku,
-  brand: {
-    "@type": "Brand",
-    name: siteConfig.name,
-  },
-  description: siteConfig.description,
-  offers: {
-    "@type": "Offer",
-    url: `${homeUrl}#plans`,
-    priceCurrency: "GBP",
-    price: plan.price,
-    availability: "https://schema.org/InStock",
-    seller: { "@id": `${homeUrl}#organization` },
-  },
-}));
 
 const faqEntities = [
   {
@@ -112,7 +72,7 @@ const faqEntities = [
 const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
-    ...products,
+    ...homeProductGraph(),
     {
       "@type": "FAQPage",
       "@id": `${homeUrl}#faq`,

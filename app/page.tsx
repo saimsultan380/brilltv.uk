@@ -6,6 +6,7 @@ import { DevicesSection } from "@/components/home/DevicesSection";
 import { FaqSection } from "@/components/home/FaqSection";
 import { FinalCtaSection } from "@/components/home/FinalCtaSection";
 import { HeroSection } from "@/components/home/HeroSection";
+import { HomeReviewsSection } from "@/components/home/HomeReviewsSection";
 import { IncludedSection } from "@/components/home/IncludedSection";
 import { PlansSection } from "@/components/home/PlansSection";
 import { StepsSection } from "@/components/home/StepsSection";
@@ -49,6 +50,7 @@ export default function HomePage() {
         <StepsSection />
         <ViewersWantSection />
         <WhyChooseSection />
+        <HomeReviewsSection />
         <FaqSection />
         <FinalCtaSection />
       </main>
