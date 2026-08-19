@@ -9,14 +9,38 @@ export function WhatsAppFloatingButton() {
   const whatsappUrl = getWhatsAppLink("I have a question about Brill Tv Uk subscription.");
 
   useEffect(() => {
-    const handleScroll = () => {
-      const threshold = Math.max(560, (window.innerHeight || 700) * 0.65);
-      setVisible(window.scrollY > threshold);
-    };
+    const heroElement =
+      document.querySelector("section.telvis-hero") ||
+      document.querySelector(".telvis-hero") ||
+      document.querySelector("section:first-of-type");
 
-    handleScroll();
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
+    if (!heroElement) {
+      const handleScroll = () => {
+        setVisible(window.scrollY > 400);
+      };
+      handleScroll();
+      window.addEventListener("scroll", handleScroll, { passive: true });
+      return () => window.removeEventListener("scroll", handleScroll);
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          setVisible(!entry.isIntersecting);
+        });
+      },
+      {
+        root: null,
+        rootMargin: "0px",
+        threshold: 0,
+      }
+    );
+
+    observer.observe(heroElement);
+
+    return () => {
+      observer.disconnect();
+    };
   }, []);
 
   return (
