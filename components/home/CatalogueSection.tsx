@@ -16,31 +16,31 @@ import { routes } from "@/lib/site";
 const categories = [
   {
     title: "UK Entertainment and Everyday Television",
-    body: "Browse available entertainment, news, documentaries, lifestyle, music and family categories. Listings can change, so use the free trial to check the channels important to you.",
+    body: "Browse available entertainment, news, documentary, lifestyle, music and family categories. Listings can change, so use the free trial to check the channels and categories that are important to your household.",
     icon: MonitorPlay,
     wide: true,
   },
   {
-    title: "Live Sport and Event Categories",
-    body: "Explore available football, cricket, rugby, motorsport, boxing, combat sport, tennis, golf and basketball categories. Events and listings vary, so check your preferred sport during the trial.",
+    title: "Live Sports and Event Categories",
+    body: "Explore available football, cricket, rugby, motorsport, boxing, combat sports, tennis, golf and basketball categories. Events and listings vary. Check your preferred sports during the trial rather than relying on a promise about one specific channel or event.",
     icon: Trophy,
     wide: false,
   },
   {
     title: "Movies, Series and Complete Seasons",
-    body: "Search movies and series by title, genre, season or episode where that information is available. Categories include action, drama, comedy, crime, thriller, documentaries, family viewing and international entertainment.",
+    body: "Search movies and series by title, genre, season or episode where that information is available. Categories can include action, drama, comedy, crime, thriller, documentaries, family viewing, international entertainment, complete television series, and individual seasons and episodes.",
     icon: Clapperboard,
     wide: false,
   },
   {
     title: "International and Multi-Language Categories",
-    body: "Browse available regional and language categories alongside the main UK selection. Ask support during the trial if you need a particular country or language.",
+    body: "Browse available regional and language categories alongside the main UK selection. Ask support during the trial if you need television from a particular country or in a particular language.",
     icon: Globe2,
     wide: false,
   },
   {
     title: "HD, Full HD and Selected 4K Sources",
-    body: "Available quality depends on the individual listing. Your television, device, player and internet connection also affect the picture you receive.",
+    body: "Available quality depends on the individual listing. Your television, streaming device, application, display settings and internet connection also affect the picture you receive.",
     icon: Sparkles,
     wide: false,
   },
@@ -59,11 +59,12 @@ export function CatalogueSection() {
           eyebrow="Browse the catalogue"
           title={
             <>
-              UK Entertainment, <TitleAccent>Live Sport, Movies and Series</TitleAccent>{" "}
-              in One Place
+              UK Entertainment,{" "}
+              <TitleAccent>Live Sports, Movies and Series</TitleAccent> in One
+              Place
             </>
           }
-          lead="Big catalogue numbers matter only when you can find what you enjoy. Telvis organises live and on-demand listings into clear categories, making the service easier to browse."
+          lead="Large catalogue numbers are only useful when you can find what you want to watch. Live and on-demand listings are arranged into clear categories to make browsing easier."
         />
 
         <div className="telvis-bento">
@@ -89,9 +90,9 @@ export function CatalogueSection() {
 
         <ScrollReveal delay={0.1} variant="cta">
           <div className="telvis-inline-actions">
-          <Link href={routes.trial} className="telvis-cta-primary">
-            Start Your Free 24-Hour Trial
-          </Link>
+            <Link href={routes.trial} className="telvis-cta-primary">
+              Start Your Free 24-Hour Trial
+            </Link>
           </div>
         </ScrollReveal>
       </div>

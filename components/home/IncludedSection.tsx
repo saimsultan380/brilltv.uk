@@ -14,32 +14,32 @@ import { SectionHeader, TitleAccent } from "@/components/ui/SectionHeader";
 const features = [
   {
     title: "20,000+ Listed Live Channels",
-    body: "Browse entertainment, news, sport, documentaries, family viewing and international categories. Individual listings can change as the catalogue is updated.",
+    body: "Browse available entertainment, news, sports, documentary, family and international categories. Individual listings can change as the catalogue is updated.",
     icon: Tv,
   },
   {
     title: "80,000+ Movies and Series",
-    body: "Search the on-demand library for movies, complete series, seasons and episodes. New titles may be added and unavailable titles may be removed.",
+    body: "Search the on-demand library for movies, complete series, seasons and individual episodes. New titles may be added, while outdated or unavailable titles may be removed.",
     icon: Clapperboard,
   },
   {
     title: "EPG and Selected Catch-Up",
-    body: "The EPG shows what is playing now and what comes next where guide data is available. Catch-Up works only on selected listings and is not included on every channel.",
+    body: "The EPG shows what is playing now and what is scheduled next where guide information is available. Catch-Up works only on selected listings and is not included with every channel.",
     icon: ListVideo,
   },
   {
     title: "VPN Included",
-    body: "VPN functionality is included on supported setups. If you already use another VPN, test with and without it because running two routing tools can sometimes cause problems.",
+    body: "VPN functionality is included on supported setups. If you already use another VPN, test with and without it. Running two routing or VPN tools at the same time can sometimes cause login or playback problems. A VPN does not guarantee anonymity or permission to access content restricted by law or another provider's terms.",
     icon: Shield,
   },
   {
     title: "Dedicated App and Flexible Player Support",
-    body: "Use the dedicated IPTV UK app on supported Android-based devices. On many other devices, enter the supplied Xtream Codes details into a compatible player. Some third-party players charge their own app fee, which is separate unless checkout clearly says it is included.",
+    body: "Use the dedicated application on supported Android-based devices. On many other devices, enter the supplied Xtream Codes details into a compatible player. Some third-party applications charge their own activation or licence fee. That charge is separate unless checkout clearly says it is included.",
     icon: MonitorSmartphone,
   },
   {
-    title: "24/7 Support",
-    body: "Contact support by email or WhatsApp for trials, plans, installation, login problems, EPG refreshes and account questions. Help is available 24 hours a day, although response times can vary.",
+    title: "Customer Support",
+    body: "Contact support by email or WhatsApp for trial requests, plan questions, device compatibility, installation, login problems, playlist loading, EPG refreshes and account and expiry questions. Support is monitored 24 hours a day, although exact response times can vary.",
     icon: Headphones,
   },
 ] as const;
@@ -57,10 +57,11 @@ export function IncludedSection() {
           eyebrow="Included"
           title={
             <>
-              What Is <TitleAccent>Included</TitleAccent> with Your Subscription?
+              What Is <TitleAccent>Included</TitleAccent> with Your IPTV UK
+              Subscription?
             </>
           }
-          lead="Know what is included before you pay. Every active IPTV UK plan provides the same seven core features, although some listings and player functions can vary."
+          lead="Know what is included before you pay. Every active plan provides the same core features, although individual listings and application functions can vary."
           align="center"
         />
 

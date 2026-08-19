@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { OrbitVisual } from "@/components/home/OrbitVisual";
+import { ParticleNetworkOrb } from "@/components/home/ParticleNetworkOrb";
 import { HeroReveal } from "@/components/ui/HeroReveal";
 import { PageHero } from "@/components/ui/PageHero";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
@@ -20,7 +20,7 @@ export function ReviewsHero() {
       ]}
       visual={
         <ScrollReveal delay={0.18} variant="media" className="telvis-visual-wrap">
-          <OrbitVisual />
+          <ParticleNetworkOrb />
         </ScrollReveal>
       }
     >

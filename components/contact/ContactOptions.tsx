@@ -1,6 +1,7 @@
 import { CardReveal, CardRevealPart } from "@/components/ui/CardReveal";
 import { SectionHeader, TitleAccent } from "@/components/ui/SectionHeader";
-import { supportConfig } from "@/lib/site";
+import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
+import { getWhatsAppLink, supportConfig } from "@/lib/site";
 
 export function ContactOptions() {
   return (
@@ -31,18 +32,19 @@ export function ContactOptions() {
             </CardRevealPart>
             <CardRevealPart as="p" className="telvis-contact-detail">
               WhatsApp:{" "}
-              <a href={supportConfig.whatsappUrl} target="_blank" rel="noopener noreferrer">
+              <a href={getWhatsAppLink("I need customer support help for Brill Tv Uk.")} target="_blank" rel="noopener noreferrer">
                 {supportConfig.whatsapp}
               </a>
             </CardRevealPart>
             <CardRevealPart>
               <a
-                href={supportConfig.whatsappUrl}
+                href={getWhatsAppLink("I need customer support help for Brill Tv Uk.")}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="telvis-cta-primary telvis-contact-cta"
               >
-                Message IPTV UK on WhatsApp
+                <WhatsAppIcon size={18} />
+                Message Brill Tv Uk on WhatsApp
               </a>
             </CardRevealPart>
           </CardReveal>

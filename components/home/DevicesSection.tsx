@@ -17,17 +17,17 @@ import { routes } from "@/lib/site";
 const devices = [
   {
     title: "Amazon Firestick and Fire TV",
-    body: "Install the dedicated app through Downloader using the verified code in the Installation Guide. Open the app and enter the details from your welcome message.",
+    body: "Install the dedicated application through the supported installation method or use a compatible Xtream Codes player. Use only the current verified Downloader code or installation link included in your welcome message or Installation Guide.",
     icon: TvMinimal,
   },
   {
     title: "Android TV and Google TV",
-    body: "Use the dedicated app or a compatible player on supported Android TV, Google TV and Android box devices.",
+    body: "Use the dedicated application or a compatible player on supported Android TV, Google TV and Android box devices.",
     icon: Tv,
   },
   {
     title: "Samsung, LG and Other Smart TVs",
-    body: "Install a compatible player from your television's official app store, then add the supplied Xtream Codes details. App availability varies by television model and operating system.",
+    body: "Install a compatible player from your television's official app store, then enter the supplied Xtream Codes details. Application availability depends on the television model, operating system and country.",
     icon: Monitor,
   },
   {
@@ -37,12 +37,12 @@ const devices = [
   },
   {
     title: "Android Phones and Tablets",
-    body: "Use the dedicated Android app or a compatible player. A phone or tablet is also useful for checking whether your account is active.",
+    body: "Use the dedicated Android application or a compatible player. A phone or tablet is also useful for checking whether your account is active when troubleshooting another device.",
     icon: Smartphone,
   },
   {
     title: "Windows and Mac",
-    body: "Install a reputable compatible player and add the supplied Xtream Codes details. Download software only from its official publisher or a recognised app store.",
+    body: "Install a reputable compatible player and add the supplied Xtream Codes details. Download software only from its official developer or a recognised application store.",
     icon: TabletSmartphone,
   },
 ] as const;
@@ -60,11 +60,11 @@ export function DevicesSection() {
           eyebrow="Supported devices"
           title={
             <>
-              Watch <TitleAccent>IPTV UK</TitleAccent> on the Devices You Already
-              Use
+              Watch <TitleAccent>IPTV UK</TitleAccent> on the Devices You
+              Already Use
             </>
           }
-          lead="Use IPTV UK on many popular televisions, streaming devices, phones, tablets and computers. The correct app and setup method depend on your device."
+          lead="Use the service on many popular televisions, streaming devices, phones, tablets and computers. The correct application and setup method depend on your device."
         />
 
         <div className="telvis-device-grid">
@@ -88,9 +88,9 @@ export function DevicesSection() {
 
         <ScrollReveal delay={0.1} variant="cta">
           <div className="telvis-inline-actions">
-          <Link href={routes.installation} className="telvis-cta-primary">
-            Open the IPTV UK Installation Guide
-          </Link>
+            <Link href={routes.installation} className="telvis-cta-primary">
+              Open the IPTV Installation Guide
+            </Link>
           </div>
         </ScrollReveal>
       </div>

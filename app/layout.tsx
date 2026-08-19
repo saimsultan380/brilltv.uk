@@ -4,6 +4,7 @@ import { SiteFooter } from "@/components/home/SiteFooter";
 import { SiteHeader } from "@/components/home/SiteHeader";
 import { SitewideJsonLd } from "@/components/seo/SitewideJsonLd";
 import { ButtonClickSound } from "@/components/ui/ButtonClickSound";
+import { WhatsAppFloatingButton } from "@/components/ui/WhatsAppFloatingButton";
 import { brandAssets, siteConfig } from "@/lib/site";
 import "./globals.css";
 
@@ -94,6 +95,7 @@ export default function RootLayout({
         <SiteHeader />
         {children}
         <SiteFooter />
+        <WhatsAppFloatingButton />
       </body>
     </html>
   );

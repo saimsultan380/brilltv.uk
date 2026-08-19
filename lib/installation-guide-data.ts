@@ -76,7 +76,7 @@ export const firestickSection: GuideSectionData = {
     },
     {
       type: "p",
-      text: "Check that the displayed download belongs to Telvis. Do not install files from unrelated search results or unverified messages.",
+      text: "Check that the displayed download belongs to IPTV UK. Do not install files from unrelated search results or unverified messages.",
     },
     { type: "h3", text: "Step 4: Download and Install" },
     {
@@ -140,7 +140,7 @@ export const installationDeviceTabs: GuideSectionData[] = [
       },
       {
         type: "p",
-        text: "These are media-player apps. They do not include channels, movies, series or a Telvis subscription by themselves.",
+        text: "These are media-player apps. They do not include channels, movies, series or an IPTV UK subscription by themselves.",
       },
       {
         type: "ol",
@@ -149,14 +149,14 @@ export const installationDeviceTabs: GuideSectionData[] = [
           "Search for one of the recommended apps using its exact name.",
           "Check the app name, icon and developer before installing it.",
           "Open the app and choose Add User, Add Playlist or Xtream Codes API where available.",
-          "Enter a playlist name, such as Telvis or Home TV.",
+          "Enter a playlist name, such as IPTV UK or Home TV.",
           "Enter the username, password and complete server address from your welcome message.",
           "Save the profile and allow the live, movie, series and EPG categories to load.",
         ],
       },
       {
         type: "p",
-        text: "Some Smart TV players show a Device ID, Device Key or MAC address instead of a login form. Follow the player’s official activation instructions or ask Telvis support to guide you. The player developer may charge a separate activation or licence fee after its trial. That fee is separate from the IPTV UK subscription unless your order clearly says it is included.",
+        text: "Some Smart TV players show a Device ID, Device Key or MAC address instead of a login form. Follow the player’s official activation instructions or ask IPTV UK support to guide you. The player developer may charge a separate activation or licence fee after its trial. That fee is separate from the IPTV UK subscription unless your order clearly says it is included.",
       },
       { type: "h3", text: "Samsung TV" },
       {
@@ -189,7 +189,7 @@ export const installationDeviceTabs: GuideSectionData[] = [
           "Search for iPlayTV AIO or IBO Player Pro and check the developer before installing.",
           "Open the player and select Add User or Add Playlist.",
           "Choose Xtream Codes API where available.",
-          "Enter Telvis as the account or playlist name.",
+          "Enter IPTV UK as the account or playlist name.",
           "Add the supplied username, password and server address.",
           "Save the profile and wait for the categories to appear.",
         ],
@@ -206,7 +206,7 @@ export const installationDeviceTabs: GuideSectionData[] = [
           "Open the App Store on Apple TV.",
           "Search for IBO Player Pro and install the correct app.",
           "Open it and choose the Xtream Codes login option where available.",
-          "Enter Telvis, your username, password and complete server address.",
+          "Enter IPTV UK, your username, password and complete server address.",
           "Save the profile and wait for the categories and EPG to load.",
         ],
       },
@@ -250,7 +250,7 @@ export const installationDeviceTabs: GuideSectionData[] = [
           "Search for IBO Player or Smarters Expert.",
           "Check the developer and install the correct Windows version.",
           "Open the app and select Xtream Codes Login or Add User.",
-          "Enter Telvis as the profile name.",
+          "Enter IPTV UK as the profile name.",
           "Add the supplied username, password and complete server address.",
           "Save the account and allow the EPG and catalogue to update.",
         ],
@@ -291,7 +291,7 @@ export const installationDeviceTabs: GuideSectionData[] = [
         type: "ol",
         items: [
           "Open the Roku Channel Store.",
-          "Search for a compatible player confirmed by Telvis support.",
+          "Search for a compatible player confirmed by IPTV UK support.",
           "Install the app and follow its on-screen playlist or device-linking method.",
           "Add only the account details supplied in your welcome message.",
         ],
@@ -361,7 +361,7 @@ export const installationDeviceTabs: GuideSectionData[] = [
         type: "ol",
         items: [
           "Open Google Play or install Downloader from a recognised source.",
-          "Install the dedicated app using the verified Telvis code, or choose a compatible player.",
+          "Install the dedicated app using the verified IPTV UK code, or choose a compatible player.",
           "Enter the supplied login details.",
           "Allow the categories and EPG to load before navigating away.",
         ],
@@ -381,7 +381,7 @@ export const installationDeviceTabs: GuideSectionData[] = [
         type: "ol",
         items: [
           "Open Settings, System Settings or Servers on the device.",
-          "Find Portals and enter the portal name Telvis.",
+          "Find Portals and enter the portal name IPTV UK.",
           "Enter the portal address supplied specifically for the device.",
           "Confirm the device MAC address privately with support if account linking is required.",
           "Save the settings and restart the device.",
@@ -389,7 +389,7 @@ export const installationDeviceTabs: GuideSectionData[] = [
       },
       {
         type: "p",
-        text: "Do not post the portal address, MAC address or account details publicly. Portal information must be supplied or confirmed by Telvis support before this setup method can work.",
+        text: "Do not post the portal address, MAC address or account details publicly. Portal information must be supplied or confirmed by IPTV UK support before this setup method can work.",
       },
     ],
   },

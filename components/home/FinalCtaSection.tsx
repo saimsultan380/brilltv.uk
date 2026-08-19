@@ -19,10 +19,11 @@ export function FinalCtaSection() {
               eyebrow="Get Started"
               title={
                 <>
-                  Ready to Check <TitleAccent>IPTV UK</TitleAccent> on Your Device?
+                  Test Your Device Before Choosing a{" "}
+                  <TitleAccent>Subscription</TitleAccent>
                 </>
               }
-              lead="Start with the free 24-hour trial. Test your device, check your preferred content and ask support if you need help choosing an app or plan."
+              lead="Start with the 24-hour trial, check the categories that matter to you and confirm that your preferred device and internet connection are suitable."
               align="center"
               animate={false}
             />
@@ -32,21 +33,21 @@ export function FinalCtaSection() {
             <div className="telvis-actions telvis-final-actions">
               <Link href={routes.trial} className="telvis-cta-primary">
                 <Play size={16} fill="currentColor" aria-hidden="true" />
-                <span>Start Your 24-Hour Trial</span>
+                <span>Start Your Free 24-Hour Trial</span>
               </Link>
               <Link href={routes.plans} className="telvis-cta-secondary">
-                Compare Plans from £9.99
+                Compare IPTV UK Plans
                 <ArrowRight size={16} aria-hidden="true" />
               </Link>
             </div>
           </CardRevealPart>
 
           <CardRevealPart as="p" className="telvis-section-note is-center">
-            Listed IPTV UK catalogue totals, programme information and individual
-            sources may change. Device compatibility, EPG, Catch-Up, picture
-            quality and performance vary. Third-party player fees are not
-            included unless expressly stated. Refunds are subject to the
-            published Refund Policy.
+            Catalogue totals describe listed entries and can change as sources
+            are added, updated or removed. Availability, Catch-Up, EPG
+            information and picture quality vary by channel, programme, device,
+            player and location. Third-party player fees are separate unless
+            expressly stated. Refunds are subject to the published Refund Policy.
           </CardRevealPart>
         </CardReveal>
       </div>

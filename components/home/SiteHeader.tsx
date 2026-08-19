@@ -18,8 +18,8 @@ export function SiteHeader() {
         <div className="telvis-navbar-bar">
           <Link href="/" className="telvis-brand" onClick={() => setOpen(false)}>
             <Image
-              src="/logo-mark.png"
-              alt="Telvis"
+              src="/logo-new.PNG"
+              alt="IPTV UK"
               width={62}
               height={62}
               className="telvis-logo"

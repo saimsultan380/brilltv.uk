@@ -1,10 +1,10 @@
 "use client";
 
-import { OrbitVisual } from "@/components/home/OrbitVisual";
+import { ParticleNetworkOrb } from "@/components/home/ParticleNetworkOrb";
 import { HeroReveal } from "@/components/ui/HeroReveal";
 import { PageHero } from "@/components/ui/PageHero";
-import { ScrollReveal } from "@/components/ui/ScrollReveal";
-import { supportConfig } from "@/lib/site";
+import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
+import { getWhatsAppLink } from "@/lib/site";
 
 export function ContactHero() {
   return (
@@ -19,7 +19,7 @@ export function ContactHero() {
       ]}
       visual={
         <ScrollReveal delay={0.18} variant="media" className="telvis-visual-wrap">
-          <OrbitVisual />
+          <ParticleNetworkOrb />
         </ScrollReveal>
       }
     >
@@ -40,11 +40,12 @@ export function ContactHero() {
       <HeroReveal delay={0.3} variant="cta">
         <div className="telvis-actions">
           <a
-            href={supportConfig.whatsappUrl}
+            href={getWhatsAppLink("I would like to message support for Brill Tv Uk.")}
             target="_blank"
             rel="noopener noreferrer"
             className="telvis-cta-primary"
           >
+            <WhatsAppIcon size={18} />
             Message Support on WhatsApp
           </a>
         </div>

@@ -5,8 +5,9 @@ import { SectionHeader, TitleAccent } from "@/components/ui/SectionHeader";
 const checks = [
   "How many screens will play at the same time",
   "Which device you will use most often",
-  "Whether each device supports the required app",
-  "Whether a third-party app charges separately",
+  "Whether each device supports the required application",
+  "Whether a third-party application charges separately",
+  "Whether your home connection can support simultaneous streams",
 ] as const;
 
 export function ConnectionsSection() {
@@ -28,13 +29,13 @@ export function ConnectionsSection() {
                   <TitleAccent>Connections</TitleAccent> Before Ordering
                 </>
               }
-              lead="Installing the service on several devices does not always mean every screen can play at the same time. Your plan includes a stated number of active connections."
+              lead="Installing the service on several devices does not automatically mean every screen can play simultaneously. Your order includes a stated number of active connections."
             />
           </div>
 
           <CardReveal delay={0.1} className="telvis-glass telvis-panel">
             <CardRevealPart variant="content" as="h3" className="telvis-panel-title">
-              Before ordering IPTV UK for your household, check:
+              Before ordering, check:
             </CardRevealPart>
             <CardRevealList className="telvis-check-list">
               {checks.map((item) => (
@@ -45,9 +46,9 @@ export function ConnectionsSection() {
               ))}
             </CardRevealList>
             <CardRevealPart variant="content" as="p" className="telvis-info-body">
-              Check the screen allowance at checkout or ask support before
-              payment. Using more active screens than your plan allows can stop
-              playback.
+              Check the connection allowance at checkout or ask support before
+              payment. Using more active screens than the account permits can
+              stop playback.
             </CardRevealPart>
           </CardReveal>
         </div>

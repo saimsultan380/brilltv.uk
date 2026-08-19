@@ -7,37 +7,36 @@ import { routes } from "@/lib/site";
 
 const rows = [
   {
-    matter: "Try before paying",
-    provides: "A free 24-hour trial on your own supported device",
+    matter: "Try Before Paying",
+    provides: "A free 24-hour trial on your own supported device and internet connection.",
   },
   {
-    matter: "Clear prices",
-    provides: "Four plans starting from £9.99",
+    matter: "Clear Prices",
+    provides: "Four subscription durations starting from £9.99.",
   },
   {
-    matter: "Live and on-demand choice",
-    provides:
-      "20,000+ listed live channels and 80,000+ listed movies and series",
+    matter: "Live and On-Demand Choice",
+    provides: "20,000+ listed live channels and 80,000+ listed movies and series.",
   },
   {
-    matter: "Two ways to sign in",
-    provides: "Dedicated app and Xtream Codes for compatible players",
+    matter: "Two Ways to Sign In",
+    provides: "Use the dedicated application or Xtream Codes with a compatible player.",
   },
   {
-    matter: "Useful viewing features",
-    provides: "EPG where available, selected Catch-Up and VPN functionality",
+    matter: "Useful Viewing Features",
+    provides: "EPG where available, selected Catch-Up and VPN functionality.",
   },
   {
-    matter: "Setup help",
-    provides: "Installation Guide plus email and WhatsApp support",
+    matter: "Installation Support",
+    provides: "Use the detailed Installation Guide or contact support through email or WhatsApp.",
   },
   {
-    matter: "Screen information",
-    provides: "The number of active screens is confirmed before payment",
+    matter: "Clear Connection Information",
+    provides: "The permitted number of simultaneous connections should be confirmed before payment.",
   },
   {
-    matter: "Refund protection",
-    provides: "A seven-day guarantee under the published Refund Policy",
+    matter: "Refund Protection",
+    provides: "Eligible orders are covered by the seven-day guarantee under the published Refund Policy.",
   },
 ] as const;
 
@@ -54,10 +53,10 @@ export function ClaritySection() {
           eyebrow="Clear details"
           title={
             <>
-              Know What You Get <TitleAccent>Before You Pay</TitleAccent>
+              Know What You Receive <TitleAccent>Before You Pay</TitleAccent>
             </>
           }
-          lead="Telvis keeps the main details clear so you can choose without guessing."
+          lead="Every key detail is available before you order."
         />
 
         <CardReveal className="telvis-glass telvis-table-wrap">
@@ -73,7 +72,7 @@ export function ClaritySection() {
                 <th scope="col">
                   <span className="telvis-table-head">
                     <BadgeCheck size={16} aria-hidden="true" />
-                    What Telvis provides
+                    What is provided
                   </span>
                 </th>
               </tr>
@@ -105,8 +104,8 @@ export function ClaritySection() {
             right plan and ask support if anything is unclear.
           </CardRevealPart>
           <CardRevealPart variant="content">
-            <Link href={routes.plans} className="telvis-cta-primary">
-              Compare Plans and Start with a Trial
+            <Link href={routes.trial} className="telvis-cta-primary">
+              Start Your Free 24-Hour Trial
             </Link>
           </CardRevealPart>
         </CardReveal>

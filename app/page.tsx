@@ -16,20 +16,20 @@ import { ViewingTipsSection } from "@/components/home/ViewingTipsSection";
 import { WhyChooseSection } from "@/components/home/WhyChooseSection";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { pageMetadata } from "@/lib/seo";
-import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = pageMetadata({
   path: "/",
-  title: siteConfig.title,
-  description: siteConfig.description,
+  title: "IPTV UK – 20,000+ Channels, Plans from £9.99 & Free Trial",
+  description:
+    "Choose an IPTV UK subscription from £9.99 with 20,000+ listed live channels, 80,000+ movies and series, VPN, EPG, selected Catch-Up and setup support.",
   keywords: [
     "IPTV UK",
     "IPTV subscription UK",
     "IPTV service UK",
     "IPTV plans UK",
+    "IPTV free trial UK",
+    "IPTV provider UK",
     "UK IPTV subscription",
-    "IPTV free trial",
-    "IPTV installation",
   ],
 });
 

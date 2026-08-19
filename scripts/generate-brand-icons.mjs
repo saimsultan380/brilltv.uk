@@ -6,7 +6,7 @@ import path from "node:path";
 const root = process.cwd();
 const publicDir = path.join(root, "public");
 const appDir = path.join(root, "app");
-const source = path.join(publicDir, "logo-mark.png");
+const source = path.join(publicDir, "logo-new.PNG");
 
 const WHITE_BG = { r: 255, g: 255, b: 255, alpha: 1 };
 

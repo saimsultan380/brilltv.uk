@@ -3,9 +3,9 @@
 import Link from "next/link";
 import { HeroReveal } from "@/components/ui/HeroReveal";
 import { PageHero } from "@/components/ui/PageHero";
-import { OrbitVisual } from "@/components/home/OrbitVisual";
-import { ScrollReveal } from "@/components/ui/ScrollReveal";
-import { routes, supportConfig } from "@/lib/site";
+import { ParticleNetworkOrb } from "@/components/home/ParticleNetworkOrb";
+import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
+import { getWhatsAppLink, routes, supportConfig } from "@/lib/site";
 
 export function InstallationGuideHero() {
   return (
@@ -20,14 +20,14 @@ export function InstallationGuideHero() {
       ]}
       visual={
         <ScrollReveal delay={0.18} variant="media" className="telvis-visual-wrap">
-          <OrbitVisual />
+          <ParticleNetworkOrb />
         </ScrollReveal>
       }
     >
       <HeroReveal delay={0.22}>
         <div className="telvis-copy">
           <p>
-            Set up Telvis with the dedicated app or a compatible Xtream Codes
+            Set up IPTV UK with the dedicated app or a compatible Xtream Codes
             player. Choose your device below, keep your welcome message nearby and
             enter every detail exactly as supplied.
           </p>
@@ -39,10 +39,12 @@ export function InstallationGuideHero() {
           <p>
             Need help now? Contact 24/7 support by{" "}
             <a
-              href={supportConfig.whatsappUrl}
+              href={getWhatsAppLink("I need help installing Brill Tv Uk on my device.")}
               target="_blank"
               rel="noopener noreferrer"
+              className="inline-flex items-center gap-1 font-semibold text-[#cc1f3c] hover:underline"
             >
+              <WhatsAppIcon size={16} />
               WhatsApp
             </a>{" "}
             or email{" "}

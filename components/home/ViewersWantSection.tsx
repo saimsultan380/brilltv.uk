@@ -64,8 +64,8 @@ export function ViewersWantSection() {
 
         <ScrollReveal delay={0.1} variant="text">
           <p className="telvis-section-lead is-center">
-          Telvis answers these questions before checkout through the free trial,
-          plan details, Installation Guide and direct support.
+          IPTV UK answers these questions before checkout through the free
+          trial, plan details, Installation Guide and direct support.
           </p>
         </ScrollReveal>
       </div>

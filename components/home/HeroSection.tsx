@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { OrbitVisual } from "@/components/home/OrbitVisual";
+import { ParticleNetworkOrb } from "@/components/home/ParticleNetworkOrb";
 import { HeroTitleReveal } from "@/components/ui/HeroTitleReveal";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { routes } from "@/lib/site";
@@ -15,7 +15,7 @@ export function HeroSection() {
             <ScrollReveal delay={0.05} variant="text">
               <div className="telvis-eyebrow">
                 <span className="telvis-eyebrow-dot" />
-                PREMIUM IPTV STREAMING
+                PREMIUM IPTV STREAMING · UK
               </div>
             </ScrollReveal>
 
@@ -24,29 +24,31 @@ export function HeroSection() {
               className="telvis-h1"
               lines={[
                 <>
-                  IPTV UK – Premium IPTV Subscription from{" "}
-                  <span className="telvis-h1-accent">£9.99</span>
+                  IPTV UK – <span className="telvis-h1-accent">20,000+</span>
                 </>,
                 <>
-                  with Free{" "}
-                  <span className="telvis-h1-accent">24-Hour Trial</span>
+                  <span className="telvis-h1-accent">Live Channels</span>,
+                  Sports,
                 </>,
+                <>Movies &amp; Series</>,
               ]}
             />
 
             <ScrollReveal delay={0.22} variant="text">
               <div className="telvis-copy">
                 <p>
-                  Choose an IPTV UK subscription that lets you check compatibility
-                  before committing to a longer plan. Browse more than 20,000 listed
-                  live channels and over 80,000 listed movies and series on supported
-                  internet-connected devices, with paid plans starting from £9.99.
+                  Choose an IPTV UK subscription that lets you check
+                  compatibility before committing to a longer plan. Browse more
+                  than 20,000 listed live channels and over 80,000 listed movies
+                  and series on supported internet-connected devices, with paid
+                  plans starting from £9.99.
                 </p>
                 <p>
-                  Start with a free 24-hour IPTV UK trial on the device and broadband
-                  connection you actually use. If you decide to continue, choose one,
-                  three, six or twelve months and receive the access details,
-                  installation instructions and support needed to get set up.
+                  Start with a free 24-hour trial on the device and broadband
+                  connection you actually use. If you decide to continue, choose
+                  one, three, six or twelve months and receive the access
+                  details, installation instructions and support needed to get
+                  set up.
                 </p>
               </div>
             </ScrollReveal>
@@ -78,13 +80,13 @@ export function HeroSection() {
                 <span className="telvis-hero-trust-sep" aria-hidden="true">
                   ·
                 </span>
-                24/7 Support
+                Support Monitored 24/7
               </p>
             </ScrollReveal>
           </div>
 
           <ScrollReveal delay={0.18} variant="media" className="telvis-visual-wrap">
-            <OrbitVisual />
+            <ParticleNetworkOrb />
           </ScrollReveal>
         </div>
       </div>

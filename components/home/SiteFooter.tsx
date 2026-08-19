@@ -3,19 +3,22 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
+import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
 import {
   footerLegalLinks,
   footerQuickLinks,
+  getWhatsAppLink,
   navLinks,
   routes,
   siteConfig,
+  supportConfig,
 } from "@/lib/site";
 
 const trustHighlights = [
-  "24-Hour Trial",
+  "Free 24-Hour Trial",
   "VPN Included",
   "Guided Installation",
-  "24/7 Support",
+  "Support Monitored 24/7",
 ] as const;
 
 export function SiteFooter() {
@@ -28,8 +31,8 @@ export function SiteFooter() {
           <ScrollReveal variant="text" className="telvis-footer-brand-col">
             <Link href="/" className="telvis-footer-brand">
               <Image
-                src="/logo-mark.png"
-                alt="Telvis"
+                src="/logo-new.PNG"
+                alt="IPTV UK"
                 width={80}
                 height={80}
                 className="telvis-footer-logo"
@@ -65,15 +68,19 @@ export function SiteFooter() {
             <ScrollReveal delay={0.18} variant="text" className="telvis-footer-col">
               <h2 className="telvis-footer-heading">Support</h2>
               <nav className="telvis-footer-links" aria-label="Footer support">
-                <Link href={siteConfig.url} className="telvis-footer-link">
-                  {siteConfig.url.replace("https://", "")}
-                </Link>
                 <Link href={routes.contact} className="telvis-footer-link">
                   Contact Us
                 </Link>
+                <a href={`mailto:${supportConfig.email}`} className="telvis-footer-link">
+                  {supportConfig.email}
+                </a>
+                <a href={getWhatsAppLink("I need support help with Brill Tv Uk.")} className="telvis-footer-link inline-flex items-center gap-1.5" target="_blank" rel="noopener noreferrer">
+                  <WhatsAppIcon size={16} />
+                  WhatsApp Support
+                </a>
                 <p className="telvis-footer-note">
-                  Email or WhatsApp support for trials, plans, installation and account
-                  questions.
+                  Email or WhatsApp support for trials, plans, installation and
+                  account questions. Monitored 24/7.
                 </p>
               </nav>
             </ScrollReveal>
@@ -97,9 +104,10 @@ export function SiteFooter() {
 
         <ScrollReveal delay={0.1} variant="text">
           <p className="telvis-footer-disclaimer">
-            Telvis is intended for personal, lawful use only. Users must comply with
-            all applicable laws and use only content they are legally entitled to
-            access.
+            IPTV UK is intended for personal, lawful use only. Users must
+            comply with all applicable laws and use only content they are
+            legally entitled to access. Login details must not be resold,
+            publicly shared or used beyond the permitted connection allowance.
           </p>
         </ScrollReveal>
 

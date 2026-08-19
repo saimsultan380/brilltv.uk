@@ -1,8 +1,9 @@
 import Link from "next/link";
 import { CardReveal, CardRevealPart } from "@/components/ui/CardReveal";
 import { SectionHeader, TitleAccent } from "@/components/ui/SectionHeader";
+import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
 import { reviewSubmitChecklist } from "@/lib/reviews-data";
-import { routes, supportConfig } from "@/lib/site";
+import { getWhatsAppLink, routes, supportConfig } from "@/lib/site";
 
 export function ReviewsSubmit() {
   return (
@@ -43,10 +44,12 @@ export function ReviewsSubmit() {
               <p>
                 WhatsApp:{" "}
                 <a
-                  href={supportConfig.whatsappUrl}
+                  href={getWhatsAppLink("I would like to submit a customer review for Brill Tv Uk.")}
                   target="_blank"
                   rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 text-[#cc1f3c] font-semibold hover:underline"
                 >
+                  <WhatsAppIcon size={16} />
                   {supportConfig.whatsapp}
                 </a>
               </p>

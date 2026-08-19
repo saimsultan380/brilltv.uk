@@ -108,15 +108,15 @@ export function OrbitVisual() {
               x2="100%"
               y2="100%"
             >
-              <stop offset="0%" stopColor="#6B7CFF" />
-              <stop offset="42%" stopColor="#9B5CFF" />
-              <stop offset="100%" stopColor="#D45BFF" />
+              <stop offset="0%" stopColor="#cc1f3c" />
+              <stop offset="42%" stopColor="#d4163c" />
+              <stop offset="100%" stopColor="#e01030" />
             </linearGradient>
 
             <radialGradient id="telvis-orbit-node-fill" cx="50%" cy="50%" r="50%">
               <stop offset="0%" stopColor="#FFFFFF" />
-              <stop offset="55%" stopColor="#E4C8FF" />
-              <stop offset="100%" stopColor="#A855FF" />
+              <stop offset="55%" stopColor="#ffb0b8" />
+              <stop offset="100%" stopColor="#cc1f3c" />
             </radialGradient>
 
             <filter
@@ -158,7 +158,7 @@ export function OrbitVisual() {
             >
               <path
                 d="M1.5 1.5 L10.5 6 L1.5 10.5 L4.2 6 Z"
-                fill="#E8D4FF"
+                fill="#ffc8cc"
                 stroke="#FFFFFF"
                 strokeWidth="0.45"
               />
@@ -198,7 +198,7 @@ export function OrbitVisual() {
 
       <div className="telvis-orbit-logo">
         <Image
-          src="/logo-mark.png"
+          src="/logo-new.PNG"
           alt=""
           width={120}
           height={120}

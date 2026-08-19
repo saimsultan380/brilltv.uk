@@ -70,7 +70,7 @@ export function websiteSchema() {
     "@id": `${homeUrl}#website`,
     url: homeUrl,
     name: siteConfig.name,
-    alternateName: ["Telvis IPTV", "telvis.uk"],
+    alternateName: ["IPTV UK", "brilltv.uk", "Brill TV"],
     publisher: { "@id": `${homeUrl}#organization` },
     inLanguage: "en-GB",
   };
@@ -191,8 +191,13 @@ export function pageMetadata({
 export const indexableRoutes = [
   "/",
   "/free-trial",
-  "/contact",
   "/reviews",
   "/installation-guide",
+  "/iptv-subscription",
+  "/supported-devices",
+  "/about-us",
+  "/terms-of-service",
+  "/privacy-policy",
   "/refund-policy",
+  "/dmca-policy",
 ] as const;

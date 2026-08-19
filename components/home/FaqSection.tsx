@@ -5,59 +5,54 @@ import { staggerDelay } from "@/lib/motion";
 
 const faqs = [
   {
-    question: "What is IPTV?",
+    question: "What is IPTV UK?",
     answer:
-      "IPTV means television delivered through an internet connection instead of an aerial, cable or satellite feed. A compatible app organises the live and on-demand content supplied through your account.",
+      "IPTV uses an internet connection and compatible application to provide access to listed live television and on-demand categories.",
   },
   {
-    question: "How much does IPTV UK cost?",
+    question: "How many live channels are included?",
     answer:
-      "Plans cost £9.99 for one month, £24.99 for three months, £39.99 for six months and £49.99 for twelve months. You can test compatibility with the free 24-hour trial first.",
+      "The catalogue contains more than 20,000 listed live channels across UK and international categories. Individual listings can change.",
   },
   {
-    question: "What do I receive after ordering?",
+    question: "How many movies and series are available?",
     answer:
-      "You receive the username, password, server information and setup guidance needed for the dedicated app or a compatible Xtream Codes player.",
+      "The on-demand catalogue contains more than 80,000 listed movies and series.",
+  },
+  {
+    question: "Can I test the service before buying?",
+    answer:
+      "Yes. Request a free 24-hour trial and test it on the device and connection you normally use.",
   },
   {
     question: "Which devices are supported?",
     answer:
-      "Supported options include many Firestick, Fire TV, Android TV, Google TV, Smart TV, Apple, Android mobile, Windows and Mac devices. The correct app depends on your model and operating system.",
+      "Compatible devices include Fire TV, Android TV, Google TV, Smart TVs, Apple devices, Android mobile devices, Windows, Mac, Formuler and selected portal boxes.",
   },
   {
-    question: "Is a player app included?",
+    question: "Does every listing include EPG and Catch-Up?",
     answer:
-      "The dedicated app is available on supported devices. Some third-party players charge their own activation or licence fee, so check before installing one.",
+      "No. EPG information and Catch-Up are available only where supported.",
   },
   {
-    question: "Can I watch on more than one device?",
+    question: "Is everything available in 4K?",
     answer:
-      "You can install the account on compatible devices, but the number of screens playing at once depends on your plan. Confirm this before paying.",
+      "No. HD, Full HD and selected 4K sources are available depending on the individual listing.",
   },
   {
-    question: "Is every channel available in Catch-Up?",
+    question: "Does my subscription renew automatically?",
     answer:
-      "No. Catch-Up works only on selected listings and for a limited period. EPG information can also vary.",
+      "No. You choose whether to purchase another duration after your current plan expires.",
   },
   {
-    question: "Is 4K guaranteed?",
+    question: "Can I use my existing IPTV player?",
     answer:
-      "No. Available quality depends on the listing, device, player, television and internet connection.",
+      "Yes, if the application supports the login format supplied with your account.",
   },
   {
-    question: "What can cause buffering?",
+    question: "What if I need help installing it?",
     answer:
-      "Common causes include weak Wi-Fi, busy home internet, low device storage, an outdated app or a temporary issue with one listing. Follow the Installation Guide before contacting support.",
-  },
-  {
-    question: "How does the seven-day refund guarantee work?",
-    answer:
-      "Contact support within seven days and include your order details and reason. Eligibility depends on the conditions in the published Refund Policy.",
-  },
-  {
-    question: "Is IPTV legal in the UK?",
-    answer:
-      "IPTV is a delivery technology. Legality depends on the rights and permissions held for the content. The service should offer only content it is authorised to distribute, and customers must follow applicable law.",
+      "Follow the Installation Guide or contact support with your device model, application name and exact error.",
   },
 ] as const;
 

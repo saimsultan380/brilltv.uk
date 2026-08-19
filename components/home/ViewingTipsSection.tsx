@@ -3,6 +3,7 @@ import {
   RefreshCw,
   Router,
   Signal,
+  VolumeX,
   Wifi,
   WifiOff,
 } from "lucide-react";
@@ -13,17 +14,22 @@ import { SectionHeader, TitleAccent } from "@/components/ui/SectionHeader";
 const tips = [
   { text: "Use Ethernet where practical", icon: Router },
   { text: "Keep Wi-Fi devices close to the router", icon: Wifi },
+  { text: "Use a strong 5 GHz Wi-Fi connection", icon: Wifi },
   { text: "Pause large downloads and game updates", icon: WifiOff },
-  { text: "Close unused apps on older devices", icon: HardDrive },
-  { text: "Keep enough free storage for updates", icon: HardDrive },
-  { text: "Restart the app, device and router if viewing changes", icon: RefreshCw },
+  { text: "Close unused applications on older devices", icon: HardDrive },
+  { text: "Keep enough free storage for app updates", icon: HardDrive },
+  { text: "Restart the app, device and router if performance changes", icon: RefreshCw },
   {
-    text: "Try another listing to see whether the issue affects one source or the whole account",
+    text: "Try another listing to see whether the issue affects one stream or the complete account",
     icon: Signal,
   },
   {
-    text: "Choose a lower-quality option if your connection cannot handle a higher-quality source",
+    text: "Select a lower-quality option if the connection cannot support a higher-quality stream",
     icon: Signal,
+  },
+  {
+    text: "Avoid running multiple VPN applications simultaneously",
+    icon: VolumeX,
   },
 ] as const;
 
@@ -44,12 +50,12 @@ export function ViewingTipsSection() {
               the Right Setup
             </>
           }
-          lead="Smooth viewing depends on your internet connection, Wi-Fi, router, device, app and the individual listing you choose."
+          lead="Smooth viewing depends on the internet connection, Wi-Fi, router, device, application and individual stream."
         />
 
         <CardReveal className="telvis-glass telvis-tips-shell">
           <CardRevealPart variant="content" as="h3" className="telvis-panel-title">
-            For more reliable IPTV UK viewing:
+            For more reliable viewing:
           </CardRevealPart>
           <div className="telvis-tips-grid">
             {tips.map((tip, index) => (
@@ -73,9 +79,9 @@ export function ViewingTipsSection() {
             as="p"
             className="telvis-info-body telvis-tips-note"
           >
-            No service can promise perfect playback on every channel, device and
-            home network. The useful difference is clear troubleshooting and
-            support that helps find the cause.
+            No internet-delivered service can promise perfect playback on every
+            channel, device and home network. The useful difference is clear
+            troubleshooting and support that helps identify the cause.
           </CardRevealPart>
         </CardReveal>
       </div>

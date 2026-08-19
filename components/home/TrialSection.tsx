@@ -5,13 +5,17 @@ import { SectionHeader, TitleAccent } from "@/components/ui/SectionHeader";
 import { routes } from "@/lib/site";
 
 const checklist = [
-  "The app installs and your login works",
-  "Live, movie and series categories load correctly",
-  "The channels and categories important to you are listed",
-  "Picture and sound work well on your home connection",
-  "Navigation, EPG and selected Catch-Up meet your needs",
+  "The application installs successfully",
+  "Your login details work",
+  "Live television categories load correctly",
+  "Movies and series load correctly",
+  "The categories important to you are listed",
+  "Picture and sound work on your home connection",
+  "Navigation is easy to understand",
+  "EPG information meets your needs",
+  "Selected Catch-Up works where available",
   "Performance is suitable at the time you normally watch",
-  "The plan includes enough screens for your household",
+  "The selected connection allowance is suitable for your household",
 ] as const;
 
 export function TrialSection() {
@@ -33,13 +37,13 @@ export function TrialSection() {
                   <TitleAccent>24 Hours</TitleAccent> Before Choosing a Plan
                 </>
               }
-              lead="A useful trial should answer your main questions before you pay. Test the 24-hour IPTV UK trial on the device and internet connection you normally use."
+              lead="A useful trial should answer your main questions before you pay. Test the 24-hour free trial on the device and internet connection you normally use."
             />
           </div>
 
           <CardReveal delay={0.1} className="telvis-glass telvis-panel">
             <CardRevealPart variant="content" as="h3" className="telvis-panel-title">
-              During the IPTV UK trial, check:
+              During the trial, check:
             </CardRevealPart>
             <CardRevealList className="telvis-check-list">
               {checklist.map((item) => (
@@ -51,8 +55,8 @@ export function TrialSection() {
             </CardRevealList>
             <CardRevealPart variant="content" as="p" className="telvis-info-body">
               If something does not work, contact support during the trial. We
-              can check your login, app, device and connection before you choose
-              a paid plan.
+              can help check your login information, application, device and
+              connection before you choose a paid subscription.
             </CardRevealPart>
             <CardRevealPart variant="content">
               <Link href={routes.trial} className="telvis-cta-primary">

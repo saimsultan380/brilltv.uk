@@ -17,16 +17,16 @@ import { pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
   path: routes.installation,
-  title: "IPTV UK Installation Guide – Firestick, TV & Mobile",
+  title: "IPTV Installation Guide – Setup on Any Supported Device",
   description:
-    "Install IPTV UK on Firestick, Android TV, Smart TV, Apple devices, Windows or Mac. Follow dedicated-app and Xtream Codes setup steps.",
+    "Follow our IPTV installation guide for Fire TV, Smart TV, Android, Apple devices, Windows, Mac, Formuler and Kodi.",
   keywords: [
-    "IPTV UK installation guide",
-    "install IPTV on Firestick",
+    "IPTV installation guide",
     "IPTV setup UK",
-    "IPTV on Smart TV",
-    "Xtream Codes setup",
-    "IPTV player installation",
+    "how to install IPTV",
+    "IPTV Firestick setup",
+    "IPTV Smart TV setup",
+    "IPTV installation UK",
   ],
   ogType: "article",
 });
