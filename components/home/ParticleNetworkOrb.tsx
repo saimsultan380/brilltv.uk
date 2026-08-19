@@ -175,8 +175,8 @@ export function ParticleNetworkOrb() {
             const opacity = Math.max(
               0.035,
               (1 - distance / (size * 0.29)) *
-                0.31 *
-                ((a.alpha + b.alpha) / 2)
+              0.31 *
+              ((a.alpha + b.alpha) / 2)
             );
 
             context.strokeStyle = `rgba(204,31,60,${opacity})`;
@@ -238,7 +238,7 @@ export function ParticleNetworkOrb() {
 
         <div className="orb-core">
           <BrandMark />
-          <small>Brill TV UK</small>
+          <small>Brill UK</small>
         </div>
 
         <FeatureCard
