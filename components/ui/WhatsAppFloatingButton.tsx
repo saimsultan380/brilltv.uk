@@ -10,7 +10,8 @@ export function WhatsAppFloatingButton() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setVisible(window.scrollY > 280);
+      const threshold = Math.max(560, (window.innerHeight || 700) * 0.65);
+      setVisible(window.scrollY > threshold);
     };
 
     handleScroll();
