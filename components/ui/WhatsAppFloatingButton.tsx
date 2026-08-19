@@ -1,12 +1,20 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
 import { getWhatsAppLink } from "@/lib/site";
 
 export function WhatsAppFloatingButton() {
+  const pathname = usePathname();
   const [visible, setVisible] = useState(false);
   const whatsappUrl = getWhatsAppLink("I have a question about Brill Tv Uk subscription.");
+
+  const isLegalPage =
+    pathname?.startsWith("/privacy-policy") ||
+    pathname?.startsWith("/terms-of-service") ||
+    pathname?.startsWith("/refund-policy") ||
+    pathname?.startsWith("/dmca-policy");
 
   useEffect(() => {
     const heroElement =
@@ -41,7 +49,11 @@ export function WhatsAppFloatingButton() {
     return () => {
       observer.disconnect();
     };
-  }, []);
+  }, [isLegalPage]);
+
+  if (isLegalPage) {
+    return null;
+  }
 
   return (
     <a
