@@ -1293,16 +1293,11 @@ main > :first-child {
    ========================================================= */
 
 .telvis-copy {
-  max-width: 660px;
-
+  max-width: 520px;
   color: rgba(30, 30, 35, 0.86);
-
   font-size: clamp(14.5px, 4.05vw, 17px);
-
   line-height: 1.5;
-
   font-weight: 400;
-
   letter-spacing: -0.015em;
 }
 
@@ -1315,7 +1310,7 @@ main > :first-child {
 }
 
 .telvis-hero:not(.telvis-hero-page) .telvis-copy {
-  max-width: 560px;
+  max-width: 480px;
   font-size: clamp(12.5px, 3.65vw, 15px);
 }
 
@@ -2215,7 +2210,7 @@ main > :first-child {
 
   .telvis-hero:not(.telvis-hero-page) .telvis-copy {
     width: 100%;
-    max-width: 100%;
+    max-width: min(92%, 340px);
     font-size: clamp(12.5px, 3.2vw, 13.5px);
     line-height: 1.48;
     color: rgba(35, 35, 42, 0.88);
@@ -2229,7 +2224,9 @@ main > :first-child {
 
   .telvis-hero.telvis-hero-page .telvis-copy,
   .telvis-page-hero-copy .telvis-copy {
-    max-width: 100%;
+    max-width: min(92%, 360px);
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .telvis-hero.telvis-hero-page .telvis-actions {
