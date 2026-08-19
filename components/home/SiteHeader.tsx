@@ -1,5 +1,6 @@
 "use client";
 
+import { Menu, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
@@ -42,17 +43,21 @@ export function SiteHeader() {
 
             <button
               type="button"
-              className="telvis-menu"
+              className={`telvis-menu${open ? " is-active" : ""}`}
               aria-label={open ? "Close navigation menu" : "Open navigation menu"}
               aria-expanded={open}
               aria-controls="telvis-mobile-menu"
               onClick={() => setOpen((value) => !value)}
             >
-              <span className="telvis-menu-lines">
-                <span />
-                <span />
-                <span />
-              </span>
+              {open ? (
+                <X size={22} className="telvis-menu-close-icon" />
+              ) : (
+                <span className="telvis-menu-lines">
+                  <span />
+                  <span />
+                  <span />
+                </span>
+              )}
             </button>
           </div>
         </div>

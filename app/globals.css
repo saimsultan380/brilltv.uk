@@ -1027,6 +1027,11 @@ main > :first-child {
   .telvis-navbar.is-menu-open {
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(24px) saturate(190%);
+    -webkit-backdrop-filter: blur(24px) saturate(190%);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
   }
 
   .telvis-mobile-menu {
@@ -1036,37 +1041,53 @@ main > :first-child {
     right: 0;
     z-index: 220;
     margin-top: 0;
-    padding: 10px 12px 16px;
+    padding: 8px 16px 20px;
     overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.9);
     border-top: none;
     border-radius: 0 0 var(--radius-navbar) var(--radius-navbar);
-    background: linear-gradient(
-      135deg,
-      rgba(255, 255, 255, 0.68) 0%,
-      rgba(255, 238, 240, 0.55) 50%,
-      rgba(255, 255, 255, 0.65) 100%
-    );
+    background: rgba(255, 255, 255, 0.97);
     backdrop-filter: blur(24px) saturate(190%);
     -webkit-backdrop-filter: blur(24px) saturate(190%);
     box-shadow:
-      0 20px 45px rgba(255, 30, 56, 0.14),
-      inset 0 1px 0 rgba(255, 255, 255, 0.85);
+      0 24px 50px rgba(0, 0, 0, 0.12),
+      inset 0 1px 0 rgba(255, 255, 255, 0.9);
   }
 }
 
 .telvis-mobile-link {
-  padding: 12px 14px;
-  border-radius: 12px;
-  color: #0d0d0d;
+  display: flex;
+  align-items: center;
+  padding: 14px 6px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+  color: #1a1a24;
   text-decoration: none;
-  font-size: 15px;
+  font-size: 15.5px;
   font-weight: 600;
+  transition: color 180ms ease, padding-left 180ms ease;
 }
 
 .telvis-mobile-link:hover {
-  background: rgba(204, 31, 60, 0.08);
-  color: #cc1f3c;
+  color: #ff1e38;
+  padding-left: 10px;
+}
+
+.telvis-mobile-menu .telvis-nav-cta-menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 50px;
+  margin-top: 16px;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 14px;
+  background: linear-gradient(105deg, #ff1e38 0%, #ff0d35 38%, #e60026 100%);
+  color: #ffffff;
+  font-size: 15.5px;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 8px 24px rgba(255, 30, 56, 0.35);
 }
 
 /* =========================================================
