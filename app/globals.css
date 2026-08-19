@@ -3133,8 +3133,8 @@ main > :first-child {
 }
 
 .telvis-table tbody th {
-  color: var(--telvis-heading);
-  font-weight: 600;
+  color: #ff1e38;
+  font-weight: 750;
   width: 34%;
 }
 
@@ -3515,10 +3515,11 @@ main > :first-child {
   }
 
   .telvis-table tbody th {
-    color: #f4a09a;
-    font-size: 13px;
-    font-weight: 600;
+    color: #ff1e38;
+    font-size: 14.5px;
+    font-weight: 750;
     padding-bottom: 4px;
+    letter-spacing: -0.01em;
   }
 
   .telvis-table tbody td {
