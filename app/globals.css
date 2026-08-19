@@ -1337,19 +1337,20 @@ main > :first-child {
 
 .telvis-hero-trust-line {
   display: flex;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: 3px 6px;
+  gap: 4px 6px;
   width: 100%;
-  margin: 14px 0 0;
+  max-width: 340px;
+  margin: 12px auto 0;
   color: var(--telvis-muted);
-  font-size: clamp(7.5px, 2.1vw, 10.5px);
-  line-height: 1.25;
+  font-size: clamp(9.5px, 2.5vw, 11px);
+  line-height: 1.4;
   font-weight: 600;
   text-align: center;
-  white-space: nowrap;
-  overflow: hidden;
+  white-space: normal;
+  overflow: visible;
 }
 
 .telvis-hero-trust-sep {
@@ -2270,8 +2271,12 @@ main > :first-child {
 
   .telvis-hero-trust-line {
     margin-top: 10px;
-    font-size: clamp(8.5px, 2.3vw, 10px);
-    gap: 3px 5px;
+    font-size: clamp(9.5px, 2.6vw, 10.5px);
+    gap: 4px 6px;
+    max-width: 330px;
+    margin-inline: auto;
+    text-align: center;
+    justify-content: center;
   }
 
   .telvis-hero:not(.telvis-hero-page) .telvis-actions {
