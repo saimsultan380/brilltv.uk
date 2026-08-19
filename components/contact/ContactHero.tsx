@@ -3,6 +3,7 @@
 import { ParticleNetworkOrb } from "@/components/home/ParticleNetworkOrb";
 import { HeroReveal } from "@/components/ui/HeroReveal";
 import { PageHero } from "@/components/ui/PageHero";
+import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
 import { getWhatsAppLink } from "@/lib/site";
 

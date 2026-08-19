@@ -4,6 +4,7 @@ import Link from "next/link";
 import { HeroReveal } from "@/components/ui/HeroReveal";
 import { PageHero } from "@/components/ui/PageHero";
 import { ParticleNetworkOrb } from "@/components/home/ParticleNetworkOrb";
+import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
 import { getWhatsAppLink, routes, supportConfig } from "@/lib/site";
 
