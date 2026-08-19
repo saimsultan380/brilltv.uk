@@ -55,8 +55,6 @@ export function ParticleNetworkOrb() {
     let height = 0;
     let frame = 0;
     let animation = 0;
-    let pointerX = 0;
-    let pointerY = 0;
 
     const count = 118;
     const goldenAngle = Math.PI * (3 - Math.sqrt(5));
@@ -94,16 +92,6 @@ export function ParticleNetworkOrb() {
       context.setTransform(ratio, 0, 0, ratio, 0, 0);
     };
 
-    const onPointerMove = (event: PointerEvent) => {
-      const rect = canvas.getBoundingClientRect();
-
-      pointerX =
-        ((event.clientX - rect.left) / rect.width - 0.5) * 0.34;
-
-      pointerY =
-        ((event.clientY - rect.top) / rect.height - 0.5) * 0.24;
-    };
-
     const render = () => {
       frame += 0.006;
 
@@ -114,11 +102,10 @@ export function ParticleNetworkOrb() {
       const centerY = height * 0.44;
 
       /*
-       * Automatic rotation plus pointer movement.
+       * Smooth automatic 3D rotation in continuous infinite loop.
        */
-      const angleY = frame + pointerX;
-      const angleX =
-        -0.18 + Math.sin(frame * 0.7) * 0.06 + pointerY;
+      const angleY = frame;
+      const angleX = -0.18 + Math.sin(frame * 0.7) * 0.06;
 
       const cosY = Math.cos(angleY);
       const sinY = Math.sin(angleY);
@@ -231,7 +218,6 @@ export function ParticleNetworkOrb() {
     const observer = new ResizeObserver(resize);
 
     observer.observe(host);
-    canvas.addEventListener("pointermove", onPointerMove);
 
     resize();
     render();
@@ -239,7 +225,6 @@ export function ParticleNetworkOrb() {
     return () => {
       cancelAnimationFrame(animation);
       observer.disconnect();
-      canvas.removeEventListener("pointermove", onPointerMove);
     };
   }, []);
 
@@ -253,7 +238,7 @@ export function ParticleNetworkOrb() {
 
         <div className="orb-core">
           <BrandMark />
-          <small>IPTV UK</small>
+          <small>Brill TV UK</small>
         </div>
 
         <FeatureCard

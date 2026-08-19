@@ -109,6 +109,11 @@ body {
   margin: 0;
   min-height: 100%;
   background: #ffffff;
+  background-image:
+    radial-gradient(ellipse 70% 40% at 50% -5%, rgba(255, 30, 56, 0.12) 0%, transparent 70%),
+    radial-gradient(ellipse 60% 45% at 90% 35%, rgba(255, 30, 56, 0.06) 0%, transparent 65%),
+    radial-gradient(ellipse 60% 45% at 10% 75%, rgba(255, 30, 56, 0.05) 0%, transparent 65%);
+  background-attachment: fixed;
 
   font-family:
     var(--font-inter),
@@ -892,27 +897,27 @@ main > :first-child {
 .telvis-navbar {
   position: relative;
   isolation: isolate;
-
   display: flex;
   flex-direction: column;
   gap: 0;
-
   width: 100%;
   max-width: 100%;
-
   padding: 8px 12px;
-
   overflow: visible;
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.7);
   border-radius: var(--radius-navbar);
-
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
-
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.55) 0%,
+    rgba(255, 235, 238, 0.38) 50%,
+    rgba(255, 255, 255, 0.5) 100%
+  );
+  backdrop-filter: blur(24px) saturate(190%);
+  -webkit-backdrop-filter: blur(24px) saturate(190%);
   box-shadow:
-    0 10px 30px rgba(0, 0, 0, 0.06),
-    0 1px 2px rgba(0, 0, 0, 0.04);
+    0 12px 36px rgba(255, 30, 56, 0.08),
+    0 2px 8px rgba(0, 0, 0, 0.03),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
 }
 
 .telvis-navbar-bar {
@@ -1062,17 +1067,38 @@ main > :first-child {
    ========================================================= */
 
 .telvis-brand {
+  position: relative;
   display: flex;
   align-items: center;
   flex-shrink: 0;
 }
 
-.telvis-logo {
-  display: block;
+.telvis-brand::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 30, 56, 0.55) 0%,
+    rgba(255, 30, 56, 0.22) 45%,
+    transparent 75%
+  );
+  filter: blur(12px);
+  pointer-events: none;
+  z-index: 0;
+}
 
+.telvis-logo {
+  position: relative;
+  z-index: 1;
+  display: block;
   width: 60px;
   height: 60px;
-
   object-fit: contain;
 }
 
@@ -1351,81 +1377,45 @@ main > :first-child {
 
 .telvis-cta-primary {
   position: relative;
-
+  z-index: 0;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-
   gap: 10px;
-
-  min-height: 55px;
-
-  padding: 11px 15px;
-
+  min-height: 52px;
+  padding: 12px 24px;
   overflow: hidden;
-
-  border: 1px solid rgba(204, 31, 60, 0.6);
-  border-radius: var(--radius-button);
-
+  border: none;
+  border-radius: 999px;
   background: linear-gradient(
-    100deg,
-    #cc1f3c 0%,
-    #d4163c 42%,
-    #b01030 100%
+    105deg,
+    #ff1e38 0%,
+    #ff0d35 38%,
+    #e60026 72%,
+    #d4001d 100%
   );
-
   color: #ffffff;
-
   text-align: center;
   text-decoration: none;
-
-  font-size: 14.5px;
-
+  font-size: 15px;
   line-height: 1.15;
-
-  font-weight: 700;
-
+  font-weight: 750;
+  letter-spacing: -0.01em;
   box-shadow:
-    0 7px 24px rgba(204, 31, 60, 0.28),
-    0 0 18px rgba(204, 31, 60, 0.22),
-    inset 0 1px 0 rgba(255, 255, 255, 0.2);
-
+    0 8px 25px rgba(255, 30, 56, 0.38),
+    inset 0 1px 0 rgba(255, 255, 255, 0.35);
   transition:
     transform 180ms ease,
     box-shadow 180ms ease,
     filter 180ms ease;
 }
 
-/* button lighting */
-
-.telvis-cta-primary::before {
-  content: "";
-
-  position: absolute;
-
-  width: 130px;
-  height: 100px;
-
-  top: -68px;
-  left: 14%;
-
-  border-radius: 50%;
-
-  background: rgba(255, 255, 255, 0.22);
-
-  filter: blur(35px);
-
-  pointer-events: none;
-}
-
 .telvis-cta-primary:hover {
   transform: translateY(-2px);
-
-  filter: brightness(1.07);
-
+  filter: brightness(1.08);
   box-shadow:
-    0 10px 30px rgba(204, 31, 60, 0.36),
-    0 0 25px rgba(204, 31, 60, 0.27);
+    0 12px 32px rgba(255, 30, 56, 0.48),
+    0 0 28px rgba(255, 30, 56, 0.32);
 }
 
 .telvis-cta-primary:active {
@@ -1451,78 +1441,28 @@ main > :first-child {
    SECONDARY CTA
    ========================================================= */
 
-.telvis-cta-secondary {
-  display: inline-flex;
-
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-
-  min-height: 55px;
-
-  padding: 11px 14px;
-
-  border: 1px solid rgba(204, 31, 60, 0.25);
-  border-radius: var(--radius-button);
-
-  background: #ffffff;
-
-  color: #0d0d0d;
-
-  text-align: center;
-
-  text-decoration: none;
-
-  font-size: 14.5px;
-
-  line-height: 1.15;
-
-  font-weight: 700;
-
-  box-shadow:
-    0 4px 14px rgba(0, 0, 0, 0.05),
-    inset 0 1px 0 #ffffff;
-
-  transition:
-    transform 180ms ease,
-    border-color 180ms ease,
-    color 180ms ease,
-    box-shadow 180ms ease;
-}
-
-.telvis-cta-secondary:hover {
-  transform: translateY(-2px);
-
-  border-color: #cc1f3c;
-
-  color: #cc1f3c;
-
-  box-shadow:
-    0 8px 22px rgba(204, 31, 60, 0.14);
-}
-
-/* =========================================================
-   OUTLINE CTA — transparent + gradient border
-   ========================================================= */
-
+.telvis-cta-secondary,
 .telvis-cta-outline {
   position: relative;
   z-index: 0;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  min-height: 55px;
-  padding: 11px 16px;
-  border: 1px solid rgba(204, 31, 60, 0.25);
-  border-radius: var(--radius-button);
-  background: #ffffff;
+  gap: 10px;
+  min-height: 52px;
+  padding: 12px 22px;
+  border: 1px solid rgba(255, 30, 56, 0.28);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   color: #0d0d0d;
   text-align: center;
   text-decoration: none;
   font-size: 14.5px;
   line-height: 1.15;
   font-weight: 700;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
   transition:
     transform 180ms ease,
     border-color 180ms ease,
@@ -1530,13 +1470,15 @@ main > :first-child {
     box-shadow 180ms ease;
 }
 
+.telvis-cta-secondary:hover,
 .telvis-cta-outline:hover {
   transform: translateY(-2px);
-  border-color: #cc1f3c;
-  color: #cc1f3c;
-  box-shadow: 0 6px 20px rgba(204, 31, 60, 0.14);
+  border-color: #ff1e38;
+  color: #ff1e38;
+  box-shadow: 0 8px 24px rgba(255, 30, 56, 0.16);
 }
 
+.telvis-cta-secondary:active,
 .telvis-cta-outline:active {
   transform: scale(0.985);
 }
@@ -2691,9 +2633,14 @@ main > :first-child {
   position: relative;
   overflow: hidden;
   border-radius: 20px;
-  border: 1px solid var(--telvis-glass-border);
-  background: #ffffff;
-  box-shadow: var(--telvis-glass-shadow);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  box-shadow:
+    0 10px 32px rgba(255, 30, 56, 0.06),
+    0 2px 8px rgba(0, 0, 0, 0.03),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
 }
 
 .telvis-glass::before,
@@ -4562,10 +4509,15 @@ main > :first-child {
   height: 520px;
   min-width: 0;
   overflow: hidden;
+  pointer-events: none !important;
 }
 
 .particle-animation-slot * {
   box-sizing: border-box;
+}
+
+.particle-animation-slot canvas {
+  pointer-events: none !important;
 }
 
 .visual-stage {
