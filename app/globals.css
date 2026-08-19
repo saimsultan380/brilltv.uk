@@ -2224,9 +2224,11 @@ main > :first-child {
 
   .telvis-hero.telvis-hero-page .telvis-copy,
   .telvis-page-hero-copy .telvis-copy {
-    max-width: min(92%, 360px);
-    margin-left: auto;
+    width: 100%;
+    max-width: min(94%, 380px);
+    margin-left: 0;
     margin-right: auto;
+    text-align: left;
   }
 
   .telvis-hero.telvis-hero-page .telvis-actions {
