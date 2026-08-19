@@ -238,7 +238,7 @@ export function ParticleNetworkOrb() {
 
         <div className="orb-core">
           <BrandMark />
-          <small>Brill UK</small>
+          <small>IPTV UK</small>
         </div>
 
         <FeatureCard
